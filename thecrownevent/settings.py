@@ -31,6 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 # ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-dc77203a8sb.ws-eu101.gitpod.io']
+
 ALLOWED_HOSTS = ['the-crown-event-d0c891afb09a.herokuapp.com', 'localhost']
 
 # Application definition
