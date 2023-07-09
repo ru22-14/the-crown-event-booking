@@ -32,7 +32,7 @@ DEBUG = True
 
 # ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-dc77203a8sb.ws-eu101.gitpod.io']
 
-ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-dc77203a8sb.ws-eu101.gitpod.io', 'localhost', 'the-crown-event-d0c891afb09a.herokuapp.com']
+ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-dc77203a8sb.ws-eu101.gitpod.io', 'localhost', 'https://the-crown-event-d0c891afb09a.herokuapp.com/']
 
 # Application definition
 
