@@ -17,6 +17,7 @@ class Event(models.Model):
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    status = models.IntegerField(choices=STATUS, default=0)
     customer_full_name = models.CharField(max_length=200,
                                           blank=True)
     customer_email = models.EmailField(max_length=200, blank=True)
