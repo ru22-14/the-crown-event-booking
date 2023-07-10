@@ -1,31 +1,54 @@
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 from cloudinary.models import CloudinaryField
+
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Event(models.Model):
-    "Model for event"
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    featured_image = CloudinaryField('image', default='placeholder')
+    description = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(
+        User, related_name="blogpost_like", blank=True)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return self.title
+
+    def number_of_likes(self):
+        return self.likes.count()
+
+
+class Booking(models.Model):
+    "Model for event"
+  
     event = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="event_posts"
     )
-    featured_image = CloudinaryField('image', default='placeholder')
-    excerpt = models.TextField(blank=True)
-    updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField()
-    status = models.IntegerField(choices=STATUS, default=0)
-    customer_full_name = models.CharField(max_length=200,
-                                          blank=True)
-    customer_email = models.EmailField(max_length=200, blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now_add=True)
+    time = models.TimeField(default=timezone.now())
+    theme = models.CharField(max_length=200, unique=True)
+    guests = models.IntegerField(validators=[MinValueValidator(1), ])
+    menu = models.CharField(max_length=100, unique=True)
+    drinks = models.CharField(max_length=100, unique=True)
+    username = models.ForeignKey(User, on_delete=models.CASCADE,
+                                 related_name="user_bookings")
+    useremail = models.EmailField(max_length=200, blank=True)
+    approved = models.BooleanField(default=False)
     
-    class Meta:
-        ordering = ["-created_on"]
-
+    def __str__(self):
+        return f'{self.hike} is booked by {self.username}'
+    
 
 class Comment(models.Model):
     """
@@ -33,9 +56,10 @@ class Comment(models.Model):
     """
     event = models.ForeignKey(Event, on_delete=models.CASCADE,
                               related_name="comments")
-    name = models.CharField(max_length=85)
-    email = models.EmailField()
-    body = models.TextField()
+    username = models.ForeignKey(User, on_delete=models.CASCADE,
+                                 related_name="user_comments")
+    useremail = models.EmailField()
+    message = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
