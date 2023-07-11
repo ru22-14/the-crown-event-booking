@@ -3,31 +3,30 @@
 {% load static %}
 
 {% block content %}
-<div class="main-bg">
-    <div class="container-fluid" >
-        <img src="{% static 'media/event.jpg' %}" alt="Default event image">
-        <div class="row">
+<div id="main-bg">
+    <!-- <div class=" col-8 col-md-8 col-lg-12  flex f-column"> -->
+        <!-- <img src="https://res.cloudinary.com/doqqdubuq/image/upload/t_Banner 16:9/v1689110187/enmanuel-betances-santos-ZZybvrJA8uo-unsplash_1_ammgym.jpg" alt="Default event image">
+        <div class="row bg-fade text-secondary px-4 py-4 text-center"> -->
             <!-- Hero Column -->
-            <div class="bg-dark text-secondary px-4 py-4 text-center">
-                <div class="col-lg-6 mx-auto">
-                    <p class="event-subheading fs-4 mb-4 text-light">Make Every Moment Memorable. <br>An Exceptional
-                        Experience Everytime.</p>
-                    <div class="d-sm-flex justify-content-sm-center">
-                        <a href="{% url 'all_events' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">All
+        <!-- <div class="bg-dark text-secondary px-4 py-4 text-center"> -->
+            <!-- <div class="col-lg-6 mx-auto"> -->
+              <div class="row"> <h2 class="event-subheading  bg-transparent text-center">Make Every Moment Memorable. <br>An Exceptional
+                        Experience Everytime.</h2></div>
+                <div class="d-sm-flex justify-content-sm-center">
+                    <a href="{% url 'all_events' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">All
                             Events</a>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
 
     </div>
 </div>
-
 <div class="container-fluid">
     <div class="row">
 
         <!-- Event Entries Column -->
-        <div class="col-12 mt-3 left">
+        <!-- <div class="col-12 mt-3 left">
             <div class="row">
                 {% for event in event_list %}
                 <div class="col-md-4">
@@ -49,9 +48,10 @@
                     {% endif %}
                     {% endfor %}
                 </div>
-            </div>
+            </div>-->
         </div>
 
-    </div>
+    </div>  
+
 
 {%endblock%}
