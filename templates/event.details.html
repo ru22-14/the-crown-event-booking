@@ -1,0 +1,33 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block content %}
+<div id="home-background-container">
+  <div class="wrapper col-8 col-md-6 col-lg-4 flex f-column">
+    <!-- Cover-->
+    <div class="row">
+      <div id="fade-container">
+        <div class="row">
+          <!-- Logo title -->
+          <div><h1 class="logo">The Crown Event</h1></div>
+        </div>
+        <!-- Slogan -->
+        <div class="row">
+          <div class="col">
+            <h3 class="slogan">Make Every Moment Memorable <br> An Exceptional Experience Everytime</h3>
+          </div>
+        </div>
+      </div>
+      {% if user.is_authenticated %}
+      <!-- Link to booking page -->
+        <div class="col align-self-center">
+          <div class="book-btn"><a href="{% url 'booking' %}#">Book a table</a></div>
+          
+      </div> 
+      {% else %}
+      <!-- Links to Login/Register page -->
+      <div class="col bck-login">
+        <p>
+          To enjoy all the features please <span><a class="authenticate-link" href="{% url 'account_login' %}"><b>LOGIN</b></a> / <a  class="authenticate-link" href="{% url 'account_signup' %}"><b>REGISTER</b></a></span>
+        </p>
+      </div>
+      {% endif %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, reverse, get_object_or_404, redirect
 from django.views import generic, View
+from .models import Event
 
 # Create your views here.
 
