@@ -9,12 +9,42 @@ body {
     
     
 }
+
+ul {
+    float: right;
+    margin-left: 35%;
+    
+}
+ 
+li{
+   font-size: large;
+   font-weight: bolder;
+   padding-left: 10px;
+   margin-top: 40px;
+   background-color:rgba(216, 214, 212, 0.315);
+   text-decoration: underline;
+   
+   
+}
+
+a {
+    line-height: 25px;
+    
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0px;
+}
+
 .container-fluid i {
     font-size: xxx-large;
     margin-top: 0.7cm;
-    margin-left: 3cm;
-    margin-bottom: 0;
+    margin-left: 2.5cm;
+    
+    
 }
+
 .row {
     background-color: rgba(216, 214, 212, 0.541);
     margin-top: 10%;

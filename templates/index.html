@@ -3,25 +3,28 @@
 {% load static %}
 
 {% block content %}
+
+<!-- hero image -->
 <div id="main-bg">
-    <!-- <div class=" col-8 col-md-8 col-lg-12  flex f-column"> -->
-        <!-- <img src="https://res.cloudinary.com/doqqdubuq/image/upload/t_Banner 16:9/v1689110187/enmanuel-betances-santos-ZZybvrJA8uo-unsplash_1_ammgym.jpg" alt="Default event image">
-        <div class="row bg-fade text-secondary px-4 py-4 text-center"> -->
-            <!-- Hero Column -->
-        <!-- <div class="bg-dark text-secondary px-4 py-4 text-center"> -->
-            <!-- <div class="col-lg-6 mx-auto"> -->
-              <div class="row"> <h2 class="event-subheading  bg-transparent text-center">Make Every Moment Memorable. <br>An Exceptional
-                        Experience Everytime.</h2></div>
-                <div class="d-sm-flex justify-content-sm-center">
-                    <a href="{% url 'all_events' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">All
-                            Events</a>
-                </div>
-            </div>
-        </div>
-        </div>
+
+    <div class="row">
+        <h2 class="event-subheading bg-transparent text-center">Make Every Moment Memorable. <br>An Exceptional
+            Experience Everytime.</h2>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="d-sm-flex justify-content-sm-center">
+        <a href="{% url 'all_events' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">All
+            Events</a>
+    </div>
+    {% else %}
+    <div class="d-sm-flex justify-content-sm-center">
+        <a href="{% url 'account_Login' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">Login</a><br>
+        <a href="{% url 'account_signup' %}"> <button type="button" class="btn btn-outline-warning">Warning</button></a>
 
     </div>
+    {% endif %}
 </div>
+
 <div class="container-fluid">
     <div class="row">
 
