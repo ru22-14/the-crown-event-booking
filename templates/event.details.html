@@ -1,22 +1,23 @@
 {% extends "base.html" %} 
 {% load static %} 
 {% block content %}
-<div id="home-background-container">
-  <div class="wrapper col-8 col-md-6 col-lg-4 flex f-column">
-    <!-- Cover-->
-    <div class="row">
-      <div id="fade-container">
-        <div class="row">
-          <!-- Logo title -->
-          <div><h1 class="logo">The Crown Event</h1></div>
-        </div>
-        <!-- Slogan -->
-        <div class="row">
-          <div class="col">
-            <h3 class="slogan">Make Every Moment Memorable <br> An Exceptional Experience Everytime</h3>
+
+<div class="container-fluid">
+  <div class="row">
+      <!-- Hero Column -->
+      <div class=" bg-dark text-secondary px-4 py-2 text-center">
+          <div class="py-5">
+
+              <h1 class=" display-5 fw-thin text-white">All Events</h1>
+              <div class="col-lg-6 mx-auto">
+                  <p class="fs-4 mb-4 text-light">Here You Can see The List of Events We Offer to plan and Organise. <br> Book One And Give
+                    Us a Chance to Serve You and Make Your day Unforgetable.
+                  </p>
+              </div>
           </div>
-        </div>
       </div>
+
+<div class="bg-dark"></div>
       {% if user.is_authenticated %}
       <!-- Link to booking page -->
         <div class="col align-self-center">
