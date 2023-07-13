@@ -17,11 +17,15 @@
             Events</a>
     </div>
     {% else %}
-    <div class="d-sm-flex justify-content-sm-center">
-        <a href="{% url 'account_login' %}" class="btn btn-outline-warning btn-lg px-4 me-sm-3 ">Login</a>
-        <a href="{% url 'account_signup' %}" class="txt txt-outline-warning">Signup</button></a>
-
+    <div class="d-sm-flex justify-content-sm-center ">
+        <h6>To view All The Magnificent Events Please <br>
+            <div class="txt text-center mt-4">
+            <a href="{% url 'account_login' %}">Login</a> OR <a href="{% url 'account_signup' %}">Signup</a>
+            </div>
+        </h6>
+        
     </div>
     {% endif %}
+
 </div>
 {%endblock%}

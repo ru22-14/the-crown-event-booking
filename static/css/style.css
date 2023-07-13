@@ -55,9 +55,39 @@ h1{
 .btn {
     background-color: black;
     margin-top: 5%;
+    
 }
 
+h6 {
+    margin-top: 15px;
+}
 
+h6 a {
+    font-size: x-large;
+    font-family: Lato, sans-serif;
+    font-weight: bolder;
+    color:rgb(24, 47, 216);
+    text-decoration: none;
+    
+}
+
+h6 a:hover {
+    color: rgb(249, 217, 35);
+    background-color: rgba(0, 0, 0, 0.696);
+}
+.btn-primary {
+    color: gold;
+    background-color: rgba(0, 0, 0, 0.614);
+    border-radius: 5px;
+    border-color: gold;
+    border-width: 2px;
+    font-size: x-large;
+}
+.btn-primary:hover {
+    color: rgba(0, 0, 0, 0.614);
+    background-color: rgb(252, 215, 7);
+    font-weight: 500;
+}
 
 
 
