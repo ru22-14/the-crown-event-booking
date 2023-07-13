@@ -2,10 +2,12 @@
 {% load static %}
 {% block content %}
 
-<div class="container-fluid">
-  <div class="row">
-    <!-- Hero Column -->
-    <div class=" bg-dark text-secondary px-4 py-2 text-center">
+Hello World
+
+<!-- <div class="container-fluid">
+  <! <div class="row">
+    <! Hero Column -->
+    <!-- <div class=" bg-dark text-secondary px-4 py-2 text-center">
       <div class="py-5">
 
         <h1 class=" display-5 fw-thin text-white">All Events</h1>
@@ -15,31 +17,31 @@
             Us a Chance to Serve You and Make Your day Unforgetable.
           </p>
         </div>
-      </div>
-    </div>
+      </div> -->
+    <!-- </div>  -->
 
-    <div class="bg-dark"></div>
+    <!-- <div class="bg-dark"></div>
     {% if user.is_authenticated %}
-    <!-- Link to booking page -->
-    <div class="col align-self-center">
+     Link to booking page -->
+    <!-- <div class="col align-self-center">
       <div class="book-btn"><a href="{% url 'booking' %}#">Book an Event</a></div>
 
     </div>
-    {% else %}
+    {% else %} --> 
     <!-- Links to Login/Register page -->
-    <div class="col bck-login">
+    <!-- <div class="col bck-login">
       <p>
         To view and Book an Event please <span><a class="authenticate-link"
             href="{% url 'account_login' %}"><b>LOGIN</b></a> / <a class="authenticate-link"
             href="{% url 'account_signup' %}"><b>REGISTER</b></a></span>
       </p>
     </div>
-    {% endif %}
-    <div class="container-fluid">
-      <div class="row">
+    {% endif %} --> 
+    <!-- <div class="container-fluid">
+      <div class="row"> -->
 
         <!-- Event Entries Column -->
-        <div class="col-12 mt-3 left">
+        <!-- <div class="col-12 mt-3 left">
           <div class="row">
             {% for event in event_list %}
             <div class="col-md-4">
@@ -63,4 +65,5 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
+      {% endblock %}      
