@@ -24,26 +24,30 @@
 
 
   <div class="container-fluid bg-dark">
-
+    
       <!-- Event Entries Column -->
 
     <div class="row bg-dark">
+      
         {% for event in event_list %}
-        <div class="col-md-3">
-          <div class="card mb-4">
+        <div class="col-md-4">
+          <div class="card mb-2">
             <div class="card-body">
+             
               <div class="image-container">
                 {% if "placeholder" in event.featured_image.url %}
                 <img class="card-img-top" src="{% static 'media/event.jpg' %}" alt="Default event image">
+                
                 {% else %}
                 <img class="card-img-top" src=" {{ event.featured_image.url }}">
 
                 {% endif %}
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">
+                <h6 class="card-text" method="GET">Birthday Event Details</h6>
+                </a>
 
-              </div>
+                </div>
+              
             </div>  
           </div>
           {% if forloop.counter|divisibleby:3 %}
@@ -55,7 +59,7 @@
     <!-- <div class="row bg-dark"> -->
     {% for event in event_list %}
     <div class="col-md-3">
-      <div class="card mb-4">
+      <div class="card mb-2">
         <div class="card-body">
           <div class="image-container">
               {% if "placeholder" in event.featured_image.url %}
@@ -64,9 +68,9 @@
               <img class="card-img-top" src=" https://res.cloudinary.com/doqqdubuq/image/upload/v1689109391/markus-spiske-9Qv774YDKbA-unsplash_d7iyda.jpg">
 
               {% endif %}
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">
+                <h6 class="card-text" method="GET">Anniversary Event Details</h6>
+                </a>
 
             </div>
           </div>  
@@ -78,8 +82,8 @@
       {% endfor %}
   </div>
     {% for event in event_list %}
-        <div class="col-md-3">
-          <div class="card mb-4">
+        <div class="col-md-4">
+          <div class="card mb-2">
             <div class="card-body">
               <div class="image-container">
                 {% if "placeholder" in event.featured_image.url %}
@@ -88,9 +92,9 @@
                 <img class="card-img-top" src=" https://res.cloudinary.com/doqqdubuq/image/upload/v1689109441/fidel-fernando-249DzAuJTqQ-unsplash_vt4pct.jpg">
 
                 {% endif %}
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">
+                  <h6 class="card-text" method="GET">Party Details</h6>
+                  </a>
 
               </div>
             </div>  
@@ -103,7 +107,7 @@
     </div>
     <div class="row bg-dark"></div>
     {% for event in event_list %}
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
@@ -113,9 +117,9 @@
                 <img class="card-img-top" src=" https://res.cloudinary.com/doqqdubuq/image/upload/v1689109449/vitaliy-lyubezhanin-gfVofr15ICc-unsplash_oy9wc4.jpg">
 
                 {% endif %}
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">
+                  <h6 class="card-text" method="GET">Eid Party Details</h6>
+                  </a>
 
               </div>
             </div>  
@@ -127,7 +131,7 @@
         {% endfor %}
     </div>
     {% for event in event_list %}
-        <div class="col-md-3">
+        <div class="col-md-4">
           <div class="card mb-4">
             <div class="card-body">
               <div class="image-container">
@@ -137,9 +141,9 @@
                 <img class="card-img-top" src=" https://res.cloudinary.com/doqqdubuq/image/upload/v1689109437/keith-luke-GUAcpXPyFRc-unsplash_dt6tqg.jpg">
 
                 {% endif %}
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">
+                  <h6 class="card-text" method="GET">Graduation Party Details</h6>
+                  </a>
 
               </div>
             </div>  
@@ -152,7 +156,7 @@
     </div>
     {% for event in event_list %}
         <div class="col-md-3">
-          <div class="card mb-4">
+          <div class="card mb-2">
             <div class="card-body">
               <div class="image-container">
                 {% if "placeholder" in event.featured_image.url %}
@@ -161,9 +165,9 @@
                 <img class="card-img-top" src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109541/antenna-ZDN-G1xBWHY-unsplash_qabtcs.jpg">
 
                 {% endif %}
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                  card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary">
+                  <h6 class="card-text" method="GET">Business Dinner Details</h6>
+                  </a>
 
               </div>
             </div>  

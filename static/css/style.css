@@ -89,6 +89,10 @@ h6 a:hover {
     font-weight: 500;
 }
 
+.card {
+    margin-left: 15%;
+}
+
 .footer {
     position: relative;
 }
