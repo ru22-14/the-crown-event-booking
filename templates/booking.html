@@ -1,6 +1,42 @@
-{% extends base.html %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-hello World
+
+<form action="Submit" class="form-input bg-dark align-item-center">
+    <div class="row-g-3">
+       <div class="col-6 mb-3 py-2 px-4 mx-auto" >
+        <select class="form-select form-select-lg bg-dark text-light" aria-label=".form-select-sm">
+        <option selected>Select an Event</option>
+        <option value="1">Birthday Event</option>
+        <option value="2">Annniversary Event</option>
+        <option value="3">Eid Milan Party</option>
+        <option value="1">Graduation Party</option>
+        <option value="2">Business Dinner</option>
+        <option value="3">Party</option>
+      </select>
+      <div>
+    </div>
+    <div class="col-6 mb-3 py-2 px-4 mx-auto">
+        <label for="validationTooltip01" class="form-label">First name</label>
+        <input type="text" class="form-control" id="validationTooltip01" placeholder="First Name" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div>
+    </div>
+    <div class="col-6 mb-3 py-2 px-4 mx-auto">
+        <label for="validationTooltip02" class="form-label">Last name</label>
+        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
+        <div class="valid-tooltip">
+          Looks good!
+        </div> 
+    </div> 
+    <div class="col-6 mb-3 py-2 px-4 mx-auto">
+        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="col-6 mb-3 py-2 px-4 mx-auto">
+        <button class="btn btn-primary text-center btn-sm" type="submit">Submit</button>
+      </div>  
+</form> 
 {% endblock %}
