@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.views.generic import TemplateView
-from .models import Event
+from .models import Event, Booking
 
 
 # Create your views here.
@@ -21,3 +21,8 @@ class EventListView(generic.ListView):
     template_name = 'events.html'
     paginate_by = 6
 
+
+class EventBookingView(View):
+     
+    model = Booking
+    template_name = 'booking.html'
