@@ -1,4 +1,4 @@
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
@@ -38,7 +38,7 @@ class Booking(models.Model):
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(default=timezone.now())
     theme = models.CharField(max_length=200, unique=True)
-    guests = models.IntegerField(validators=[MinValueValidator(1), ])
+    guests = models.IntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
     menu = models.CharField(max_length=100, unique=True)
     drinks = models.CharField(max_length=100, unique=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE,

@@ -47,12 +47,24 @@ class EventBookingCreateView(CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'booking.html'
-    success_url = reverse_lazy('booking')  # URL to redirect after successful form submission
+    success_url = reverse_lazy('')  # URL to redirect after successful form submission
 
-    def form_valid(self, form):
-        if form.is_valid():
-            response = super().form_valid(form)
-            messages.success(self.request, 'You booked successfully')
-            return response  
+    # def form_valid(self, form):
+    #     if form.is_valid():
+    #         response = super().form_valid(form)
+    #         messages.success(self.request, 'You booked successfully')
+    #         return response  
+    #     else:
+    #         return messages.error(self.request, 'something went wrong')
+    def booking(self, request):
+        submitted = False
+        if request == 'POST':
+            form_class = BookingForm
+            booking.save()
+            messages.success(request, 'you submitted successfully')
+            return HttpResponseRedirect('/events')
         else:
-            return messages.error(self.request, 'something went wrong')
+            form = BookingForm
+            if 'submitted' in request.GET:
+                submitted = True        
+            return render(request, 'booking.html', {'form': form, 'submitted': submitted, })   

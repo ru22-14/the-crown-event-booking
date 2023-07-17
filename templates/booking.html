@@ -3,70 +3,97 @@
 
 {% block content %}
 <center>
-  <form action="" method="post" class="form-input bg-dark align-item-center">
+  <form action="" method="post" id="bookingform" class="form-control bg-dark text-center text-light">
     {% csrf_token %}
     {{ from.as_p }}
-    <h3 class="text-warning bg-dark py-4 ">Book an Event</h3>
-    <div class="container-fluid">
-      <div class="form-field text-warning">
-          <!-- Name input -->
-          <label for="fullName"><i class="fas fa-user"></i> Full Name:</label>
-          {{ booking_form.username }}
-          <input type="text">
-      </div>
-      <div class="form-field text-warning">
-          <!-- Email input -->
-          <label for="Email"><i class="fa-solid fa-envelope"></i></i> Email:</label>
-          {{ booking_form.useremail }}
-          <input type="text">
-      </div>
-      <div class="form-field text-warning">
-        <!-- Email input -->
-        <label for="Email"><i class="fa-solid fa-envelope"></i></i> Email:</label>
-        {{ booking_form.useremail }}
-        <input type="text">
-    </div>
-    <button type="submit" class="btn btn-form text-warning">Submit</button>
-      
-    </div>
-    <!-- <div class="row-g-3">
+    <h3 class="text-warning  py-4 ">Book an Event</h3>
+    <div class="container-fluid text-center">
+      <div class="form-field">
         <div class="col-6 mb-3 py-2 px-4 mx-auto">
           <select class="form-select form-select-lg bg-light text-dark" aria-label=".form-select-sm">
-          <option selected>Select an Event</option>
-          <option value="1">Birthday</option>
-          <option value="2">Anniversary</option>
-          <option value="3">Eid Milan Party</option>
-          <option value="1">Graduation Party</option>
-          <option value="2">Business Dinner</option>
-          <option value="3">Party</option>
+            <option selected>Select an Event</option>
+            <option value="1">Birthday</option>
+            <option value="2">Anniversary</option>
+            <option value="3">Eid Milan Party</option>
+            <option value="1">Graduation Party</option>
+            <option value="2">Business Dinner</option>
+            <option value="3">Party</option>
           </select>
+        </div>
         <div>
-      </div>
-      <div class="col-6 mb-1 py-2 px-4 mx-auto">
-        <label for="validationTooltip01" class="form-label"> username</label>
-        <input type="text" class="form-control" id="validationTooltip01" placeholder="First Name" required>
-        <div class="valid-tooltip">
-            Looks good!
+          <!-- Guest input -->
+          <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
+          {{ booking_form.guests }}
+          <input type="text">
         </div>
-      </div>
-      <div class="col-6 mb-1 py-2 px-4 mx-auto">
-        <label for="validationTooltip02" class="form-label">Theme</label>
-        <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" required>
-        <div class="valid-tooltip">
-            Looks good!
+        <div class="form-field">
+          <!-- Date input -->
+          <label for="Date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
+          {{ booking_form.date }}
+          <input type="date">
         </div>
-      </div>
-      <div class="col-6 mb-1 py-2 px-4 mx-auto">
-        <label for="exampleFormControlInput1" class="form-label">useremail</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-      </div>
-
-      <div class="col-6 mb-3 py-2 px-4 mx-auto">
-        <button class="btn btn-primary text-center btn-md" type="submit">Submit</button>
-      </div> -->
+        <div class="form-field">
+          <!-- Time input -->
+          <label for="Time"><i class="fa-solid fa-clock"></i> Event Starts :</label>
+          {{ booking_form.time }}
+          <input type="time">
+          <label for="Time"><i class="fa-solid fa-clock"></i> Event Ends :</label>
+          {{ booking_form.time }}
+          <input type="time">
+        </div>
+        <div class="form-field  mb-3">
+          <!-- Theme input -->
+          <label for="Theme"><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
+          {{ booking_form.theme }}
+          <input type="text" placeholder="Your Choice">
+        </div>
+        <!-- menu input -->
+        <div class="col-4 mb-3 py-2 px-4 mx-auto">
+          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
+            {{ booking_form.menu }}
+            <option selected>Menu</option>
+            <option value="1">Italien</option>
+            <option value="2">Chinese</option>
+            <option value="3">Oriental</option>
+            <option value="1">Indien</option>
+            <option value="2">Snacks</option>
+            <div class="form-check mb-3">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Cake
+              </label>
+            </div>
+          </select>
+          <div class="col-4 mb-3 py-2 px-4 mx-auto">
+            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
+              {{ booking_form.drinks }}
+              <option selected>Drinks</option>
+              <option value="1">Juices</option>
+              <option value="2">Cocktails</option>
+              <option value="3">Fizzy Drinks</option>
+              <option value="1">Shakes</option>
+              <option value="2">Smoothies</option>
+            </select>
+        </div>
+        <div>
+          <!-- Name input -->
+          <label for="fullName"><i class="fas fa-user"></i> Full Name :</label>
+          {{ booking_form.username }}
+          <input type="text">
+  
+          <!-- Email input -->
+          <label for="Email"><i class="fa-solid fa-envelope"></i> Email :</label>
+          {{ booking_form.useremail }}
+          <input type="text">
+        </div>
+        <div class="text-center">
+          <label for="exampleFormControlTextarea1" class="form-label"></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please Write Any Additional Information about The Event Here."></textarea>
+        </div>
+        <button type="submit" class="btn btn-form text-warning">Submit</button>
+      </div>  
+    </div>
+      
   </form>
-
-
-
 </center>
 {% endblock %}

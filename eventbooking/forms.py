@@ -8,16 +8,17 @@ from datetime import date
 class BookingForm(forms.ModelForm):
         
     date = forms.DateField(widget=forms.DateInput(attrs={
-        'id': 'datePicker', 'class': 'form-control', 'type': 'date'}))
+        'id': 'datePicker', 'class': 'form-control', 'placeholder': 'Date', 'type': 'date'}))
     time = forms.TimeField(widget=forms.TimeInput(attrs={
-        'id': 'Time', 'class': 'form-control', 'type': 'time',
+        'id': 'time', 'class': 'form-control', 'type': 'time',
         'step': '3600'}))
     event = forms.ChoiceField(widget=forms.TextInput(attrs={
         'id': 'event', 'class': 'form-control', 'type': 'form-select',
         }))
     theme = forms.CharField(widget=forms.TextInput(attrs={
-        'id': 'theme', 'class': 'form-control', 'type': 'text', })),
-    guest = forms.IntegerField(widget=forms.NumberInput(attrs={
+        'id': 'theme', 'class': 'form-control', 'type': 'text', 
+        }))
+    guests = forms.IntegerField(widget=forms.NumberInput(attrs={
         'id': 'guest', 'class': 'form-control', 'type': 'number', 
         }))
 
@@ -30,11 +31,11 @@ class BookingForm(forms.ModelForm):
         }))
 
     username = forms.CharField(widget=forms.TextInput(attrs={
-        'id': 'username', 'class': 'form-control','type': 'text', 
+        'id': 'username', 'class': 'form-control', 'type': 'text', 
         }))
 
     useremail = forms.CharField(widget=forms.TextInput(attrs={
-        'id': 'useremail', 'class': 'form-control','type': 'email', 
+        'id': 'useremail', 'class': 'form-control', 'type': 'email', 
         }))      
 
     def __init__(self, *args, **kwargs):
