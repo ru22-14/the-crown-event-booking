@@ -23,34 +23,35 @@
         <div>
           <!-- Guest input -->
           <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
-          {{ BookingForm.guests }}
+         
           <input type="text">
         </div>
         <div class="form-field">
           <!-- Date input -->
           <label for="Date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
-          {{ BookingForm.date }}
+         
           <input type="date">
         </div>
         <div class="form-field">
           <!-- Time input -->
           <label for="Time"><i class="fa-solid fa-clock"></i> Event Starts :</label>
-          {{ BookingForm.time }}
+         
           <input type="time">
           <label for="Time"><i class="fa-solid fa-clock"></i> Event Ends :</label>
-          {{ BookingForm.time }}
+          
           <input type="time">
         </div>
-        <div class="form-field  mb-3">
+        <div class="form-field col-8 mb-3">
           <!-- Theme input -->
           <label for="Theme"><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
-          {{ BookingForm.theme }}
-          <input type="text" placeholder="Your Choice">
+         
+          <textarea class="form-control" id="FormControlTextarea" rows="3" 
+           placeholder="Which Theme would you like to choose for your event, e.g., Fairy Tale Theme, Unicorn Theme, Dinosaur Theme etc. "></textarea>
         </div>
         <!-- menu input -->
         <div class="col-4 mb-3 py-2 px-4 mx-auto">
           <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
-            {{ BookingForm.menu }}
+           
             <option selected>Menu</option>
             <option value="1">Italien</option>
             <option value="2">Chinese</option>
@@ -66,7 +67,7 @@
           </select>
           <div class="col-4 mb-3 py-2 px-4 mx-auto">
             <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
-              {{ BookingForm.drinks }}
+              
               <option selected>Drinks</option>
               <option value="1">Juices</option>
               <option value="2">Cocktails</option>
@@ -78,18 +79,15 @@
         <div>
           <!-- Name input -->
           <label for="fullName"><i class="fas fa-user"></i> Full Name :</label>
-          {{ BookingForm.username }}
+        
           <input type="text">
   
           <!-- Email input -->
           <label for="Email"><i class="fa-solid fa-envelope"></i> Email :</label>
-          {{ BookingForm.useremail }}
+         
           <input type="text">
         </div>
-        <div class="text-center">
-          <label for="exampleFormControlTextarea1" class="form-label"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Please Write Any Additional Information about The Event Here."></textarea>
-        </div>
+
         <button type="submit" class="btn btn-form text-warning">Submit</button>
       </div>  
     </div>

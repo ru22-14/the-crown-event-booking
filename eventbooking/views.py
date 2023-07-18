@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.views.generic import TemplateView, CreateView
 from .models import Event, Booking
-from .forms import BookingForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -25,6 +24,8 @@ class EventListView(generic.ListView):
     template_name = 'events.html'
     paginate_by = 6
 
+     
+
 
 # class EventBooking(CreateView):
 #     model = Booking
@@ -43,6 +44,8 @@ class EventListView(generic.ListView):
 #             if 'submitted' in request.GET:
 #                 submitted = True        
 #         return render(request, 'booking.html', {'form': form, 'submitted': submitted, })
+
+
 class EventBookingCreateView(CreateView):
     model = Booking
     template_name = 'booking.html'
@@ -51,15 +54,14 @@ class EventBookingCreateView(CreateView):
 
     def booking(self, request):
         submitted = False
-        if request == 'POST':
-            form_class = BookingForm
-            booking.save()
-            messages.success(request, 'you submitted successfully')
+        if request.method == 'POST':
+            if form.is_valid():
+                booking.save()
+                messages.success(request, 'you submitted successfully')
             return HttpResponseRedirect('/events')
         else:
-            form_class = BookingForm
             if 'submitted' in request.GET:
                 submitted = True        
-            return render(request, 'booking.html', {'form': form, 'submitted': submitted, })   
+            return HttpResponseRedirect('home')   
    
    

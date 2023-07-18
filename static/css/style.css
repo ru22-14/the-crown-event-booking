@@ -12,7 +12,7 @@ body {
 
 ul {
     float: right;
-    margin-left: 35%;
+    margin-left: 25%;
     
 }
  
@@ -95,6 +95,10 @@ h6 a:hover {
 
 .form-field {
     margin-top: 0;
+}
+
+#FormControlTextarea{
+    margin-left: 22%;
 }
 
 .footer {

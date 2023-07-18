@@ -18,6 +18,21 @@ class EventAdmin(SummernoteModelAdmin):
     summernote_fields = ('content')
 
 
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    """
+    Add fields for Comments in admin panel
+    """
+    list_display = ('event', 'date', 'time', 'theme', 'guests', 'menu', 
+                    'drinks', 'username', 'useremail', 'approved')
+    list_filter = ('event', 'date', 'username', 'approved')  
+    search_fields = ['event', 'username']
+    actions = ['approved_booking']
+
+    def approve_booking(self, request, queryset):
+        queryset.update(approved=True)
+
+
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     """
