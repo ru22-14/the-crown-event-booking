@@ -23,34 +23,34 @@
         <div>
           <!-- Guest input -->
           <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
-          {{ booking_form.guests }}
+          {{ BookingForm.guests }}
           <input type="text">
         </div>
         <div class="form-field">
           <!-- Date input -->
           <label for="Date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
-          {{ booking_form.date }}
+          {{ BookingForm.date }}
           <input type="date">
         </div>
         <div class="form-field">
           <!-- Time input -->
           <label for="Time"><i class="fa-solid fa-clock"></i> Event Starts :</label>
-          {{ booking_form.time }}
+          {{ BookingForm.time }}
           <input type="time">
           <label for="Time"><i class="fa-solid fa-clock"></i> Event Ends :</label>
-          {{ booking_form.time }}
+          {{ BookingForm.time }}
           <input type="time">
         </div>
         <div class="form-field  mb-3">
           <!-- Theme input -->
           <label for="Theme"><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
-          {{ booking_form.theme }}
+          {{ BookingForm.theme }}
           <input type="text" placeholder="Your Choice">
         </div>
         <!-- menu input -->
         <div class="col-4 mb-3 py-2 px-4 mx-auto">
           <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
-            {{ booking_form.menu }}
+            {{ BookingForm.menu }}
             <option selected>Menu</option>
             <option value="1">Italien</option>
             <option value="2">Chinese</option>
@@ -66,7 +66,7 @@
           </select>
           <div class="col-4 mb-3 py-2 px-4 mx-auto">
             <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
-              {{ booking_form.drinks }}
+              {{ BookingForm.drinks }}
               <option selected>Drinks</option>
               <option value="1">Juices</option>
               <option value="2">Cocktails</option>
@@ -78,12 +78,12 @@
         <div>
           <!-- Name input -->
           <label for="fullName"><i class="fas fa-user"></i> Full Name :</label>
-          {{ booking_form.username }}
+          {{ BookingForm.username }}
           <input type="text">
   
           <!-- Email input -->
           <label for="Email"><i class="fa-solid fa-envelope"></i> Email :</label>
-          {{ booking_form.useremail }}
+          {{ BookingForm.useremail }}
           <input type="text">
         </div>
         <div class="text-center">
