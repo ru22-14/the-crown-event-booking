@@ -58,11 +58,11 @@ h1{
     
 }
 
-h6 {
+h5 {
     margin-top: 15px;
 }
 
-h6 a {
+h5 a {
     font-size: x-large;
     font-family: Lato, sans-serif;
     font-weight: bolder;
@@ -71,7 +71,7 @@ h6 a {
     
 }
 
-h6 a:hover {
+h5 a:hover {
     color: rgb(249, 217, 35);
     background-color: rgba(0, 0, 0, 0.696);
 }
