@@ -45,12 +45,9 @@ h1{
     
 }
 
-.image {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-left: 15%;
+.card {
+    margin-right: 50px
 }
-
 .row {
     background-color: rgba(216, 214, 212, 0.541);
     margin-top: 10%;
