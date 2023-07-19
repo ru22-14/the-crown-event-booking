@@ -3,139 +3,112 @@
 {% block content %}
 
 
-{% if user.is_authenticated %}
+
 <div class="container-fluid">
   <div class="row">
     <!-- Hero Column -->
     <div class=" bg-dark-grey text-secondary px-4 py-2 text-center">
       <div class="py-5">
         <div class="col-lg-12 mx-auto">
-          <h3 class="fs-4 mb-4 text-dark">Here You Can See All The Events We Offer to plan and Organise. <br> Please
-            Book
-            And Give Us a Chance to Serve You and Make Your day Unforgetable.
-          </h3>
         </div>
+        {% if user.is_authenticated %}
         <div class="book-btn bg"><a href="{% url 'booking' %}" method="Request" class="btn btn-primary"
             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .95rem;">
             Book An Event</a>
-          </button></div>
+          </button>
+        </div>
+        {% else %}
+        <h3 class="fs-4 mb-4 text-dark">Here You Can See All The Events We Offer to plan and Organise. <br> Please
+          Book
+          And Give Us a Chance to Serve You and Make Your day Unforgetable.
+        </h3>
+        {% endif %}
+
       </div>
     </div>
-{% else %}  
-<div class="image bg-dark">
+
+    <div class="image bg-dark">
 
       <!-- Event Entries Column -->
-  {% for event in event_list %} 
-  <div class="row bg-dark">
-    <div class="col-md-3">
-        <div class="card mb-2">
+
+      <div class="row bg-dark">
+        <div class="col-md-3">
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="image-container">
+                <img class="card-img-top"
+                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689079991/cnyzpqmhhdpzmwbabquh.jpg">
+                <h6>Birthday</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-4">
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="image-container">
+                <img class="card-img-top"
+                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109441/fidel-fernando-249DzAuJTqQ-unsplash_vt4pct.jpg">
+                <h6>Party</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="image-container">
+                <img class="card-img-top"
+                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109391/markus-spiske-9Qv774YDKbA-unsplash_d7iyda.jpg">
+                <h6>Anniversary</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row bg-dark">
+          <div class="col-md-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <div class="image-container">
+                  <img class="card-img-top"
+                    src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109541/antenna-ZDN-G1xBWHY-unsplash_qabtcs.jpg">
+                  <h6>Business Dinner</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card mb-2">
+              <div class="card-body">
+                <div class="image-container">
+                  <img class="card-img-top"
+                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109437/keith-luke-GUAcpXPyFRc-unsplash_dt6tqg.jpg">
+                <h6>Graduation Party</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+         
+
+        <div class="col-md-4">
+        <div class="card">
           <div class="card-body">
             <div class="image-container">
-              {% if "placeholder" in event.featured_image.url %}
-                <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689079991/cnyzpqmhhdpzmwbabquh.jpg" 
-                  >
-                  
-              {% else %}
-                <img class="card-img-top" src="{{event.featured_image.url}}">
-
-              {% endif %}
-                <h6>Birthday</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-      
-    
-    <div class="col-md-3">
-      <div class="card mb-2">
-        <div class="card-body">
-          <div class="image-container">
-            {% if "placeholder" in event.featured_image.url %}
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109441/fidel-fernando-249DzAuJTqQ-unsplash_vt4pct.jpg">
-            {% else %}
-            <img class="card-img-top" src="{{event.featured_image.url}}">
-
-            {% endif %}
-            <h6>Party</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-
-    <div class="col-md-3">
-      <div class="card mb-2">
-        <div class="card-body">
-          <div class="image-container">
-          {% if "placeholder" in event.featured_image.url %}
-          <img class="card-img-top"
-            src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109391/markus-spiske-9Qv774YDKbA-unsplash_d7iyda.jpg">
-          {% else %}
-          <img class="card-img-top" src="{{event.featured_image.url}}">
-
-          {% endif %}
-          <h6>Anniversary</h6>
+              <img class="card-img-top"
+                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109449/vitaliy-lyubezhanin-gfVofr15ICc-unsplash_oy9wc4.jpg">
+              <h6>Eid Party</h6>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
 
-
-  <div class="row bg-dark">
-    <div class="col-md-4">
-      <div class="card mb-4">
-        <div class="card-body">
-          <div class="image-container">
-            {% if "placeholder" in event.featured_image.url %}
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109541/antenna-ZDN-G1xBWHY-unsplash_qabtcs.jpg">
-            {% else %}
-            <img class="card-img-top" src="{{event.featured_image.url}}">
-
-            {% endif %}
-            <h6>Business Dinner</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- {% endfor %} -->
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <div class="image-container">
-            {% if "placeholder" in event.featured_image.url %}
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109449/vitaliy-lyubezhanin-gfVofr15ICc-unsplash_oy9wc4.jpg">
-            {% else %}
-            <img class="card-img-top" src="{{event.featured_image.url}}">
-
-            {% endif %}
-            <h6>Eid Party</h6>
-          </div>
-        </div>
-      </div>
-    </div> 
-    
-    <div class="col-md-3">
-      <div class="card mb-2">
-        <div class="card-body">
-          <div class="image-container">
-            {% if "placeholder" in event.featured_image.url %}
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109437/keith-luke-GUAcpXPyFRc-unsplash_dt6tqg.jpg">
-            {% else %}
-            <img class="card-img-top" src="{{event.featured_image.url}}">
-
-            {% endif %}
-            <h6>Graduation Party</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{% endif %}
 {% endblock %}
