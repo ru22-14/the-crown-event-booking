@@ -27,88 +27,31 @@
       </div>
     </div>
 
-    <div class="image bg-dark">
-
-      <!-- Event Entries Column -->
-
-      <div class="row bg-dark">
-        <div class="col-md-3">
-          <div class="card mb-2">
-            <div class="card-body">
-              <div class="image-container">
-                <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689079991/cnyzpqmhhdpzmwbabquh.jpg">
-                <h6>Birthday</h6>
+    <div class="masthead">
+      <div class="container">
+          <div class="row g-0">
+              <div class="col-md-6 masthead-text">
+                  <!-- event title goes in these h1 tags -->
+                  <h1 class="event-title">
+                  </h1>
               </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col-md-4">
-          <div class="card mb-2">
-            <div class="card-body">
-              <div class="image-container">
-                <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109441/fidel-fernando-249DzAuJTqQ-unsplash_vt4pct.jpg">
-                <h6>Party</h6>
+              <div class="d-none d-md-block col-md-6 masthead-image">
+                  <!-- The featured image URL goes in the src attribute -->
+                  {% if "placeholder" in event.featured_image.url %}
+                  <div class="image-card bg-dark"></div>
+                  {% else %}
+                  <img src="{{ event.featured_image.url }}" width="100%">
+                  {% endif %}
               </div>
-            </div>
           </div>
-        </div>
-
-
-        <div class="col-md-3">
-          <div class="card mb-2">
-            <div class="card-body">
-              <div class="image-container">
-                <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109391/markus-spiske-9Qv774YDKbA-unsplash_d7iyda.jpg">
-                <h6>Anniversary</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row bg-dark">
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <div class="image-container">
-                  <img class="card-img-top"
-                    src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109541/antenna-ZDN-G1xBWHY-unsplash_qabtcs.jpg">
-                  <h6>Business Dinner</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3">
-            <div class="card mb-2">
-              <div class="card-body">
-                <div class="image-container">
-                  <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109437/keith-luke-GUAcpXPyFRc-unsplash_dt6tqg.jpg">
-                <h6>Graduation Party</h6>
-              </div>
-            </div>
-          </div>
-        </div>
-         
-
-        <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <div class="image-container">
-              <img class="card-img-top"
-                  src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689109449/vitaliy-lyubezhanin-gfVofr15ICc-unsplash_oy9wc4.jpg">
-              <h6>Eid Party</h6>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+  </div>
+  
+  
+     
+  
+  {% endblock content %}
 
 
-{% endblock %}
+
+

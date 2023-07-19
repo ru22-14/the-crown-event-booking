@@ -17,6 +17,9 @@ class EventAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on')
     summernote_fields = ('content')
 
+    def publish_events(self, request, queryset):
+        queryset.update(status=1)
+
 
 @admin.register(Booking)
 class BookingAdmin(admin.ModelAdmin):
