@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from django.views.generic import TemplateView, CreateView
-from .models import Event, Booking
+from .models import Event
+from .forms import CommentForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.urls import reverse_lazy
 import datetime
 
 
@@ -24,44 +24,30 @@ class EventListView(generic.ListView):
     template_name = 'events.html'
     paginate_by = 6
 
-     
+
+class EventReviews(generic.ListView):
+
+    def get(self, request, slug, *args, **kwargs):
+
+        queryset = Event.objects.filter(status=1)
+        event = get_object_or_404(queryset, slug=slug)
+        comments = event.comments.filter(approved=True).order_by("-created_on")
+        liked = False
+        if event.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        return render(
+            request,
+            "events.html",
+            {
+                "event": event,
+                "comments": comments,
+                "commented": False,
+                "liked": liked,
+                "comment_form": CommentForm()
+            },
+        ) 
 
 
-# class EventBooking(CreateView):
-#     model = Booking
-#     template_name = 'booking.html'
-    
-#     def booking(self, request):
-#         submitted = False
-#         if request.method == "POST":
-#             form = BookingForm(request.POST)
-#             if form.is_valid():
-#                 booking.save()
-#                 messages.success(request, 'you booked successfully')
-#                 return HttpResponseRedirect('/booking?submitted=True')
-#         else:
-#             form = BookingForm
-#             if 'submitted' in request.GET:
-#                 submitted = True        
-#         return render(request, 'booking.html', {'form': form, 'submitted': submitted, })
 
-
-class EventBookingCreateView(CreateView):
-    model = Booking
-    template_name = 'booking.html'
-    fields = '__all__'
-    success_url = reverse_lazy('')  # URL to redirect after successful form submission
-
-    def booking(self, request):
-        submitted = False
-        if request.method == 'POST':
-            if form.is_valid():
-                booking.save()
-                messages.success(request, 'you submitted successfully')
-            return HttpResponseRedirect('/events')
-        else:
-            if 'submitted' in request.GET:
-                submitted = True        
-            return HttpResponseRedirect('home')   
-   
    
