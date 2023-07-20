@@ -6,10 +6,10 @@
   <form action="" method="POST" id="bookingform" class="form-control bg-dark text-center text-light">
     {% csrf_token %}
     {{ from.as_p }}
-    <h3 class="text-warning  py-4 ">Book an Event</h3>
+    <h3 class="text-warning  py-3 ">Book an Event</h3>
     <div class="container-fluid text-center">
       <div class="form-field">
-        <div class="col-6 mb-3 py-2 px-4 mx-auto">
+        <div class="col-4 mb-3 py-2 px-4 mx-auto">
           <select class="form-select form-select-lg bg-light text-dark" aria-label=".form-select-sm">
             <option selected>Select an Event</option>
             <option value="1">Birthday</option>
@@ -45,7 +45,7 @@
           <!-- Theme input -->
           <label for="Theme"><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
          
-          <textarea class="form-control" id="FormControlTextarea" rows="3" 
+          <textarea class="form-control" id="FormControlTextarea" rows="2" 
            placeholder="Which Theme would you like to choose for your event, e.g., Fairy Tale Theme, Unicorn Theme, Dinosaur Theme etc. "></textarea>
         </div>
         <!-- menu input -->
@@ -58,11 +58,9 @@
             <option value="3">Oriental</option>
             <option value="1">Indien</option>
             <option value="2">Snacks</option>
-            <div class="form-check mb-3">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Cake
-              </label>
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+              <label class="form-check-label" for="flexSwitchCheckDefault">Cake</label>
             </div>
           </select>
           <div class="col-4 mb-3 py-2 px-4 mx-auto">
