@@ -41,7 +41,7 @@ class CommentAdmin(admin.ModelAdmin):
     """
     Add fields for Comments in admin panel
     """
-    list_display = ('event', 'username', 'message', 'created_on', 'approved')
+    list_display = ('event', 'username', 'useremail', 'message', 'created_on', 'approved')
     list_filter = ('approved', 'created_on')
     search_fields = ['username', 'useremail', 'message']
     actions = ['approve_comments']

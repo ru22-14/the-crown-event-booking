@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.views.generic import TemplateView, CreateView
-from .models import Event, Comment
-from .forms import CommentForm
+from .models import Event, Booking, Comment
+from .forms import CommentForm, BookingForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 import datetime
@@ -18,17 +18,16 @@ class EventPageView(TemplateView):
     template_name = 'index.html'
     
     
-class EventListView(generic.ListView):
+class EventListView(generic.ListView, View):
     model = Event
     queryset = Event.objects.filter(status=1).order_by('-created_on')
     template_name = 'events.html'
     paginate_by = 6
 
 
-class EventReviews(generic.ListView):
+class EventCommentView(generic.ListView, View):    
 
     def get(self, request, slug, *args, **kwargs):
-
         queryset = Event.objects.filter(status=1)
         event = get_object_or_404(queryset, slug=slug)
         comments = event.comments.filter(approved=True).order_by("-created_on")
@@ -49,7 +48,6 @@ class EventReviews(generic.ListView):
         ) 
 
     def post(self, request, slug, *args, **kwargs):
-
         queryset = Event.objects.filter(status=1)
         event = get_object_or_404(queryset, slug=slug)
         comments = event.comments.filter(approved=True).order_by("-created_on")
@@ -81,7 +79,7 @@ class EventReviews(generic.ListView):
         )    
 
 
-class EventLike(View):
+class EventLikeView(View):
     
     def post(self, request, slug, *args, **kwargs):
         event = get_object_or_404(Event, slug=slug)
@@ -92,4 +90,34 @@ class EventLike(View):
 
         return HttpResponseRedirect(reverse('events', args=[slug]))
 
-   
+
+class EventBookingView(TemplateView, View):
+
+    template_name = 'booking.html'
+    form = BookingForm
+
+    def add_boking(request):
+        submitted = False
+        if request.method == 'POST':
+
+            form = BookingForm(request.POST)
+            form.fields['event'].required = True
+            if form.is_valid():
+
+                form.save()
+                messages.success(
+                    request, 'Your booking was successfully registered')
+                return HttpResponseRedirect('booking')
+
+            else:
+                
+                messages.error(
+                        request, 'There was a problem submiting your booking.'
+                     ' Please try again!')
+                return HttpResponseRedirect('booking')
+
+        else: 
+            form = BookingForm(request.GET)       
+            return render(request, 'booking.html',
+                      {'form': form, })
+
