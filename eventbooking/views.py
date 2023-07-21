@@ -94,30 +94,34 @@ class EventLikeView(View):
 class EventBookingView(TemplateView, View):
 
     template_name = 'booking.html'
-    form = BookingForm
+    form = BookingForm()
 
-    def add_boking(request):
-        submitted = False
+    def get(self, request):
+        form = BookingForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'booking.html', context)
+
+    def post(self, request):
+       
         if request.method == 'POST':
 
             form = BookingForm(request.POST)
-            form.fields['event'].required = True
             if form.is_valid():
 
                 form.save()
                 messages.success(
                     request, 'Your booking was successfully registered')
-                return HttpResponseRedirect('booking')
-
+                return redirect('events')        
             else:
-                
+
                 messages.error(
-                        request, 'There was a problem submiting your booking.'
-                     ' Please try again!')
-                return HttpResponseRedirect('booking')
-
-        else: 
-            form = BookingForm(request.GET)       
-            return render(request, 'booking.html',
-                      {'form': form, })
-
+                    request, 'There was a problem submiting your booking.'
+                             ' Please try again!')
+                return HttpResponseRedirect(reverse('booking'))
+         
+        form = BookingForm()
+        context = {
+            'form': form
+        }

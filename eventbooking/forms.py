@@ -1,5 +1,6 @@
-from .models import Comment, Booking
 from django import forms
+from .models import Comment, Booking
+
 
 
 class CommentForm(forms.ModelForm):
@@ -12,6 +13,6 @@ class BookingForm(forms.ModelForm):
 
     class Meta:
         model = Booking
-        fields = ('event',)
+        fields = ['event', 'time', 'theme', 'menu', 'drinks', 'guests', 'username', 'useremail']
 
         

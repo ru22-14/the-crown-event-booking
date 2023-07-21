@@ -32,9 +32,7 @@ class Event(models.Model):
 class Booking(models.Model):
     "Model for event"
   
-    event = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="event_posts"
-    )
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_title")
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(default=timezone.now())
     theme = models.CharField(max_length=200, unique=True)
