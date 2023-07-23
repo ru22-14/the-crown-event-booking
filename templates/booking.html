@@ -5,52 +5,42 @@
 <center>
   <form action="{% url 'booking' %}" method="POST" id="bookingform" class="form-control bg-dark text-center text-light">
     {% csrf_token %}
-    {{ form }}
-    <!-- <h3 class="text-warning  py-3 ">Book an Event</h3>
+    <h3 class="text-warning  py-3 ">Book an Event</h3>
     <div class="container-fluid text-center">
-      <div class="form-field">
-        <div class="col-4 mb-3 py-2 px-4 mx-auto">
-          <select class="form-select form-select-lg bg-light text-dark" aria-label=".form-select-sm">
-            <option selected>Select an Event</option>
-            <option value="1">Birthday</option>
-            <option value="2">Anniversary</option>
-            <option value="3">Eid Milan Party</option>
-            <option value="1">Graduation Party</option>
-            <option value="2">Business Dinner</option>
-            <option value="3">Party</option>
-          </select>
-        </div>
-        <div> -->
-          <!-- Guest input -->
-          <!-- <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
-         
-          <input type="text">
-        </div>
-        <div class="form-field"> -->
-           <!-- Date input --> 
-          <!-- <label for="date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
-         
-          <input type="date">
-        </div> 
-        <div class="form-field">  -->
-          <!-- Time input -->
-           <!-- <label for="starttime"><i class="fa-solid fa-clock"></i> Event Starts :</label>
-         
-          <input type="time">
-          <label for="endtime"><i class="fa-solid fa-clock"></i> Event Ends :</label>
+      <div class="form-field col-lg-12">
+        <div class=" form-field col-lg-6 py-2 px-4  mx-auto">
+        <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.event }}>
+           
           
-          <input type="time">
         </div>
-        <div class="form-field col-8 mb-3">  -->
-          <!-- Theme input -->
-          <!-- <label for="theme"><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
+        <div class="form-field">
+          <!-- Guest input-->
+        <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
+          {{ form.guests }}
+        </div>
+        <div class="form-field"> 
+           <!-- Date input --> 
+        <label for="date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
+         {{ form.date }}
+        </div> 
+        <div class="form-field"> 
+          <!-- Time input -->
+        <label for="starttime"><i class="fa-solid fa-clock"></i> Event Starts :</label>
          
-          <textarea class="form-control" id="FormControlTextarea" rows="2" 
-           placeholder="Which Theme would you like to choose for your event, e.g., Fairy Tale Theme, Unicorn Theme, Dinosaur Theme etc. "></textarea>
-        </div> -->
+        {{ form.time }}
+        <label for="endtime"><i class="fa-solid fa-clock"></i> Event Ends :</label>
+          
+        {{ form.time }}
+        </div>
+        <div class="col-sm justify-content-center my-4"> 
+          <!-- Theme input -->
+        <label for="theme" placeholder="Please tell us which theme do you want for your Event? e.g, Unicorn Theme, Dinosaur Theme, Swan Theme etc."><i class="fa-brands fa-themeisle"></i> Theme for Event :</label>
+        {{ form.theme }} 
+          
+        </div>
         <!-- menu input -->
-        <!-- <div class="col-4 mb-3 py-2 px-4 mx-auto">
-          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
+        <div class="col-4 mb-3 py-2 px-4 mx-auto">
+          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.menu }}>
            
             <option selected>Menu</option>
             <option value="1">Italien</option>
@@ -64,7 +54,7 @@
             </div>
           </select>
           <div class="col-4 mb-3 py-2 px-4 mx-auto">
-            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm">
+            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.drinks }}>
               
               <option selected>Drinks</option>
               <option value="1">Juices</option>
@@ -74,17 +64,17 @@
               <option value="2">Smoothies</option>
             </select>
         </div>
-        <div> -->
+        <div> 
           <!-- Name input -->
-          <!-- <label for="fullName"><i class="fas fa-user"></i> Full Name :</label>
+          <label for="fullName"><i class="fas fa-user"></i> Full Name :</label>
         
-          <input type="text"> -->
+          {{ form.username }}
   
           <!-- Email input -->
-          <!-- <label for="email"><i class="fa-solid fa-envelope"></i> Email :</label>
+          <label for="email"><i class="fa-solid fa-envelope"></i> Email :</label>
          
-          <input type="text">
-        </div>  -->
+          {{ form.useremail }}
+        </div> 
 
         <button type="submit" method=" POST" class="btn btn-form text-warning">Submit</button>
       </div>  

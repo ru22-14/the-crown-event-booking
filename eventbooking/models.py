@@ -35,7 +35,7 @@ class Booking(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_title")
     date = models.DateField(auto_now_add=True)
     time = models.TimeField(default=timezone.now())
-    theme = models.CharField(max_length=200, unique=True)
+    theme = models.TextField(max_length=200, unique=True)
     guests = models.IntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
     menu = models.CharField(max_length=100, unique=True)
     drinks = models.CharField(max_length=100, unique=True)

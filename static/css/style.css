@@ -98,6 +98,11 @@ h5 a:hover {
 
 .form-field {
     margin-top: 0;
+
+}
+.form-title {
+    width: 80%;
+    
 }
 
 #FormControlTextarea{
