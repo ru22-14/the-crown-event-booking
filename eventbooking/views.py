@@ -80,7 +80,7 @@ class EventDetailView(View):
                 "liked": liked
             },
         )    
-
+    
 
 class EventLikeView(View):
     
@@ -138,8 +138,58 @@ class MyBookingView(View):
 
     def get(self, request):
         if request.user.is_authenticated:
-            booking = (Booking.objects.filter(username=self.request.user).order_by('date'))
+
+            booking = (Booking.objects.filter(username=self.request.user).order_by('date', 'event'))
+            previous_booking = (Booking.objects.filter(username=self.request.user).order_by('date', 'event'))
+            
             context = {
-                'booking': booking
+                'booking': booking,
+                'previous_booking': previous_booking,
                 }
             return render(request, 'mybooking.html', context)
+
+
+class EditBookingView(View):
+    template_name = 'edit_booking.html'            
+    model = Booking
+
+    def get(self, request, *args, **kwargs):
+        """
+        Specification of the data entered into the form.
+        """
+        form = BookingForm()
+        booking = (Booking.objects.filter(username=self.request.user).order_by('date'))
+        context = {
+                'booking': booking
+                
+                }
+        
+        return render(request, 'edit_booking.html', context)
+
+    def post(self, request, *args, **kwargs):
+        booking = get_object_or_404(Booking, id=id, username=request.user)
+        
+        if request.method == 'POST':
+
+            form = BookingForm(request.POST, instance=booking)
+            if form.is_valid():
+
+                booking.user = request.user
+                booking.approved = False
+                form.save()
+                request.session['booking_id'] = booking.id
+                messages.success(
+                    request, 'Your booking was successfully updated')
+                return redirect('mybooking')        
+            else:
+
+                messages.error(
+                    request, 'There was a problem submiting your booking.'
+                             ' Please try again!')
+                context = {
+                    'form': form
+                }             
+                return render(reverse, 'edit_booking.html', context)
+         
+       
+    
