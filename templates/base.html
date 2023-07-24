@@ -46,7 +46,7 @@
                     <a class="nav-link" method="request" href="{% url 'booking' %}">Booking</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My Bookings</a>
+                    <a class="nav-link" href="{% url 'mybooking' %}">My Booking</a>
                 </li>
                 {% if user.username == "admin" %}
                 <li class="nav-item">

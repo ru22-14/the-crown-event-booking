@@ -5,7 +5,7 @@ from .models import Event, Booking, Comment
 from .forms import CommentForm, BookingForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-import datetime
+from datetime import datetime, date
 
 
 # Create your views here.
@@ -97,9 +97,11 @@ class EventBookingView(TemplateView, View):
     form = BookingForm()
 
     def get(self, request):
+        
         form = BookingForm()
+
         context = {
-            'form': form
+            'form': form,
         }
         return render(request, 'booking.html', context)
 
@@ -113,7 +115,7 @@ class EventBookingView(TemplateView, View):
                 form.save()
                 messages.success(
                     request, 'Your booking was successfully registered')
-                return redirect('events')        
+                return redirect('mybooking')        
             else:
 
                 messages.error(
@@ -125,3 +127,15 @@ class EventBookingView(TemplateView, View):
         context = {
             'form': form
         }
+
+
+class MyBookingView(View):
+    template_name = 'mybooking.html'
+
+    def get(self, request):
+        if request.user.is_authenticated:
+            booking = (Booking.objects.filter(username=self.request.user).order_by('date'))
+            context = {
+                'booking': booking
+                }
+            return render(request, 'mybooking.html', context)

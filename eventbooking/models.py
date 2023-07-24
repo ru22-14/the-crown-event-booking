@@ -31,10 +31,14 @@ class Event(models.Model):
 
 class Booking(models.Model):
     "Model for event"
-  
+    # BOOKING_TIME = [('08:00 AM - 12:00 PM'),
+    #                 ('14:00 AM - 18:00 PM'),
+    #                 ('20:00 AM - 00:00 PM'),
+    #                 ]
+
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_title")
     date = models.DateField(auto_now_add=True)
-    time = models.TimeField(default=timezone.now())
+    time = models.TimeField(auto_now_add=True)
     theme = models.TextField(max_length=200, unique=True)
     guests = models.IntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
     menu = models.CharField(max_length=100, unique=True)

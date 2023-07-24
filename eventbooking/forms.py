@@ -1,5 +1,6 @@
 from django import forms
 from .models import Comment, Booking
+from datetime import datetime
 
 
 
@@ -10,17 +11,15 @@ class CommentForm(forms.ModelForm):
 
 
 class BookingForm(forms.ModelForm):
-
+    date = forms.DateField(widget=forms.DateInput(attrs={
+       'class': 'form-control', 'type': 'date'}))
+    
     class Meta:
-        model = Booking
-        fields = ['event', 'time', 'theme', 'menu', 'drinks', 'guests', 'username', 'useremail']
-        
-        widgets = {
-            'date': forms.widgets.DateInput(attrs={'type': 'date'})
-        }
 
-        def get_dates_available():
-            dates_reserved = BookingForm.fields('date', flat=True)
-            dates_reserved = list(itertools.chain(dates_reserved))
-            return dates_reserved
+        model = Booking
+        fields = ['event', 'theme', 'menu', 'drinks', 'guests', 'username', 'useremail']
+        
+
+
+
         
