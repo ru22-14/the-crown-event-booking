@@ -25,7 +25,9 @@ class EventListView(generic.ListView, View):
     paginate_by = 6
 
 
-class EventCommentView(generic.ListView, View):    
+class EventDetailView(View):  
+    template_name = 'events_detail'
+    model = Event
 
     def get(self, request, slug, *args, **kwargs):
         queryset = Event.objects.filter(status=1)
@@ -37,7 +39,7 @@ class EventCommentView(generic.ListView, View):
 
         return render(
             request,
-            "events.html",
+            "events_detail.html",
             {
                 "event": event,
                 "comments": comments,
@@ -60,6 +62,7 @@ class EventCommentView(generic.ListView, View):
             comment_form.instance.email = request.user.useremail
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
+            comment.event = event
            
             comment.save()
             messages.success(request, 'Thank You For your Review!')
@@ -68,7 +71,7 @@ class EventCommentView(generic.ListView, View):
 
         return render(
             request,
-            "events.html",
+            "events_detail.html",
             {
                 "event": event,
                 "comments": comments,
@@ -81,14 +84,15 @@ class EventCommentView(generic.ListView, View):
 
 class EventLikeView(View):
     
-    def post(self, request, slug, *args, **kwargs):
+    def post(self, request, slug):
         event = get_object_or_404(Event, slug=slug)
+
         if event.likes.filter(id=request.user.id).exists():
             event.likes.remove(request.user)
         else:
             event.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('events', args=[slug]))
+        return HttpResponseRedirect(reverse('events_detail', args=[slug]))
 
 
 class EventBookingView(TemplateView, View):

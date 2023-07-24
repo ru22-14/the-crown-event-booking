@@ -3,7 +3,6 @@ from .models import Comment, Booking
 from datetime import datetime
 
 
-
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
