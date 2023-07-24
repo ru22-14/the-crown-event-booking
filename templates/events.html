@@ -30,8 +30,8 @@
     </div>
 </div>
 <div class="container-fluid bg-dark overflow-hidden">
-        <div class="row bg-dark">
-
+        <div class="row bg-dark text-center text-warning">
+        <h3> Click on the Images for Comment and Like Our Events!</h3>
             <!-- Blog Entries Column -->
             <div class="col-12 mt-2 left bg-dark">
                 <div class="row bg-dark">
@@ -40,6 +40,7 @@
                         <div class="card mb-2">
                             <div class="card-body">
                                 <div class="image-container">
+                                    <a href="{% url 'events_detail' event.slug %}" class="event-link text-warning text-decoration-none">
                                     {% if "placeholder" in event.featured_image.url %}
                                     <img class="card-img-top"
                                         src="https://res.cloudinary.com/doqqdubuq/image/upload/v1689790394/tuu6iuym358al0chdg1u.jpg">
@@ -48,8 +49,7 @@
                                     {% endif %}
 
                                 </div>
-                                <div class="link-btn">
-                                <a href="{% url 'events_detail' event.slug %}" class="event-link text-warning text-decoration-none">
+                                <div class="link-heading">
                                     <h2 class="card-title">{{ event.title }}</h2>
                                 </a>
                                 <hr />
