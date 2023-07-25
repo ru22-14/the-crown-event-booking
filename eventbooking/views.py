@@ -98,39 +98,81 @@ class EventLikeView(View):
 class EventBookingView(TemplateView, View):
 
     template_name = 'booking.html'
+    model = Booking
+    total_bookings_each_day = 3
     form = BookingForm()
+    
+    def get_free_time_blocks(self, date):
+        """
+        Specification of of possible booking times for each day.
+        """
+
+        free_blocks = []
+
+        for choice, _ in Booking.BOOKING_CHOICES:
+            time = choice
+            booked_block = Booking.objects.filter(date=date, time=time).count()
+            
+            remaining_blocks = self.total_bookings_each_day - booked_block
+            if remaining_blocks > 0:
+                free_blocks.append((time, remaining_blocks))
+
+        return free_blocks
 
     def get(self, request):
-        
+        """
+        Specification of the data entered into the form.
+        """
+        current_date = datetime.now().date()
         form = BookingForm()
+        free_blocks = []
+
+        for choice, _ in Booking.BOOKING_CHOICES:
+            time = choice
+            booked_block = Booking.objects.filter(date=current_date, timeblock=time).count()
+            
+            remaining_blocks = self.total_bookings_each_day - booked_block
+            if remaining_blocks > 0:
+                free_blocks.append((time, remaining_blocks))
 
         context = {
-            'form': form,
-        }
+                'form': form,
+                'free_blocks': free_blocks,
+                }
+        
         return render(request, 'booking.html', context)
 
-    def post(self, request):
+    # def get(self, request):
+        
+    #     form = BookingForm()
+
+    #     context = {
+    #         'form': form,
+    #     }
+    #     return render(request, 'booking.html', context)
+
+    # def post(self, request):
        
-        if request.method == 'POST':
+    #     if request.method == 'POST':
 
-            form = BookingForm(request.POST)
-            if form.is_valid():
+    #         form = BookingForm(request.POST)
+    #         if form.is_valid():
 
-                form.save()
-                messages.success(
-                    request, 'Your booking was successfully registered')
-                return redirect('mybooking')        
-            else:
+    #             form.save()
+    #             messages.success(
+    #                 request, 'Your booking was successfully registered')
+    #             return redirect('mybooking')        
+    #         else:
 
-                messages.error(
-                    request, 'There was a problem submiting your booking.'
-                             ' Please try again!')
-                return HttpResponseRedirect(reverse('booking'))
+    #             messages.error(
+    #                 request, 'There was a problem submiting your booking.'
+    #                          ' Please try again!')
+    #             return HttpResponseRedirect(reverse('booking'))
          
-        form = BookingForm()
-        context = {
-            'form': form
-        }
+    #     form = BookingForm()
+    #     context = {
+    #         'form': form
+    #     }
 
 
 class MyBookingView(View):
@@ -153,18 +195,48 @@ class EditBookingView(View):
     template_name = 'edit_booking.html'            
     model = Booking
 
-    def get(self, request, *args, **kwargs):
-        """
-        Specification of the data entered into the form.
-        """
-        form = BookingForm()
-        booking = (Booking.objects.filter(username=self.request.user).order_by('date'))
-        context = {
-                'booking': booking
-                
-                }
+    # def get_free_time_blocks(self, date):
+    #     """
+    #     Specification of of possible booking times for each day.
+    #     """
+
+    #     free_blocks = []
+
+    #     for choice, _ in OnlineBooking.BOOKING_CHOICES:
+    #         time = choice
+    #         booked_events = (
+    #             Booking.objects.filter(date=date, time=time).count()
+    #         )
+    #         remaining_blocks = self.total_timeblock - booked_timeblock
+    #         if remaining_blocks > 0:
+    #             free_blocks.append((time, remaining_blocks))
+
+    #     return free_blocks
+
+    # def get(self, request, *args, **kwargs):
+    #     """
+    #     Specification of the data entered into the form.
+    #     """
+    #     current_date = datetime.now().date
+    #     form = BookingForm()
+    #     free_blocks = []
+
+    #     for choice, _ in OnlineBooking.BOOKING_CHOICES:
+    #         time = choice[1]
+    #         booked_events = (
+    #             Booking.objects.filter(date=current_date, time=time).count()
+    #         )
+    #         remaining_blocks = self.total_timeblock - booked_timeblock
+    #         if remaining_blocks > 0:
+    #             free_blocks.append((time, remaining_blocks))
+
+       
+    #     context = {
+    #             'booking': booking,
+    #             'free_blocks': free_blocks,
+    #             }
         
-        return render(request, 'edit_booking.html', context)
+    #     return render(request, 'edit_booking.html', context)
 
     def post(self, request, *args, **kwargs):
         booking = get_object_or_404(Booking, id=id, username=request.user)

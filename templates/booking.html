@@ -22,20 +22,14 @@
         <label for="id_date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
          {{ form.date }}
       </div> 
-      <div class="form-field col-4 justify-content-center mx-auto"> 
+      <div class="form-field col-4 justify-content-center mx-auto mb-3"> 
           <!-- Time input -->
         <label for="id_time"><i class="fa-solid fa-clock"></i> Event Time :</label>
          
-        {{ form.time }}
-
-      <div class=" form-field col-6 justify-content-center my-4"> 
-          <!-- Theme input -->
-        <label for="id_theme" ></i> Theme for Event :</label>
-        {{ form.theme }} 
-          
+        {{ form.timeblock }}
       </div>
         <!-- menu input -->
-      <div class="col-8 mb-3 py-2 px-4 mx-auto">
+      <div class="col-4 mb-3 py-2 px-4 mx-auto">
           <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.menu }}>
             <label for="eventMenu"> Menu: </label>
             <option selected>Menu</option>
@@ -51,7 +45,7 @@
               
             </div>
           </select>
-      <div class="col-8 mb-3 py-2 px-4 mx-auto">
+      <div class="col-4 mb-3 py-2 px-4 mx-auto">
             <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.drinks }}>
               
               <option selected>Drinks</option>
@@ -62,17 +56,11 @@
               <option value="2">Smoothies</option>
             </select>
       </div>
-      <div class="form-field col-8 justify-content-center mx-auto"> 
-          <!-- Name input -->
-          <label for="id_username" aria-autocomplete="inline"><i class="fas fa-user"></i> Full Name :</label>
-        
-          {{ form.username }}
-  
-          <!-- Email input -->
-          <label for="id_useremail"><i class="fa-solid fa-envelope"></i> Email :</label>
-         
-          {{ form.useremail }}
-      </div> 
+      <div class=" form-field col-12 justify-content-center my-4 "> 
+        <!-- Theme input -->
+      <label for="id_theme" > Theme for Event :</label>
+        {{ form.theme }} 
+      </div>
 
         <button type="submit" method=" POST" class="btn btn-form text-warning">Submit</button>
     </div>  
