@@ -11,15 +11,14 @@ class CommentForm(forms.ModelForm):
 
 class BookingForm(forms.ModelForm):
     
-    # date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
     
     class Meta:
  
         model = Booking
-        fields = ['event', 'date', 'timeblock', 'theme', 'menu', 'drinks', 'guests',]
-        widgets = {
-            'date': forms.widgets.DateInput(attrs={'type': 'date'})
-        }
+        fields = ['event', 'date', 'timeblock', 'theme', 'menu', 'drinks', 'guests', 'username',]
+        
+        
     def get_free_dates(self, request):
         booked_dates = Booking.objects.values_list('date', flat=True)
         start_date = datetime.date.today()

@@ -102,22 +102,22 @@ class EventBookingView(TemplateView, View):
     total_bookings_each_day = 3
     form = BookingForm()
     
-    # def get_free_time_blocks(self, date):
-    #     """
-    #     Specification of of possible booking times for each day.
-    #     """
+    def get_free_time_blocks(self, date):
+        """
+        Specification of of possible booking times for each day.
+        """
 
-    #     free_blocks = []
+        free_blocks = []
 
-    #     for choice in Booking.BOOKING_CHOICES:
-    #         time = choice
-    #         booked_block = Booking.objects.filter(date=date, time=time).count()
+        for choice in Booking.BOOKING_CHOICES:
+            time = choice[0]
+            booked_block = Booking.objects.filter(date=date, timeblock=time).count()
             
-    #         remaining_blocks = self.total_bookings_each_day - booked_block
-    #         if remaining_blocks > 0:
-    #             free_blocks.append((time, remaining_blocks))
+            remaining_blocks = self.total_bookings_each_day - booked_block
+            if remaining_blocks > 0:
+                free_blocks.append((time, remaining_blocks))
 
-    #     return free_blocks
+        return free_blocks
 
     def get(self, request):
         """
@@ -143,37 +143,35 @@ class EventBookingView(TemplateView, View):
         return render(request, 'booking.html', context)
 
     def post(self, request):
-        # if request.method == 'POST':
-        form = BookingForm(request.POST)
+        if request.method == 'POST':
+            form = BookingForm(request.POST)
         
-        if request.user.is_authenticated:
+        # if request.user.is_authenticated:
             if form.is_valid():
-                form.save(commit=False)
+                booking = form.save(commit=False)
 
-                if form.date < date.today():
+                if booking.date < date.today():
                     messages.error('Booking in past dates is not allowed.')
                     return redirect('booking')
 
-                booked_events_timeblocks = (Booking.objects.filter(date=form.date, time=form.time).count()) 
+                booked_events_timeblocks = (Booking.objects.filter(date=booking.date, timeblock=booking.timeblock).count()) 
 
-                if booked_events_timeblocks >= total_bookings_each_day:
+                if (booked_events_timeblocks >= self.total_bookings_each_day):
                     messages.error('Sorry, No more bookings are possible for the preferred day.')  
                     return redirect('booking') 
-                free_blocks = self.get_free_time_blocks(form.date)
+                free_blocks = self.get_free_time_blocks(booking.date)
 
                 context = {
-                        'form': form,
+                        'booking': booking,
                         'free_blocks': free_blocks,
                     }
-                if form.guests < 15:
+                if booking.guests < 15:
                     messages.error('Minimum number of guests requirement is 15.')
-                elif form.guests > 50:
+                if booking.guests > 50:
                     messages.error('Maximum 50 guests are allowed.')
 
-                form.user = request.user
-                form.approved = False
-                form.save()
-                form.session['booking_id'] = booking.id
+                booking.approved = False
+                booking.save()
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
                 return redirect('mybooking')
             else:
