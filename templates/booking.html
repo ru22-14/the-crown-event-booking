@@ -3,34 +3,34 @@
 
 {% block content %}
 <center>
-  <form action="{% url 'booking' %}" method="POST" id="bookingform" class="form-control bg-dark text-center text-light">
+  <form action="{% url 'booking' %}" method="POST"  class="form-control bg-dark text-center text-light">
     {% csrf_token %}
     <h3 class="text-warning  py-3 ">Book an Event</h3>
     <div class="container-fluid text-center">
       <div class=" form-field col-lg-6 py-2 px-4  mx-auto">
-        <label for="id_event"> Event: {{ form.event }} </label>  
+        <label for="eventName"> Event: {{ form.event }} </label>  
         
           
       </div>
       <div class="form-field">
           <!-- Guest input-->
-        <label for="id_guests"><i class="fas fa-user"></i> No. of Guests:</label>
+        <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
           {{ form.guests }}
       </div>
       <div class="form-field col-6 justify-content-center mx-auto"> 
            <!-- Date input --> 
-        <label for="id_date"><i class="fa-solid fa-calendar-days"></i> Date:</label>
+        <label for="dates"><i class="fa-solid fa-calendar-days"></i> Date:</label>
          {{ form.date }}
       </div> 
       <div class="form-field col-4 justify-content-center mx-auto mb-3"> 
           <!-- Time input -->
-        <label for="id_time"><i class="fa-solid fa-clock"></i> Event Time :</label>
+        <label for="time"><i class="fa-solid fa-clock"></i> Event Time :</label>
          
         {{ form.timeblock }}
       </div>
         <!-- menu input -->
       <div class="col-4 mb-3 py-2 px-4 mx-auto">
-          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.menu }}>
+          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" id="eventMenu" {{ form.menu }}>
             <label for="eventMenu"> Menu: </label>
             <option selected>Menu</option>
             <option value="1">Italien</option>
@@ -46,7 +46,7 @@
             </div>
           </select>
       <div class="col-4 mb-3 py-2 px-4 mx-auto">
-            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.drinks }}>
+            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" id="drinks" {{ form.drinks }}>
               
               <option selected>Drinks</option>
               <option value="1">Juices</option>
@@ -58,7 +58,7 @@
       </div>
       <div class=" form-field col-12 justify-content-center my-4 "> 
         <!-- Theme input -->
-      <label for="id_theme" > Theme for Event :</label>
+      <label for="theme" > Theme for Event :</label>
         {{ form.theme }} 
       </div>
 

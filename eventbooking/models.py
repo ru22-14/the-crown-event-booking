@@ -31,10 +31,10 @@ class Event(models.Model):
 
 class Booking(models.Model):
     "Model for event"
-    BOOKING_CHOICES = ((1, '08:00 AM - 12:00 PM'),
+    BOOKING_CHOICES = [(1, '08:00 AM - 12:00 PM'),
                        (2, '14:00 PM - 18:00 PM'),
                        (3, '20:00 PM - 00:00 AM'),
-    )
+    ]
 
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_bookings")
     date = models.DateField(null=True, blank=False)
