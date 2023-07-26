@@ -35,13 +35,12 @@ class Booking(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_bookings")
     date = models.DateField(null=True, blank=False)
     timeblock = models.CharField(null=True, blank=False, max_length=50)
-    theme = models.TextField(max_length=200, unique=True)
+    theme = models.TextField(max_length=200)
     guests = models.IntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
-    menu = models.CharField(max_length=100, unique=True)
-    drinks = models.CharField(max_length=100, unique=True)
+    menu = models.CharField(max_length=100)
+    drinks = models.CharField(max_length=100)
     username = models.ForeignKey(User, on_delete=models.CASCADE,
                                  related_name="user_bookings")
-    useremail = models.EmailField(max_length=200, blank=True)
     approved = models.BooleanField(default=False)
     
     def __str__(self):

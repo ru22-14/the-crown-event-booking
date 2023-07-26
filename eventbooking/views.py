@@ -5,7 +5,8 @@ from .models import Event, Booking, Comment
 from .forms import CommentForm, BookingForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from datetime import datetime, date
+from datetime import  date
+import datetime
 
 
 # Create your views here.
@@ -97,76 +98,69 @@ class EventLikeView(View):
 
 class EventBookingView(TemplateView, View):
 
-    template_name = 'booking.html'
-    model = Booking
-    total_bookings_each_day = 3
+    template_name = 'booking.html' 
     form = BookingForm()
     
     def get(self, request):
+        
         form = BookingForm()
+        
         context = {
             'form': form
+
+            
         }
         return render(request, 'booking.html', context)
 
+
+
     def post(self, request):
         if request.method == 'POST':
+
             form = BookingForm(request.POST)
-            if request.user.is_authenticated:
+            if form.is_valid():
+               
+                    
                 
-                if form.is_valid():
-                    event = form.cleaned_data['event']
-                    date = form.cleaned_data['date']
-                    time = form.cleaned_data['timeblock']
-                    guests = form.cleaned_data['guests']
-                    menu = form.cleaned_data['menu']
-                    drinks = form.cleaned_data['drinks']
-                    theme = form.cleaned_data['theme']
+                form.save()
+                messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
+                return render(request, 'mybooking.html') 
 
-                    if form.date < date.today():
-                        messages.error('Booking in past dates is not allowed.')
-
-                    elif form.guests < 15:
-                        messages.error('Minimum number of guests requirement is 15.')
-                    elif form.guests > 50:
-                        messages.error('Maximum 50 guests are allowed.')    
-                        return redirect('booking')
-
-                    else:
-                        
-                        context = {
-                            'form': form,
-                        
-                        }
-                           
-                    form.save()
-                    messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                context = {
-                            'form': form,
-                        
-                        }    
-                return redirect('booking')
+                  
+            else:
+                messages.error(request, 'There is some problem submitting your booking.') 
+                return render(request, 'booking.html')         
+        else:
+            form = BookingForm(request.GET)
+        return render(request, 'booking.html',
+                      {'form': form, })    
 
         
        
-           
-
-
 class MyBookingView(View):
+    model = Booking
     template_name = 'mybooking.html'
 
     def get(self, request):
+            
+        booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
 
-            booking = (Booking.objects.filter(username=self.request.user).order_by('date', 'event'))
-            previous_booking = (Booking.objects.filter(username=self.request.user).order_by('date', 'event'))
-            
+            previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
             context = {
-                'booking': booking,
-                'previous_booking': previous_booking,
-                }
+                'previous_bookings': previous_bookings,
+            }
             return render(request, 'mybooking.html', context)
 
+        else:
+            messages.error(
+                request,
+                'You need to log in to view your bookings.'
+            )
+            return redirect('login')
+        context = {
+            'booking_list': booking_list
+        }    
 
 class EditBookingView(View):
     template_name = 'edit_booking.html'            
@@ -215,30 +209,30 @@ class EditBookingView(View):
         
     #     return render(request, 'edit_booking.html', context)
 
-    def post(self, request, *args, **kwargs):
-        booking = get_object_or_404(Booking, id=id, username=request.user)
+    # def post(self, request, *args, **kwargs):
+        # booking = get_object_or_404(Booking, id=id, username=request.user)
         
-        if request.method == 'POST':
+        # if request.method == 'POST':
 
-            form = BookingForm(request.POST, instance=booking)
-            if form.is_valid():
+        #     form = BookingForm(request.POST, instance=booking)
+        #     if form.is_valid():
 
-                booking.user = request.user
-                booking.approved = False
-                form.save()
-                request.session['booking_id'] = booking.id
-                messages.success(
-                    request, 'Your booking was successfully updated')
-                return redirect('mybooking')        
-            else:
+        #         booking.user = request.user
+        #         booking.approved = False
+        #         form.save()
+        #         request.session['booking_id'] = booking.id
+        #         messages.success(
+        #             request, 'Your booking was successfully updated')
+        #         return redirect('mybooking')        
+        #     else:
 
-                messages.error(
-                    request, 'There was a problem submiting your booking.'
-                             ' Please try again!')
-                context = {
-                    'form': form
-                }             
-                return render(reverse, 'edit_booking.html', context)
+        #         messages.error(
+        #             request, 'There was a problem submiting your booking.'
+        #                      ' Please try again!')
+        #         context = {
+        #             'form': form
+        #         }             
+        #         return render(reverse, 'edit_booking.html', context)
          
        
     

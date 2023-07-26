@@ -3,31 +3,40 @@
 
 {% block content %}
 <center>
+
+  
   <form action="{% url 'booking' %}" method="POST"  class="form-control bg-dark text-center text-light">
     {% csrf_token %}
+    
     <h3 class="text-warning  py-3 ">Book an Event</h3>
     <div class="container-fluid text-center">
       <div class=" form-field col-lg-6 py-2 px-4  mx-auto">
-        
-        <label for="eventName"> Event: {{ form.event }} </label>  
+
+        <label for="id_event"> Event: {{ form.event }} </label>  
         
           
       </div>
       <div class="form-field">
           <!-- Guest input-->
-        <label for="guests"><i class="fas fa-user"></i> No. of Guests:</label>
+        <label for="id_guests"><i class="fas fa-user"></i> No. of Guests:</label>
           {{ form.guests }}
       </div>
       <div class="form-field col-6 justify-content-center mx-auto"> 
            <!-- Date input --> 
-        <label for="dates"><i class="fa-solid fa-calendar-days"></i> Date:</label>
+        <label for="datePicker"><i class="fa-solid fa-calendar-days"></i> Date:</label>
          {{ form.date }}
       </div> 
-      <div class="form-field col-4 justify-content-center mx-auto mb-3"> 
+      <div class="form-field col-12 justify-content-center mx-8 my-4 mb-2"> 
           <!-- Time input -->
-        <label for="time"><i class="fa-solid fa-clock"></i> Event Time :</label>
-         
-        {{ form.timeblock }}
+        
+         <select name="timeblock" id="id_timeblock" {{ form.timeblock }}>
+          <label for="id_timeblock"><i class="fa-solid fa-clock"></i> Event Time :</label>
+          <option selected>Event Time</option>
+          <option value="1">8:00 AM - 12:00 PM</option>
+          <option value="2">14:00 PM - 18:00 PM</option>
+          <option value="3">20:00 PM - 00:00 AM</option>
+         </select>
+        
       </div>
         <!-- menu input -->
       <div class="col-4 mb-3 py-2 px-4 mx-auto">
@@ -59,8 +68,9 @@
       </div>
       <div class=" form-field col-12 justify-content-center my-4 "> 
         <!-- Theme input -->
-      <label for="theme" > Theme for Event :</label>
-        {{ form.theme }} 
+
+      <label for="id_theme" > Theme for Event :</label>
+      {{ form.theme }} 
       </div>
 
         <button type="submit" method=" POST" class="btn btn-form text-warning">Submit</button>
