@@ -12,13 +12,19 @@ class CommentForm(forms.ModelForm):
 class BookingForm(forms.ModelForm):
     
     date = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    timeblock = forms.ChoiceField(widget=forms.Select(
+                 attrs={'class': 'form-select'}),
+                 choices=(
+                       (1, '08:00 AM - 12:00 PM'),
+                       (2, '14:00 PM - 18:00 PM'),
+                       (3, '20:00 PM - 00:00 AM'),
+                 ))
     
     class Meta:
  
         model = Booking
         fields = ['event', 'date', 'timeblock', 'theme', 'menu', 'drinks', 'guests', 'username',]
-        
-        
+
     def get_free_dates(self, request):
         booked_dates = Booking.objects.values_list('date', flat=True)
         start_date = datetime.date.today()

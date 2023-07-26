@@ -102,85 +102,54 @@ class EventBookingView(TemplateView, View):
     total_bookings_each_day = 3
     form = BookingForm()
     
-    def get_free_time_blocks(self, date):
-        """
-        Specification of of possible booking times for each day.
-        """
-
-        free_blocks = []
-
-        for choice in Booking.BOOKING_CHOICES:
-            time = choice[0]
-            booked_block = Booking.objects.filter(date=date, timeblock=time).count()
-            
-            remaining_blocks = self.total_bookings_each_day - booked_block
-            if remaining_blocks > 0:
-                free_blocks.append((time, remaining_blocks))
-
-        return free_blocks
-
     def get(self, request):
-        """
-        Specification of the data entered into the form.
-        """
-        current_date = datetime.now().date()
         form = BookingForm()
-        free_blocks = []
-
-        for choice in Booking.BOOKING_CHOICES:
-            time = choice[0]
-            booked_block = Booking.objects.filter(date=current_date, timeblock=time).count()
-            
-            remaining_blocks = self.total_bookings_each_day - booked_block
-            if remaining_blocks > 0:
-                free_blocks.append((time, remaining_blocks))
-
         context = {
-                'form': form,
-                'free_blocks': free_blocks,
-                }
-        
+            'form': form
+        }
         return render(request, 'booking.html', context)
 
     def post(self, request):
         if request.method == 'POST':
             form = BookingForm(request.POST)
-        
-        # if request.user.is_authenticated:
-            if form.is_valid():
-                booking = form.save(commit=False)
+            if request.user.is_authenticated:
+                
+                if form.is_valid():
+                    event = form.cleaned_data['event']
+                    date = form.cleaned_data['date']
+                    time = form.cleaned_data['timeblock']
+                    guests = form.cleaned_data['guests']
+                    menu = form.cleaned_data['menu']
+                    drinks = form.cleaned_data['drinks']
+                    theme = form.cleaned_data['theme']
 
-                if booking.date < date.today():
-                    messages.error('Booking in past dates is not allowed.')
-                    return redirect('booking')
+                    if form.date < date.today():
+                        messages.error('Booking in past dates is not allowed.')
 
-                booked_events_timeblocks = (Booking.objects.filter(date=booking.date, timeblock=booking.timeblock).count()) 
+                    elif form.guests < 15:
+                        messages.error('Minimum number of guests requirement is 15.')
+                    elif form.guests > 50:
+                        messages.error('Maximum 50 guests are allowed.')    
+                        return redirect('booking')
 
-                if (booked_events_timeblocks >= self.total_bookings_each_day):
-                    messages.error('Sorry, No more bookings are possible for the preferred day.')  
-                    return redirect('booking') 
-                free_blocks = self.get_free_time_blocks(booking.date)
-
+                    else:
+                        
+                        context = {
+                            'form': form,
+                        
+                        }
+                           
+                    form.save()
+                    messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
                 context = {
-                        'booking': booking,
-                        'free_blocks': free_blocks,
-                    }
-                if booking.guests < 15:
-                    messages.error('Minimum number of guests requirement is 15.')
-                if booking.guests > 50:
-                    messages.error('Maximum 50 guests are allowed.')
+                            'form': form,
+                        
+                        }    
+                return redirect('booking')
 
-                booking.approved = False
-                booking.save()
-                messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                return redirect('mybooking')
-            else:
-                messages.error(request, 'Please fill the form correctly.')
-
-        context = {
-                'form': form,
-            }
-        return render(request, 'booking.html', context)
+        
+       
+           
 
 
 class MyBookingView(View):
