@@ -36,7 +36,7 @@ class Booking(models.Model):
     date = models.DateField(null=True, blank=False)
     timeblock = models.CharField(null=True, blank=False, max_length=50)
     theme = models.TextField(max_length=200)
-    guests = models.IntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
+    guests = models.PositiveIntegerField(validators=[MinValueValidator(15), MaxValueValidator(50)])
     menu = models.CharField(max_length=100)
     drinks = models.CharField(max_length=100)
     username = models.ForeignKey(User, on_delete=models.CASCADE,
@@ -44,7 +44,7 @@ class Booking(models.Model):
     approved = models.BooleanField(default=False)
     
     def __str__(self):
-        return f'{self.event} is booked by {self.username}'
+        return f'{self.event} is booked by {self.username} for the {self.date} at {self.start_time}. Status {self.approved}'
     
 
 class Comment(models.Model):

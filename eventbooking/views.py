@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from django.views.generic import TemplateView, CreateView
+from django.views.generic.edit import UpdateView, DeleteView
 from .models import Event, Booking, Comment
 from .forms import CommentForm, BookingForm
 from django.http import HttpResponseRedirect
@@ -101,17 +102,22 @@ class EventBookingView(TemplateView, View):
     template_name = 'booking.html' 
     form = BookingForm()
     
-    def get(self, request):
+    # def get(self, request, *args, **kwargs):
         
-        form = BookingForm()
+    #     form = BookingForm()
         
-        context = {
-            'form': form
+    #     context = {
+    #         'form': form
 
             
-        }
-        return render(request, 'booking.html', context)
-
+    #     }
+    #     return render(request, 'booking.html', context)
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = BookingForm
+        # context['bookings'] = self.request.booking.objects.all()
+        return context
 
 
     def post(self, request):
@@ -133,7 +139,27 @@ class EventBookingView(TemplateView, View):
         else:
             form = BookingForm(request.GET)
         return render(request, 'booking.html',
-                      {'form': form, })    
+                      {'form': form, })  
+
+
+class BookingEdit(UpdateView):
+
+    model = Booking
+    template_name = 'edit_booking.html'
+    fields = ['event', 'guests', 'menu', 'drinks', 'theme',] 
+    success_url = '/mybookings' 
+   
+    def get_queryset(self):
+        return self.request.user.booking_set.all()
+
+class BookingDelete(DeleteView):
+   model = Booking
+   template_name = 'delete_booking.html'
+   success_url ='/' 
+
+   def get_queryset(self):
+      return self.request.user.booking_set.all()        
+                    
 
         
        

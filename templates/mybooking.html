@@ -1,23 +1,23 @@
 {% extends "base.html" %} 
 {% load static %} 
 {% block content %}
-<div class="row content col-10 col-lg-9">
+<!-- <div class="row content col-10 col-lg-9">
     <div class="center-container scroll max-h-100 h-100vh">
         <div class="center-container profile">
             <h2>Welcome back</h2>
             <small>{{ booking.useremail }}</small><br><br>
             <div class="flex sp-between a-end upper_manage">
                 <!-- Info message -->
-                <h4>Bookings for {{ booking.date }}</h4>
+                <!-- <h4>Bookings for {{ booking.date }}</h4>
                 <form class="flex a-center" method="GET">
                     {% csrf_token %}
                     {{ date_form.as_p }}
                     <button type="submit" class="btn btn-sm btn-simple" id="filterSubmit">Submit</button>
                 </form>
-            </div>
-            {% if booking_list > 0 %}
+            </div> -->
+            
             <!-- Bookings table -->
-            <div class="overflow-x">
+            <!-- <div class="overflow-x">
                 <table class="table table-bordered">
                     <thead class="thead">
                     <tr>
@@ -31,7 +31,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for booking in bookings %}
+                    
                     <tr>
                         <td>{{ booking.event }}</td>
                         <td>{{ booking.date }}</td>
@@ -39,8 +39,13 @@
                         <td>{{ booking.theme }}</td>
                         <td>{{ booking.username }}</td>
                         <td>{{ booking.useremail}}</td>
-                        <td>
+                        <td> -->
                             <!-- Delete booking button and modal -->
+
+        {% for booking in bookings %}
+       <h2>{{ booking }}</h2> 
+       <a href="{% url 'booking_amend' pk=booking.pk %}">amend</a> <a href="{% url 'booking_delete' pk=booking.pk %}">delete</a><br>
+       
                             <button type="button" class="btn btn-secondary note-btn"  data-bs-toggle="modal" data-bs-target="#deleteBookingModal{{ booking.event }}"><small>DELETE BOOKING</small></button>
                             <div class="modal fade" id="deleteBookingModal{{ booking.pk }}" tabindex="-1" role="dialog" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -63,18 +68,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                {% else %}
+                  
+                
                 <p><b>There are no bookings for this date</b></p>
-                {% endif %}
+                
             </div>
         </div>
+        {% endfor %}   
     </div>
-</div>
+</div> 
 {% endblock %}
 
 
