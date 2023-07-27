@@ -101,17 +101,6 @@ class EventBookingView(TemplateView, View):
 
     template_name = 'booking.html' 
     form = BookingForm()
-    
-    # def get(self, request):
-        
-    #     form = BookingForm()
-        
-    #     context = {
-    #         'form': form
-
-            
-    #     }
-    #     return render(request, 'booking.html', context)
    
         
     def get_context_data(self, **kwargs):
@@ -148,19 +137,12 @@ class BookingEdit(UpdateView):
     model = Booking
     template_name = 'edit_booking.html'
     fields = ['event', 'guests', 'menu', 'drinks', 'theme',] 
-    success_url = '/mybookings' 
+    success_url = '/mybooking' 
    
     def get_queryset(self):
         return self.request.user.booking_set.all()
 
-class BookingDelete(DeleteView):
-    model = Booking
-    template_name = 'delete_booking.html'
-    success_url ='/' 
 
-    def get_queryset(self):
-      return self.request.user.booking_set.all()        
-                    
 
         
        
@@ -173,7 +155,7 @@ class MyBookingView(View):
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
 
-            previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
+            previous_bookings = (Booking.objects.filter(username=request.user, status = 1).order_by('event'))
             context = {
                 'previous_bookings': previous_bookings,
             }
