@@ -12,8 +12,6 @@ class CommentForm(forms.ModelForm):
 
 class BookingForm(forms.ModelForm):
     
-    date = forms.DateField(widget=forms.DateInput(attrs={'id': 'datePicker', 'class': 'form-control', 'type': 'date'}))                                  
-    
     class Meta:
  
         model = Booking
@@ -21,26 +19,21 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'cake': forms.TextInput(attrs={'class': 'form-field', 'type': 'text', 'placeholder': 'Yes, or no'}),
             'theme': forms.TextInput(attrs={'class': 'form-text','placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
+            'date': forms.widgets.DateInput(attrs={'type': 'date'})
         }
-        
-class DateBookingForm(forms.ModelForm):
-    """
-    Form for the BookingQuery Model
-    It is used for filtering the bookings in admin manage booking page
-    """
-    date = forms.DateField(widget=forms.DateInput(
-        attrs={'id': 'datePicker', 'class': 'form-control',
-               'type': 'date'}),
-                           initial=date.today())
 
-    def __init__(self, *args, **kwargs):
+    def get_free_dates(self):
+        occupied_dates = Booking.objects.values_list('date', flat=True)
 
-        super().__init__(*args, **kwargs)
-        self.fields['date'].required = False
-        self.fields['date'].label = "Filter By Date:"
-        self.fields['date'].initial = date.today()
+        today = date.today()
+        last_date = today + timedelta(days=30)
+        free_dates = [
+            today + timedelta(days=n)
+            for n in range((last_date - today).days)
+        ]
 
-    class Meta:
-        """Meta class"""
-        model = Booking
-        fields = ['date']
+        free_dates = [
+            date for date in free_dates if date not in occupied_dates
+        ]
+
+        return free_dates  

@@ -155,7 +155,7 @@ class MyBookingView(View):
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
 
-            previous_bookings = (Booking.objects.filter(username=request.user, status = 1).order_by('event'))
+            previous_bookings = (Booking.objects.filter(username=request.user, status=1).order_by('event'))
             context = {
                 'previous_bookings': previous_bookings,
             }

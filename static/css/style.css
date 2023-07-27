@@ -97,19 +97,15 @@ h5 a:hover {
     margin-left: 15%;
 }
 
-.form-field {
-    margin-top: 0;
+#bookingform {
+    padding-top: 20px;
+    padding-inline: 50px;
+}
+.form-control {
+    padding-top: 60px;
+}
 
-}
-.form-title {
-    width: 80%;
-    
-}
 
-#FormControlTextarea{
-    margin-left: 45%;
-    width: 60%;
-}
 
 .footer {
     position: relative;
