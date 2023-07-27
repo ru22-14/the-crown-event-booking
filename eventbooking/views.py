@@ -102,7 +102,7 @@ class EventBookingView(TemplateView, View):
     template_name = 'booking.html' 
     form = BookingForm()
     
-    # def get(self, request, *args, **kwargs):
+    # def get(self, request):
         
     #     form = BookingForm()
         
@@ -112,9 +112,10 @@ class EventBookingView(TemplateView, View):
             
     #     }
     #     return render(request, 'booking.html', context)
-    
+   
+        
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs) 
         context['form'] = BookingForm
         # context['bookings'] = self.request.booking.objects.all()
         return context
@@ -153,11 +154,11 @@ class BookingEdit(UpdateView):
         return self.request.user.booking_set.all()
 
 class BookingDelete(DeleteView):
-   model = Booking
-   template_name = 'delete_booking.html'
-   success_url ='/' 
+    model = Booking
+    template_name = 'delete_booking.html'
+    success_url ='/' 
 
-   def get_queryset(self):
+    def get_queryset(self):
       return self.request.user.booking_set.all()        
                     
 

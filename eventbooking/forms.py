@@ -12,29 +12,16 @@ class CommentForm(forms.ModelForm):
 
 class BookingForm(forms.ModelForm):
     
-    date = forms.DateField(widget=forms.DateInput(attrs={'id': 'datePicker', 'class': 'form-control', 'type': 'date'}))
-    # timeblock = forms.ChoiceField(widget=forms.Select(
-    #              attrs={'id': 'time', 'class': 'form-select', 'type' : 'text'}),
-    #              choices=(("8:00 AM - 12:00 PM"), 
-    #                       ("14:00 PM - 18:00 PM"), 
-    #                       ("20:00 PM - 00:00 AM")))
-    # event = forms.ChoiceField(widget=forms.Select(
-    #              attrs={'id': 'event', 'class': 'form-select', 'type': 'text'}),
-    #              choices=(("Birthday"), ("Anniversary"), ("Business Dinner"), ("Graduation Party"),
-    #                       ("Eid Milan Party"), ("Party")))  
-    # menu = forms.ChoiceField(widget=forms.Select(
-    #              attrs={'id': 'menu', 'class': 'form-select', 'type': 'text'}),
-    #              choices=(("Italien"), ("Chinese"), ("Oriental"), ("Indien"),
-    #                       ("Snacks")))  
-    # drinks = forms.ChoiceField(widget=forms.Select(
-    #              attrs={'id': 'drinks', 'class': 'form-select', 'type': 'text'}),
-    #              choices=(("Juices"), ("Shakes"), ("Smoothies"), ("Fizzy Drinks"),
-    #                       ("Cocktails"), ("Mineral Water")))                                   
+    date = forms.DateField(widget=forms.DateInput(attrs={'id': 'datePicker', 'class': 'form-control', 'type': 'date'}))                                  
     
     class Meta:
  
         model = Booking
-        fields = ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks', 'theme', 'username']
+        fields = ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks','cake', 'theme', 'username']
+        widgets = {
+            'cake': forms.TextInput(attrs={'class': 'form-field', 'type': 'text', 'placeholder': 'Yes, or no'}),
+            'theme': forms.TextInput(attrs={'class': 'form-text','placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
+        }
         
 class DateBookingForm(forms.ModelForm):
     """
