@@ -6,7 +6,8 @@
 
   <form method="post">      
     {% csrf_token %}      
-    {{ form.as_p }}      
+    {{ form.as_p }}   
+    <h1>WELCOME</h1>   
     <input type="submit" value="Save">  
   </form> 
   <!-- <form action="{% url 'edit_booking' %}" method="POST" id="bookingform" class="form-control bg-dark text-center text-light">

@@ -1,23 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="row content col-10 col-lg-9">
-    <div class="center-container scroll max-h-100 h-100vh">
-        <div class="center-container profile">
-            <h2>Welcome back</h2> 
+
+<div class="container-fluid bg-dark text-warning">
+    <div class="row content col-12 col-lg-9 bg-dark">
+        <div class="center-container scroll px-4 max-h-100 h-100vh">
+            <div class="center-container profile">
+            <h2 class="heading py-3">Welcome back</h2> 
              {% for booking in previous_bookings %}
             <small>{{ booking.useremail }}</small><br><br>
-            <div class="flex sp-between a-end upper_manage">
+                <div class="flex sp-between a-end upper_manage">
                 <!-- Info message -->
                 <h4>Bookings for {{ booking.date }}</h4>
                 <form class="flex a-center" method="GET">
                     {% csrf_token %}
                     {{ date_form.as_p }}
-                    <button type="submit" class="btn btn-sm btn-simple" id="filterSubmit">Submit</button>
+                    <a href="{% url 'edit_booking' %}"> 
+                    <button type="submit" class="btn btn-sm btn-simple mb-4 text-warning" id="filterSubmit">Edit</button>
+                    </a>
                 </form>
-            </div>
+                </div>
             {% endfor %}
+            </div>
         </div>
-    </div>
+   </div>
 </div>            
 {% endblock %}

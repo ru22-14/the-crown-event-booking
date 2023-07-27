@@ -101,7 +101,9 @@ class EventBookingView(TemplateView, View):
 
     template_name = 'booking.html' 
     form = BookingForm()
-   
+    date = date.today()
+    time = Booking.TIME_CHOICE[0]
+    booking_capacity_per_day = 3
         
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs) 
@@ -109,18 +111,29 @@ class EventBookingView(TemplateView, View):
         # context['bookings'] = self.request.booking.objects.all()
         return context
 
-
     def post(self, request):
-        if request.method == 'POST':
-
+        booking_capacity_per_day = 3
+        if request.method == 'POST':  
             form = BookingForm(request.POST)
             if form.is_valid():
-               
-                    
+                booking = form.save(commit=False)
+                if booking.date < date.today():
+                    messages.error(request, "Booking in the past date is not allowed!")
                 
-                form.save()
+                booked_events = (Booking.objects.filter(date=booking.date, timeblock=booking.timeblock).count())
+                if booked_events >= booking_capacity_per_day:
+                    messages.error(request, "Sorry no more bookings are possible today!") 
+                    return redirect('booking')
+
+                context = {
+                    'form': form
+                }       
+                
+                booking.user = request.user
+                booking.save()
+                request.session['booking_id'] = booking.id
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                return render(request, 'mybooking.html') 
+                return render(request, 'events.html') 
 
                   
             else:
@@ -136,9 +149,7 @@ class BookingEdit(UpdateView):
 
     model = Booking
     template_name = 'edit_booking.html'
-    fields = ['event', 'guests', 'menu', 'drinks', 'theme',] 
-    success_url = '/mybooking' 
-   
+
     def get_queryset(self):
         return self.request.user.booking_set.all()
 
@@ -151,11 +162,11 @@ class MyBookingView(View):
     template_name = 'mybooking.html'
 
     def get(self, request):
-            
+          
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
 
-            previous_bookings = (Booking.objects.filter(username=request.user, status=1).order_by('event'))
+            previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
             context = {
                 'previous_bookings': previous_bookings,
             }

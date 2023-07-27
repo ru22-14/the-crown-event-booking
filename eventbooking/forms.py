@@ -16,10 +16,13 @@ class BookingForm(forms.ModelForm):
  
         model = Booking
         fields = ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks','cake', 'theme', 'username']
+
+        
         widgets = {
-            'cake': forms.TextInput(attrs={'class': 'form-field', 'type': 'text', 'placeholder': 'Yes, or no'}),
-            'theme': forms.TextInput(attrs={'class': 'form-text','placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
-            'date': forms.widgets.DateInput(attrs={'type': 'date'})
+            'cake': forms.TextInput(attrs={'class': 'form-field col-2', 'type': 'text', 'placeholder': 'Yes, or no'}),
+            'theme': forms.TextInput(attrs={'class': 'form-texinput col-4','placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
+            'date': forms.widgets.DateInput(attrs={'type': 'date'}),
+            'guests': forms.TextInput(attrs={'class': 'form-field col-3', 'type': 'text', 'placeholder': 'please choose between 15 and 50'}),
         }
 
     def get_free_dates(self):
