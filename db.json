@@ -1,0 +1,1242 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2023-07-11T12:53:12.262Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "birthdays",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2023-07-13T09:28:26.265Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "birthdays",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2023-07-17T14:08:05.013Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "1",
+        "object_repr": "birthdays",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2023-07-18T10:09:17.314Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2023-07-18T10:09:34.672Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "anniversary",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2023-07-18T10:12:12.180Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "abc",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2023-07-18T10:13:02.224Z",
+        "user": 1,
+        "content_type": 4,
+        "object_id": "4",
+        "object_repr": "abc",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2023-07-18T20:18:30.840Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "test",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2023-07-18T20:19:14.046Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "test",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2023-07-19T10:30:32.133Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2023-07-19T11:11:04.374Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "4",
+        "object_repr": "test",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2023-07-19T11:11:44.505Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Image\", \"Description\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2023-07-19T12:00:12.983Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "celeberations",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2023-07-19T12:03:18.597Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "celeberations",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Status\", \"Likes\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2023-07-19T17:38:52.369Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2023-07-19T17:45:58.123Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "6",
+        "object_repr": "Party",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2023-07-19T17:46:11.109Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "6",
+        "object_repr": "Party",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Status\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2023-07-19T18:05:26.521Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2023-07-19T18:12:19.526Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "2",
+        "object_repr": "birthday",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2023-07-19T18:12:19.549Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "3",
+        "object_repr": "anniversary",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2023-07-19T18:12:19.572Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "5",
+        "object_repr": "celeberations",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2023-07-19T18:12:19.594Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "6",
+        "object_repr": "Party",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2023-07-19T18:13:14.925Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "7",
+        "object_repr": "Birthday",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2023-07-19T18:27:05.130Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "7",
+        "object_repr": "Birthday",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2023-07-19T18:42:16.537Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "7",
+        "object_repr": "Birthday",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 26,
+    "fields": {
+        "action_time": "2023-07-19T20:56:27.236Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "11",
+        "object_repr": "Comment very happy with the arrangements by admin",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 27,
+    "fields": {
+        "action_time": "2023-07-19T21:35:52.370Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "8",
+        "object_repr": "Anniversary",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 28,
+    "fields": {
+        "action_time": "2023-07-19T21:37:45.054Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "9",
+        "object_repr": "Party",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 29,
+    "fields": {
+        "action_time": "2023-07-19T21:39:43.842Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "10",
+        "object_repr": "Business Dinner",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 30,
+    "fields": {
+        "action_time": "2023-07-19T21:41:09.674Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "11",
+        "object_repr": "Eid Party",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 31,
+    "fields": {
+        "action_time": "2023-07-19T21:42:54.459Z",
+        "user": 1,
+        "content_type": 8,
+        "object_id": "12",
+        "object_repr": "Graduation Party",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 32,
+    "fields": {
+        "action_time": "2023-07-20T17:48:17.470Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "12",
+        "object_repr": "Comment Very Happy with the arrangements. by rohina",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 33,
+    "fields": {
+        "action_time": "2023-07-20T19:02:49.912Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "11",
+        "object_repr": "Comment very happy with the arrangements by admin",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 34,
+    "fields": {
+        "action_time": "2023-07-20T19:03:32.796Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "12",
+        "object_repr": "Comment Very Happy with the arrangements. by rohina",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 35,
+    "fields": {
+        "action_time": "2023-07-24T00:08:05.794Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "Eid Party is booked by rohina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 36,
+    "fields": {
+        "action_time": "2023-07-24T00:08:18.329Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "Eid Party is booked by rohina",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 37,
+    "fields": {
+        "action_time": "2023-07-24T15:45:34.235Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "13",
+        "object_repr": "Comment I am testing comments. by admin",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"Useremail\", \"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 38,
+    "fields": {
+        "action_time": "2023-07-24T15:55:06.246Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "16",
+        "object_repr": "Comment very happy with all the arrangements. by rohina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"Useremail\", \"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 39,
+    "fields": {
+        "action_time": "2023-07-24T16:23:07.381Z",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "17",
+        "object_repr": "Comment awesome arrangements and very well planned by ruhi",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Username\", \"Useremail\", \"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 40,
+    "fields": {
+        "action_time": "2023-07-26T13:39:30.465Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "Eid Party is booked by rohina",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Timeblock\", \"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 41,
+    "fields": {
+        "action_time": "2023-07-26T21:48:32.845Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "21",
+        "object_repr": "Business Dinner is booked by ruhi",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 42,
+    "fields": {
+        "action_time": "2023-07-27T07:32:29.662Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "24",
+        "object_repr": "commentGraduation Party booked on 2023-07-31.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 43,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.888Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "24",
+        "object_repr": "commentGraduation Party booked on 2023-07-31.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 44,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.914Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "22",
+        "object_repr": "commentBusiness Dinner booked on 2023-07-31.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 45,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.935Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "21",
+        "object_repr": "commentBusiness Dinner booked on 2023-07-31.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 46,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.957Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "20",
+        "object_repr": "commentBusiness Dinner booked on 2023-07-31.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 47,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.978Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "3",
+        "object_repr": "commentGraduation Party booked on 2023-07-24.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 48,
+    "fields": {
+        "action_time": "2023-07-27T08:23:49.999Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "2",
+        "object_repr": "commentEid Party booked on 2023-07-23.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 49,
+    "fields": {
+        "action_time": "2023-07-27T08:23:50.026Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "1",
+        "object_repr": "commentEid Party booked on 2023-07-21.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 50,
+    "fields": {
+        "action_time": "2023-07-27T08:24:02.345Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "27",
+        "object_repr": "commentBirthday booked on 2023-07-30.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 51,
+    "fields": {
+        "action_time": "2023-07-27T08:24:18.364Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "25",
+        "object_repr": "commentParty booked on 2023-07-30.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 52,
+    "fields": {
+        "action_time": "2023-07-27T08:24:18.388Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "23",
+        "object_repr": "commentAnniversary booked on 2023-08-06.",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 53,
+    "fields": {
+        "action_time": "2023-07-27T08:29:37.940Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "28",
+        "object_repr": "commentParty booked on 2023-08-01.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 54,
+    "fields": {
+        "action_time": "2023-07-27T08:29:48.991Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "30",
+        "object_repr": "commentAnniversary booked on 2023-08-06.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 55,
+    "fields": {
+        "action_time": "2023-07-28T02:17:15.163Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "35",
+        "object_repr": "commentBirthday booked on 2023-08-03.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 56,
+    "fields": {
+        "action_time": "2023-07-28T02:27:44.090Z",
+        "user": 1,
+        "content_type": 10,
+        "object_id": "34",
+        "object_repr": "commentAnniversary booked on 2023-08-05.",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Approved\"]}}]"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$0CcoxRXYlqSrdsBozQ3wfT$FdEuuFMZshOFYgeCRefp14EwNdQUBAwbMwCde0z8K94=",
+        "last_login": "2023-07-28T10:19:46.908Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "ruhi.usman@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-07-10T13:58:45.942Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$RfhPhcBsE7fqV0x9w0mRam$Xmnid+by15RlBTOxqM5PbmBi6f+z8fAoCsjfiJbVYy4=",
+        "last_login": "2023-07-28T02:28:23.975Z",
+        "is_superuser": false,
+        "username": "rohina",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-07-13T09:50:34.928Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$iF6ZoqtBUlCjOvux6YaABd$5lfxTmawE/SPcCP0a20dyCQFD7ARSXKPLVmyUkqU+EI=",
+        "last_login": "2023-07-24T16:23:41.903Z",
+        "is_superuser": false,
+        "username": "ruhi",
+        "first_name": "",
+        "last_name": "",
+        "email": "rohina.usman@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-07-17T22:43:09.279Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$fYt6hiF5fexhFo1PYpAaCe$hFMFbyNQTCAF99KlbF8ennHWZ79yrn1TL/+JgrfoCvU=",
+        "last_login": "2023-07-19T09:32:26.902Z",
+        "is_superuser": true,
+        "username": "tutorsupport",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-07-19T09:31:08.863Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$tsgWzvodcvVDEbd9iztcrm$E2pBWuK0zuxM8lBNYmP0AK3uoTgjzIAGbcDR6sc49NI=",
+        "last_login": "2023-07-26T07:25:32.560Z",
+        "is_superuser": false,
+        "username": "abc",
+        "first_name": "",
+        "last_name": "",
+        "email": "abc@abc.def",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-07-24T08:42:22.069Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$S4FGjgOwvA6TfXjHTmPufz$jm0RYwuxwVLJL/VwUMxbpBDDtsF4PQRzXyrg4h/RgZU=",
+        "last_login": "2023-07-24T11:40:10.425Z",
+        "is_superuser": false,
+        "username": "rash",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-07-24T11:40:10.320Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "060jve72kv4m2ntiy31ucerk6b6z7pt3",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEgHR4u3fcbyMAMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJE4mLAHH63RLmB7cd0B3bbZZ5busyJbkr8qBdjjPx83q4fwcVe_3WjkkHjbYwQgk5WSDWxmWtVBkGR84QI_pAKhcL7A0CeI3hDGizcUq8PwLUODs:1qM3Xm:iepYzrXNU1ztheeNoJ96u08xXlWn5y84gPJPV6LnMRU",
+        "expire_date": "2023-08-02T09:32:26.926Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "bln1wcn7bastnjo5sbkfeblbnl216van",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAUBf-FtSEtt1ro0r3fQLgPLGrAlDbRGP9dm3Sh2zNz5qV8WObRL1Umn1gNyqjd74aBrpJXwJeQz0VTyfOUUK-K3mjVp8JyO27uX2AMdfy-0RrqyDIK9xGBxWDsHEUxB7YOyFHD0BukltEAuH10SACRgjXBSrtGq9SaSvbyuKfpqYbm_QHqGkCW:1qKY0r:xGDnXrdNEqMRHoJuKrLW9Nv_6o3P61GL78MuQo-5Ssc",
+        "expire_date": "2023-07-29T05:40:13.789Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "bra8art5vt41z1mjki8cdim7r3mshzhy",
+    "fields": {
+        "session_data": ".eJxVjDsOgzAQBe_iOkIGgz8p0-cM1np3CU4cWwKcJsrdAxIN7ZuZ9xWAWGpe_YfnOEYmz2-ISVxzTekiPNR18nXh2UcSV2HEaQuAL847oCfkR2mw5HWOodmV5qBLcy_E6Xa4p4MJlmmrOThnicn1TmvVolQOkWDoQKFyUpG2wfTWBTWQtOz6To6BjW5Du3VGid8fO4pC-w:1qNtv8:zG3H3O8asLMAXNwfMrRHXiC6y5xdR3uX5vaLv9r2vWU",
+        "expire_date": "2023-08-07T11:40:10.430Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "cigj0vny7vg0zi5lmtlzeahq8zzyiv2y",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAURP-la9PQ0nIvLN37DU0ft1I1LaGQaIz_LiQsNJnVzJnzZsauy2jWSrNJgQ1MsNNv56y_U96HcLP5WrgveZmT4zvCj7XySwn0OB_sn2C0ddzeoMB3KAEw2DbIEFuvUCJq2wgNGrWkTscG-h5Erxw56VVEsaW1sot-l1aqNZVs6Dml-cWG5vMFUUg-QQ:1qMc87:E3hpb3UwrKCdPl4pGk8mV6ioeeZzqgFs00_JSEPoN_A",
+        "expire_date": "2023-08-03T22:28:15.505Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "eqv7641ah8mjyny55vkdmy2a3v16qvpw",
+    "fields": {
+        "session_data": ".eJxVjMsOgjAURP-la9PQ0nIvLN37DU0ft1I1LaGQaIz_LiQsNJnVzJnzZsauy2jWSrNJgQ1MsNNv56y_U96HcLP5WrgveZmT4zvCj7XySwn0OB_sn2C0ddzeoMB3KAEw2DbIEFuvUCJq2wgNGrWkTscG-h5Erxw56VVEsaW1sot-l1aqNZVs6Dml-cWG5vMFUUg-QQ:1qPKZW:nXMjUYUAsQAPZC8HoubZ-1ixUpKdMXfJcfu-on9qVK4",
+        "expire_date": "2023-08-11T10:19:46.933Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "pj51mtz0hgpi0up44hrjmbtlphl1hdi6",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSG8itCle7-BMMzUogaa0iYa479rky50e8-558VCXJcxrI3mkJH1TLPD7wYx3ahsAK-xXCpPtSxzBr4pfKeNnyvS_bS7f4ExtvH7Nt6AVJasUxoGBTraiOAQ0UkF3SCFkQLT0RpKGp2lDpPyg7cefBTCbNFGreVaAj2mPD9ZL94fkn0_Pg:1qNyLV:kGDovJTu46hTu7m-Y3L1jBRenT3Cp8UEMujQWtZzn7o",
+        "expire_date": "2023-08-07T16:23:41.908Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "wz2f8cbk94qvw84khyribzkpkh2bhl58",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEtII8u3fsNZAamghowpU00xn_Xmi50e8-558k8LHPyS6PJ58gGptnud0MIFyoriGcop8pDLfOUka8K32jjxxrpetjcv0CClj5vAiscCuwooFToEAQpMKNVDmyvVJCqDzpqK6zQ_V4GaQSO2jgcJWr7jTZqLdfi6X7L04MN3esNmaw_Gg:1qNsUy:8MHTIijqHPiCvjGv8_iwAhDD_J6woslxTI0PrlMJSgw",
+        "expire_date": "2023-08-07T10:09:04.749Z"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "xjtk55b74mxvafnhhwsg9xtggzfb7sc4",
+    "fields": {
+        "session_data": ".eJxVjMsOwiAQRf-FtSEtII8u3fsNZAamghowpU00xn_Xmi50e8-558k8LHPyS6PJ58gGptnud0MIFyoriGcop8pDLfOUka8K32jjxxrpetjcv0CClj5vAiscCuwooFToEAQpMKNVDmyvVJCqDzpqK6zQ_V4GaQSO2jgcJWr7jTZqLdfi6X7L04MN3esNmaw_Gg:1qOYto:HVJENkPvLxRitC_dWuXO8bSB0ykQPWK70kTY3a41mDg",
+        "expire_date": "2023-08-09T07:25:32.566Z"
+    }
+},
+{
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 1,
+    "fields": {
+        "user": 3,
+        "email": "rohina.usman@gmail.com",
+        "verified": false,
+        "primary": true
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 2,
+    "fields": {
+        "user": 6,
+        "email": "abc@abc.def",
+        "verified": false,
+        "primary": true
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 7,
+    "fields": {
+        "title": "Birthday",
+        "slug": "birthday",
+        "featured_image": "image/upload/v1689790394/tuu6iuym358al0chdg1u.jpg",
+        "description": "i am testing",
+        "created_on": "2023-07-19T18:13:14.882Z",
+        "updated_on": "2023-07-19T18:42:16.493Z",
+        "status": 1,
+        "likes": [
+            2
+        ]
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 8,
+    "fields": {
+        "title": "Anniversary",
+        "slug": "anniversary",
+        "featured_image": "image/upload/v1689802551/mvd2ffgkyxd3wgsyuywn.jpg",
+        "description": "adding event",
+        "created_on": "2023-07-19T21:35:52.330Z",
+        "updated_on": "2023-07-19T21:35:52.330Z",
+        "status": 1,
+        "likes": []
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 9,
+    "fields": {
+        "title": "Party",
+        "slug": "party",
+        "featured_image": "image/upload/v1689802663/deyqxxbuhzwxfigk41az.jpg",
+        "description": "Party",
+        "created_on": "2023-07-19T21:37:45.012Z",
+        "updated_on": "2023-07-19T21:37:45.012Z",
+        "status": 1,
+        "likes": [
+            3
+        ]
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 10,
+    "fields": {
+        "title": "Business Dinner",
+        "slug": "business-dinner",
+        "featured_image": "image/upload/v1689802782/elxah5k43obtxbe96zhh.jpg",
+        "description": "Business Dinner",
+        "created_on": "2023-07-19T21:39:43.802Z",
+        "updated_on": "2023-07-19T21:39:43.802Z",
+        "status": 1,
+        "likes": []
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 11,
+    "fields": {
+        "title": "Eid Party",
+        "slug": "eid-party",
+        "featured_image": "image/upload/v1689802868/hc6slhanbb9l74smycva.jpg",
+        "description": "Eid Party",
+        "created_on": "2023-07-19T21:41:09.631Z",
+        "updated_on": "2023-07-19T21:41:09.631Z",
+        "status": 1,
+        "likes": [
+            1
+        ]
+    }
+},
+{
+    "model": "eventbooking.event",
+    "pk": 12,
+    "fields": {
+        "title": "Graduation Party",
+        "slug": "graduation-party",
+        "featured_image": "image/upload/v1689802973/zqktsldvg7wvhzckjguz.jpg",
+        "description": "Graduation Party",
+        "created_on": "2023-07-19T21:42:54.418Z",
+        "updated_on": "2023-07-19T21:42:54.418Z",
+        "status": 1,
+        "likes": [
+            1
+        ]
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 26,
+    "fields": {
+        "event": 8,
+        "date": "2023-07-29",
+        "timeblock": "14:00 AM - 18:00 PM",
+        "theme": "rose",
+        "guests": 30,
+        "menu": "indien",
+        "cake": "yes",
+        "drinks": "cocktails",
+        "username": 2,
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 27,
+    "fields": {
+        "event": 7,
+        "date": "2023-07-30",
+        "timeblock": "14:00 AM - 18:00 PM",
+        "theme": "fairytale",
+        "guests": 50,
+        "menu": "snacks",
+        "cake": "yes",
+        "drinks": "juices",
+        "username": 3,
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 28,
+    "fields": {
+        "event": 9,
+        "date": "2023-08-01",
+        "timeblock": "20:00 AM - 00:00 AM",
+        "theme": "disco",
+        "guests": 45,
+        "menu": "Italien",
+        "cake": "no",
+        "drinks": "cocktails",
+        "username": 1,
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 29,
+    "fields": {
+        "event": 11,
+        "date": "2023-08-02",
+        "timeblock": "14:00 AM - 18:00 PM",
+        "theme": "oriental",
+        "guests": 45,
+        "menu": "oriental",
+        "cake": "no",
+        "drinks": "juices",
+        "username": 1,
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 30,
+    "fields": {
+        "event": 8,
+        "date": "2023-08-06",
+        "timeblock": "14:00 AM - 18:00 PM",
+        "theme": "rose",
+        "guests": 20,
+        "menu": "indien",
+        "cake": "yes",
+        "drinks": "cocktails",
+        "username": 1,
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 31,
+    "fields": {
+        "event": 8,
+        "date": "2023-07-30",
+        "timeblock": "20:00 AM - 00:00 AM",
+        "theme": "rose",
+        "guests": 23,
+        "menu": "chinese",
+        "cake": "yes",
+        "drinks": "cocktails",
+        "username": 2,
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 32,
+    "fields": {
+        "event": 8,
+        "date": "2023-07-30",
+        "timeblock": "20:00 AM - 00:00 AM",
+        "theme": "rose",
+        "guests": 23,
+        "menu": "chinese",
+        "cake": "yes",
+        "drinks": "cocktails",
+        "username": 2,
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 34,
+    "fields": {
+        "event": 8,
+        "date": "2023-08-05",
+        "timeblock": "20:00 AM - 00:00 AM",
+        "theme": "rose",
+        "guests": 30,
+        "menu": "Italien",
+        "cake": "yes",
+        "drinks": "cocktails",
+        "username": 2,
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 35,
+    "fields": {
+        "event": 7,
+        "date": "2023-08-03",
+        "timeblock": "14:00 AM - 18:00 PM",
+        "theme": "unicorn",
+        "guests": 30,
+        "menu": "snacks",
+        "cake": "yes",
+        "drinks": "shakes",
+        "username": 3,
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.booking",
+    "pk": 36,
+    "fields": {
+        "event": 11,
+        "date": "2023-07-31",
+        "timeblock": "8:00 AM - 12:00 PM",
+        "theme": "oriental",
+        "guests": 45,
+        "menu": "oriental",
+        "cake": "no",
+        "drinks": "juices",
+        "username": 2,
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.comment",
+    "pk": 13,
+    "fields": {
+        "event": 11,
+        "username": "admin",
+        "useremail": "rohina.usman@gmail.com",
+        "message": "I am testing comments.",
+        "created_on": "2023-07-24T15:43:55.863Z",
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.comment",
+    "pk": 14,
+    "fields": {
+        "event": 11,
+        "username": "",
+        "useremail": "",
+        "message": "I am testing comments.",
+        "created_on": "2023-07-24T15:51:05.750Z",
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.comment",
+    "pk": 15,
+    "fields": {
+        "event": 11,
+        "username": "",
+        "useremail": "",
+        "message": "I am testing comments.",
+        "created_on": "2023-07-24T15:51:37.742Z",
+        "approved": false
+    }
+},
+{
+    "model": "eventbooking.comment",
+    "pk": 16,
+    "fields": {
+        "event": 7,
+        "username": "rohina",
+        "useremail": "rohina.usman@gmail.com",
+        "message": "very happy with all the arrangements.",
+        "created_on": "2023-07-24T15:53:29.894Z",
+        "approved": true
+    }
+},
+{
+    "model": "eventbooking.comment",
+    "pk": 17,
+    "fields": {
+        "event": 9,
+        "username": "ruhi",
+        "useremail": "rohina.usman@gmail.com",
+        "message": "awesome arrangements and very well planned",
+        "created_on": "2023-07-24T16:21:00.425Z",
+        "approved": true
+    }
+}
+]

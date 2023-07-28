@@ -6,25 +6,48 @@
     <div class="row content col-12 col-lg-9 bg-dark">
         <div class="center-container scroll px-4 max-h-100 h-100vh">
             <div class="center-container profile">
-            <h2 class="heading py-3">Welcome back</h2> 
+            <h2 class="heading py-3">Welcome To Your Bookings</h2> 
              {% for booking in previous_bookings %}
             <small>{{ booking.useremail }}</small><br><br>
                 <div class="flex sp-between a-end upper_manage">
                 <!-- Info message -->
-                <h4>Bookings for {{ booking.date }}</h4>
+                <h4> Name: {{ booking.username }} <br> Event:  {{ booking.event }} </h4> 
+                <h6><br>Date: {{ booking.date }} <br>   Time: {{ booking.timeblock }}</h6>
+                <form class="flex a-center" method="GET" action="{% url 'update_booking' pk=booking.id %}">
+                    <!-- {% csrf_token %} -->
+                    {{ date_form.as_p }}
+   
+                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit" 
+                    name="delete_booking_id" value="{{booking.id}}">Update</button> 
+               
+                    
+                </form>
                 <form class="flex a-center" method="GET">
                     <!-- {% csrf_token %} -->
                     {{ date_form.as_p }}
-                    <a href="{% url 'edit_booking' %}">
-                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit"
-                    name="edit_booking_id" value="{{booking.id}}"> Edit</button></a>
-                    <a href="{% url 'delete_booking' %}"> 
+   
                     <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit" 
-                    name="delete_booking_id" value="{{booking.id}}">Cancel</button></a>
-                   
+                    name="delete_booking_id" value="{{booking.id}}" onclick="return confirm('Are you Sure to Delete This?')">Cancel</button> 
+               
+                    
                 </form>
+                
+
                 </div>
+                <div class="col">
+                    {% if booking.approved %}
+                    <p class="card-text text-light mb-4"><i class="fas fa-check"></i>
+                        Approved</p><hr>
+                    {% else %}
+                    <p class="card-text text-light mb-4"><i class="fas fa-question"></i>
+                        Awaiting Approval</p> <hr>
+                    {% endif %}
+                </div>
+            {% empty %} 
+            You have no bookings at the moment.   
             {% endfor %}
+
+            
             </div>
         </div>
    </div>

@@ -158,40 +158,28 @@ class MyBookingView(View):
                 'previous_bookings': previous_bookings,
             }
             return render(request, 'mybooking.html', context)
-
-        else:
-            messages.error(
-                request,
-                'You need to log in to view your bookings.'
-            )
-            return redirect('login')
-        context = {
-            'booking_list': booking_list
-        }  
-
   
 
-class EditBookingView(UpdateView, View):
+class UpdateBookingView(UpdateView):
 
-    template_name = 'edit_booking.html' 
+    template_name = 'update_booking.html' 
     date = date.today()
-    time = Booking.TIME_CHOICE[0]
     booking_capacity_per_day = 3  
 
     def get(self, request, *args, **kwargs):
         """
         Specification of the data entered into the form.
         """
-        id = request.POST.get('edit_booking_id')
+        id = request.POST.get('update_booking_id')
         booking = get_object_or_404(Booking, id=id, username=request.user)
         form = BookingForm(instance=booking)
         context = {
             'form': form,
         }
-        return render(request, 'edit_booking.html', context) 
+        return render(request, 'update_booking.html', context) 
 
     def post(self, request, *args, **kwargs):
-        id = request.POST.get('edit_booking')
+        id = request.POST.get('update_booking')
         booking = get_object_or_404(Booking, id=id, username=request.user)
         # booking = get_object_or_404(Booking, id=booking_id, user=request.user)
         form = BookingForm(request.POST, instance=booking)
@@ -215,7 +203,7 @@ class EditBookingView(UpdateView, View):
             event_booking.save()
             request.session['booking_id'] = event_booking.id
             messages.success(request, 'Your booking is updated successfully and is waiting for approval now.')
-            return render(request, 'mybooking.html') 
+            return render(request, 'events.html') 
 
         else:
             messages.error(request, 'There is some problem submitting your booking.') 
@@ -223,17 +211,18 @@ class EditBookingView(UpdateView, View):
         context = {
             'form': form,
         }
-        return render(request, 'edit_booking.html', context)
+        return render(request, 'update_booking.html', context)
     
 
-class DeleteBookingView(DeleteView, View):
+class DeleteBookingView(DeleteView):
 
     template_name = 'delete_booking.html'
 
-    def post(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
 
-        id = request.POST.get('edit_booking_id')
-        booking = get_object_or_404(Booking, id=id, username=request.user)
+        id = request.POST.get('delete_booking_id')
+        booking = get_object_or_404(Booking, id=id, username=request.user, approved=True)
+        
 
         context = {
             'booking': booking
@@ -242,10 +231,10 @@ class DeleteBookingView(DeleteView, View):
 
     def post(self, request, *args, **kwargs):
 
-        id = request.POST.get('edit_booking_id')
-        booking = get_object_or_404(Booking, id=id, username=request.user)
+        id = request.POST.get('delete_booking_id')
+        booking = get_object_or_404(Booking, id=id, username=request.user, approved=True)
 
         booking.delete()
         messages.success(request, 'Your booking has been cancelled') 
-        return HttpResponseRedirect(reverse('mybookings'))   
+        return render (request, 'mybooking.html', context)   
    
