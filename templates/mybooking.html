@@ -13,55 +13,28 @@
                 <!-- Info message -->
                 <h4> Name: {{ booking.username }} <br> Event:  {{ booking.event }} </h4> 
                 <h6><br>Date: {{ booking.date }} <br>   Time: {{ booking.timeblock }}</h6>
-
-                <td>
-                    <a href="{% url 'update_booking' {{booking.id}} %}">
-                        <button class="btn  btn-outline-warning bg-dark ">Update</button>
-                    </a>
-                </td>
-                <br>
-                <td>
-                    <a href="{% url 'delete_booking' %}">
-                        <button class="btn  btn-outline-warning bg-dark ">Cancel</button>
-                    </a>
-                </td>
-                <!-- <form class="flex a-center" method="GET"> -->
-                    <!-- {% csrf_token %} -->
-                    <!-- {{ date_form.as_p }}
-   
-                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit" 
-                    name="delete_booking_id" value="{{booking.id}}">Update</button> 
-               
-                    
-                </form>
-                <form class="flex a-center" method="GET"> -->
-                    <!-- {% csrf_token %} -->
-                    <!-- {{ date_form.as_p }}
-   
-                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit" 
-                    name="delete_booking_id" value="{{booking.id}}" onclick="return confirm('Are you Sure to Delete This?')">Cancel</button> 
-               
-                    
-                </form> -->
-                
-
                 </div>
                 <div class="col">
                     {% if booking.approved %}
                     <p class="card-text text-light mb-4"><i class="fas fa-check"></i>
-                        Approved</p><hr>
+                        Approved</p>
                     {% else %}
                     <p class="card-text text-light mb-4"><i class="fas fa-question"></i>
-                        Awaiting Approval</p> <hr>
+                        Awaiting Approval</p> 
                     {% endif %}
+                    <a href="{% url 'update_booking' booking.id %}">
+                        <button class="btn  btn-outline-warning bg-dark ">Update</button>
+                    </a>
+                    <a href="{% url 'delete_booking' booking.id %}">
+                        <button class="btn  btn-outline-warning bg-dark ">Cancel</button>
+                    </a>
+                    <hr>
                 </div>
             {% empty %} 
             You have no bookings at the moment.   
             {% endfor %}
-
-            
-            </div>
+        
         </div>
-   </div>
+    </div>
 </div>            
 {% endblock %}

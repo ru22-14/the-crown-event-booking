@@ -166,24 +166,22 @@ class UpdateBookingView(UpdateView):
 
     template_name = 'update_booking.html' 
     date = date.today()
-    booking_capacity_per_day = 3  
+    
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, booking_id):
 #         """
 #         Specification of the data entered into the form.
 #        """
-        id = request.POST.get('update_booking_id')
-        booking = get_object_or_404(Booking, id=id, username=request.user)
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         form = BookingForm(instance=booking)
         context = {
             'form': form,
         }
         return render(request, 'update_booking.html', context) 
 
-    def post(self, request, booking_id, *args, **kwargs):
-        id = request.POST.get('update_booking')
-        booking = get_object_or_404(Booking, id=id, username=request.user)
-        booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+    def post(self, request, booking_id):
+        booking_capacity_per_day = 3 
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         form = BookingForm(request.POST, instance=booking)
 
         if form.is_valid():
@@ -202,6 +200,7 @@ class UpdateBookingView(UpdateView):
                 }       
                 
             event_booking.user = request.user
+            event_booking.approved = False
             event_booking.save()
             request.session['booking_id'] = event_booking.id
             messages.success(request, 'Your booking is updated successfully and is waiting for approval now.')
@@ -220,10 +219,9 @@ class DeleteBookingView(DeleteView):
 
     template_name = 'delete_booking.html'
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, booking_id):
 
-        id = request.POST.get('delete_booking_id')
-        booking = get_object_or_404(Booking, id=id, username=request.user, approved=True)
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
         
 
         context = {
@@ -231,12 +229,11 @@ class DeleteBookingView(DeleteView):
         }
         return render (request, 'delete_booking.html', context)
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, booking_id):
 
-        id = request.POST.get('delete_booking_id')
-        booking = get_object_or_404(Booking, id=id, username=request.user, approved=True)
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
 
         booking.delete()
         messages.success(request, 'Your booking has been cancelled') 
-        return render (request, 'mybooking.html', context)   
+        return HttpResponseRedirect(reverse('mybooking'))   
    
