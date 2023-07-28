@@ -40,3 +40,5 @@ class BookingForm(forms.ModelForm):
         ]
 
         return free_dates  
+
+        

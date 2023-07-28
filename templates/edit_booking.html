@@ -1,81 +1,22 @@
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
 <center>
 
-  <form method="post">      
-    {% csrf_token %}      
-    {{ form.as_p }}   
-    <h1>WELCOME</h1>   
-    <input type="submit" value="Save">  
-  </form> 
-  <!-- <form action="{% url 'edit_booking' %}" method="POST" id="bookingform" class="form-control bg-dark text-center text-light">
-    {% csrf_token %}
-    <h3 class="text-warning  py-3 ">Edit Your Booking</h3>
-    <div class="container-fluid text-center">
-      <div class=" form-field col-lg-6 py-2 px-4  mx-auto">
-        <label for="id_event"> Event: {{ form.event }} </label>  
-        
-          
-      </div>
-      <div class="form-field">
-          <!-- Guest input-->
-        <!-- <label for="id_guests"><i class="fas fa-user"></i> No. of Guests:</label>
-          {{ form.guests }}
-      </div> 
-
-      <div class=" form-field col-6 justify-content-center my-4">  -->
-          <!-- Theme input -->
-        <!-- <label for="id_theme" ></i> Theme for Event :</label>
-        {{ form.theme }} 
-          
-      </div> -->
-        <!-- menu input -->
-      <!-- <div class="col-8 mb-3 py-2 px-4 mx-auto">
-          <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.menu }}>
-            <label for="eventMenu"> Menu: </label>
-            <option selected>Menu</option>
-            <option value="1">Italien</option>
-            <option value="2">Chinese</option>
-            <option value="3">Oriental</option>
-            <option value="1">Indien</option>
-            <option value="2">Snacks</option>
-
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-              <label class="form-check-label" for="flexSwitchCheckDefault">Cake</label>
-              
-            </div>
-          </select>
-      <div class="col-8 mb-3 py-2 px-4 mx-auto">
-            <select class="form-select form-select-md bg-light text-dark" aria-label=".form-select-sm" {{ form.drinks }}>
-              
-              <option selected>Drinks</option>
-              <option value="1">Juices</option>
-              <option value="2">Cocktails</option>
-              <option value="3">Fizzy Drinks</option>
-              <option value="1">Shakes</option>
-              <option value="2">Smoothies</option>
-            </select>
-      </div>
-      <div class="form-field col-8 justify-content-center mx-auto">  -->
-          <!-- Name input -->
-          <!-- <label for="id_username" aria-autocomplete="inline"><i class="fas fa-user"></i> Full Name :</label>
-        
-          {{ form.username }} -->
+  <div class="container-fluid bg-dark" id="editbookingform">
+    <div class="col-md-12 py-4">
   
-          <!-- Email input -->
-          <!-- <label for="id_useremail"><i class="fa-solid fa-envelope"></i> Email :</label>
-         
-          {{ form.useremail }}
-      </div> 
-
-        <button type="submit" method=" POST" class="btn btn-form text-warning">Submit</button>
+      <h3 class="text-warning ">Book an Event</h3>
+  
+      <form action="{% url 'edit_booking' %}" method="post"  class="form-control bg-dark text-center text-light" name="edit_booking_id">
+  
+      {% csrf_token %}
+      {{ form.as_p }} 
+  
+      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Submit</button>
+      </form> 
     </div>  
-  
   </div>
-      
-  </form>  -->
 </center>
-{% endblock %}
+{% endblock %} -->

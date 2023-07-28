@@ -13,11 +13,15 @@
                 <!-- Info message -->
                 <h4>Bookings for {{ booking.date }}</h4>
                 <form class="flex a-center" method="GET">
-                    {% csrf_token %}
+                    <!-- {% csrf_token %} -->
                     {{ date_form.as_p }}
-                    <a href="{% url 'edit_booking' %}"> 
-                    <button type="submit" class="btn btn-sm btn-simple mb-4 text-warning" id="filterSubmit">Edit</button>
-                    </a>
+                    <a href="{% url 'edit_booking' %}">
+                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit"
+                    name="edit_booking_id" value="{{booking.id}}"> Edit</button></a>
+                    <a href="{% url 'delete_booking' %}"> 
+                    <button type="submit" class="btn btn-md btn-simple mb-4 text-warning" id="filterSubmit" 
+                    name="delete_booking_id" value="{{booking.id}}">Cancel</button></a>
+                   
                 </form>
                 </div>
             {% endfor %}
