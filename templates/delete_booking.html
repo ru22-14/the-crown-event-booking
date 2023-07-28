@@ -10,11 +10,11 @@
       <h3 class="text-warning ">Delete Event</h3>
   
       <form method="post"  class="form-control bg-dark text-center text-light">
-  
+        <h5 class="text-warning">Are You Sure You Want to Cancel The Booking?</h5>
       {% csrf_token %}
       {{ form.as_p }} 
   
-      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Delete</button>
+      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Cancel</button>
       </form> 
     </div>  
   </div>

@@ -9,10 +9,10 @@
     <h3 class="text-warning ">Book an Event</h3>
 
     <form action="{% url 'booking' %}" method="post"  class="form-control bg-dark text-center text-light" name="booking_id">
-
+         
     {% csrf_token %}
     {{ form.as_p }} 
-
+    
     <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Submit</button>
     </form> 
   </div>  
