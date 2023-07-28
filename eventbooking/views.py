@@ -158,7 +158,9 @@ class MyBookingView(View):
                 'previous_bookings': previous_bookings,
             }
             return render(request, 'mybooking.html', context)
-  
+
+
+
 
 class UpdateBookingView(UpdateView):
 
@@ -167,9 +169,9 @@ class UpdateBookingView(UpdateView):
     booking_capacity_per_day = 3  
 
     def get(self, request, *args, **kwargs):
-        """
-        Specification of the data entered into the form.
-        """
+#         """
+#         Specification of the data entered into the form.
+#        """
         id = request.POST.get('update_booking_id')
         booking = get_object_or_404(Booking, id=id, username=request.user)
         form = BookingForm(instance=booking)
@@ -178,10 +180,10 @@ class UpdateBookingView(UpdateView):
         }
         return render(request, 'update_booking.html', context) 
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, booking_id, *args, **kwargs):
         id = request.POST.get('update_booking')
         booking = get_object_or_404(Booking, id=id, username=request.user)
-        # booking = get_object_or_404(Booking, id=booking_id, user=request.user)
+        booking = get_object_or_404(Booking, id=booking_id, user=request.user)
         form = BookingForm(request.POST, instance=booking)
 
         if form.is_valid():

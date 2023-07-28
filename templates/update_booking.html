@@ -1,22 +1,22 @@
-<!-- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
 <center>
 
-  <div class="container-fluid bg-dark" id="editbookingform">
+  <div class="container-fluid bg-dark" id="updatebookingform">
     <div class="col-md-12 py-4">
   
-      <h3 class="text-warning ">Book an Event</h3>
+      <h3 class="text-warning ">Update Event</h3>
   
-      <form action="{% url 'edit_booking' %}" method="post"  class="form-control bg-dark text-center text-light" name="edit_booking_id">
+      <form method="post"  class="form-control bg-dark text-center text-light">
   
       {% csrf_token %}
       {{ form.as_p }} 
   
-      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Submit</button>
+      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Update</button>
       </form> 
     </div>  
   </div>
 </center>
-{% endblock %} -->
+{% endblock %}
