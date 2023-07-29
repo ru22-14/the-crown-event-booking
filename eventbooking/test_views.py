@@ -1,4 +1,5 @@
 from django.test import TestCase, Client
+from django.urls import reverse
 from .models import Event, Booking, Comment
 from django.contrib.auth.models import User
 from datetime import datetime, date
@@ -16,10 +17,10 @@ class TestViews(TestCase):
     @classmethod
     def setUpTestData(self):
         self.client = Client()
-        # self.user = User.objects.create_user(
-        #     username='rumaissa',
-        #     password='1482'
-        # )
+        self.user = User.objects.create_user(
+            username='rumaissa',
+            password='1482'
+        )
 
         self.event = Event.objects.create(
             title='test event party',
@@ -27,6 +28,7 @@ class TestViews(TestCase):
             description='this is the test event datenight content',
             status=1
         )
+      
         self.comment = Comment.objects.create(
             event=self.event,
             username=self.user,
@@ -36,10 +38,10 @@ class TestViews(TestCase):
         self.booking = Booking.objects.create(
 
             username=self.user,
-            event='Eid Party',
+            event=self.event,
             guests=40,
-            date='July 31, 2023',
-            time='10 AM - 12 AM',
+            # date='July 31, 2023',
+            # time='10 AM - 12 AM',
             menu='oriental',
             drinks='juices',
             theme='oriental',
@@ -52,7 +54,13 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'base.html')
         self.assertTemplateUsed(response, 'index.html')
-        
+
+    def test_get_events_detail_page(self):
+        response = self.client.get(
+                    reverse('events_detail', args=[self.event.slug]))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'base.html')
+        self.assertTemplateUsed(response, 'events_detail.html')    
 
 
         
