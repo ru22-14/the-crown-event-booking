@@ -3,13 +3,6 @@ from django.urls import reverse
 from .models import Event, Booking, Comment
 from django.contrib.auth.models import User
 from datetime import datetime, date
-from .views import (
-    EventListView,
-    MyBookingView,
-    EventBookingView,
-    UpdateBookingView,
-    DeleteBookingView,
-)
 
 
 class TestViews(TestCase):
@@ -23,29 +16,29 @@ class TestViews(TestCase):
         )
 
         self.event = Event.objects.create(
-            title='test event datenight',
-            slug='test-event-slug-party',
-            description='this is the test event datenight content',
+            title='test event partynight',
+            slug='test-event-slug-partynight',
+            description='this is the test event partynight content',
             status=1
         )
       
         self.comment = Comment.objects.create(
             event=self.event,
             username=self.user,
-            message='this is a comment for event party'
+            message='this is a comment for partynight event.'
         )
 
         self.booking = Booking.objects.create(
 
-            username=self.user,
             event=self.event,
-            guests=40,
-            # date='July 31, 2023',
-            # time='10 AM - 12 AM',
-            menu='oriental',
-            drinks='juices',
-            theme='oriental',
+            guests='40',
+            date='2023-07-31',
+            timeblock='20:00 PM - 00:00 AM',
+            menu='chinese',
+            drinks='cocktails',
+            theme='disco',
             cake='no',
+            username=self.user,
             approved=False,
         )
 
@@ -88,27 +81,26 @@ class TestViews(TestCase):
         response = self.client.get(
                     reverse('events_detail', args=[self.event.slug]),
                     data={'message': 'test comment'})
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, ('events_detail.html'))     
-        self.assertTemplateUsed(response, ('base.html'))            
+        self.assertRedirects(
+            response, reverse('events_detail', args=[self.event.slug]))           
 
    
     def test_get_booking_event(self):
         self.client.login(username='testuser', password='14682')
         response = self.client.post(
                     reverse('booking'), data={
-                                                'event': Event.title,
+                                                'event': self.event,
                                                 'guests': '40',
                                                 'date': '2023-07-31',
-                                                'time': '8:00 PM - 00:00 AM',
+                                                'timeblock': '8:00 PM - 00:00 AM',
                                                 'menu': 'chinese',
                                                 'drinks': 'cocktails',
                                                 'theme': 'disco',
+                                                'cake': 'no',
                                                 'username': self.user
                                             })
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, ('booking.html'))     
-        self.assertTemplateUsed(response, ('base.html'))
+        self.assertRedirects(response, reverse('mybooking'))
 
     
     def test_get_update_booking_view(self):
@@ -120,39 +112,47 @@ class TestViews(TestCase):
 
     def test_post_update_booking(self):
         self.client.login(username='testuser', password='14682')
-        data = {
-            'event': self.event,
-            'guests': '40',
-            'date': '2023-07-31',
-            'time': '8:00 PM - 00:00 AM',
-            'menu': 'chinese',
-            'drinks': 'cocktails',
-            'theme': 'disco',
-            'username': self.user
-        }
         response = self.client.post(
-            reverse('update_booking', args=[self.booking.id]), data
-        )
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, ('booking.html'))     
-        self.assertTemplateUsed(response, ('base.html'))
-
-    
-    def test_delete_booking_get(self):
-        self.client.login(username='testuser', password='14682')
-        response = self.client.get(
-            reverse('delete_booking', args=[self.booking.id])
-        )
-        self.assertEqual(response.status_code, 200)
-
-    def test_delete_booking_post(self):
-        self.client.login(username='testuser', password='14682')
-        response = self.client.post(
-            reverse('delete_booking', args=[self.booking.id])
-        )
+            reverse('update_booking', args=[self.booking.id]),
+            data={
+                    'event': self.event,
+                    'guests': '40',
+                    'date': '2023-07-31',
+                    'timeblock': '8:00 PM - 00:00 AM',
+                    'menu': 'chinese',
+                    'drinks': 'cocktails',
+                    'theme': 'disco',
+                    'cake': 'no',
+                    'username': self.user
+                })
+       
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/mybooking/') 
+        self.assertRedirects(response, '/events/')
 
+    def test_delete_booking(self):
+        self.client.login(username='testuser', password='14682')
+        booking = Booking.objects.create(
+            event=self.event,
+            guests='40',
+            date='2023-7-31',
+            timeblock='20:00 PM - 00:00 AM',
+            menu='chinese',
+            drinks='cocktails',
+            theme='disco',
+            cake='no',
+            username=self.user,
+            approved=False
+        )
+        existing_bookings = Booking.objects.filter(id=booking.id)
+        self.assertEqual(len(existing_bookings), 1)
+        response = self.client.post(
+                    reverse('delete_booking', args=[self.booking.id]),
+                    data={'delete_booking_id': f'{booking.id}'})
+        self.assertRedirects(response, reverse('mybooking'))
+        existing_bookings = Booking.objects.filter(id=booking.id)
+        self.assertEqual(len(existing_bookings), 0)    
+        
+        
 
         
         
