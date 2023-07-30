@@ -1,4 +1,4 @@
-<h1 align = "center">MAKE EVERY MOMENT MEMORABLE <br> AN EXCEPTIONAL EXPERIENCE EVERY TIME</h1>
+<h1 align = "center">THE CROWN EVENTS</h1><h3 align = "center">MAKE EVERY MOMENT MEMORABLE <br> AN EXCEPTIONAL EXPERIENCE EVERY TIME</h3> <hr>
 
 # Index - Table of Contents
 

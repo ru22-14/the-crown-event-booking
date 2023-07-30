@@ -28,11 +28,11 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-dc77203a8sb.ws-eu101.gitpod.io']
 
-ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-tjm90on1swk.ws-eu102.gitpod.io', 'localhost', 'the-crown-event-d0c891afb09a.herokuapp.com']
+ALLOWED_HOSTS = ['8000-ru2214-thecrowneventboo-y2chvgkpkub.ws-eu102.gitpod.io', 'localhost', 'the-crown-event-d0c891afb09a.herokuapp.com']
 
 # Application definition
 
@@ -97,16 +97,16 @@ WSGI_APPLICATION = 'thecrownevent.wsgi.application'
 # Database = 
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#      'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-#  }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+DATABASES = {
+     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+ }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
