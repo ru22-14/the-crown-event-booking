@@ -68,20 +68,23 @@ class EventDetailView(View):
            
             comment.save()
             messages.success(request, 'Thank You For your Review!')
+            return HttpResponseRedirect(reverse('events_detail', args=[slug]))
         else:
             comment_form = CommentForm()
+            
+            
 
-        return render(
-            request,
-            "events_detail.html",
-            {
-                "event": event,
-                "comments": comments,
-                "commented": True,
-                "comment_form": comment_form,
-                "liked": liked
-            },
-        )    
+        # return render(
+        #         request,
+        #         "events_detail.html",
+        #     {
+        #         "event": event,
+        #         "comments": comments,
+        #         "commented": True,
+        #         "comment_form": comment_form,
+        #         "liked": liked
+        #     },
+        # )    
     
 
 class EventLikeView(View):
@@ -132,7 +135,7 @@ class EventBookingView(TemplateView, View):
                 event_booking.save()
                 request.session['booking_id'] = event_booking.id
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                return render(request, 'events.html') 
+                return render(request, 'mybooking.html') 
 
             else:
                 messages.error(request, 'There is some problem submitting your booking.') 
