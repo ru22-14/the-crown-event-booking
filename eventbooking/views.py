@@ -70,21 +70,7 @@ class EventDetailView(View):
             messages.success(request, 'Thank You For your Review!')
             return HttpResponseRedirect(reverse('events_detail', args=[slug]))
         else:
-            comment_form = CommentForm()
-            
-            
-
-        # return render(
-        #         request,
-        #         "events_detail.html",
-        #     {
-        #         "event": event,
-        #         "comments": comments,
-        #         "commented": True,
-        #         "comment_form": comment_form,
-        #         "liked": liked
-        #     },
-        # )    
+            comment_form = CommentForm()    
     
 
 class EventLikeView(View):
@@ -131,7 +117,7 @@ class EventBookingView(TemplateView, View):
                     'form': form
                 }       
                 
-                event_booking.user = request.user
+                event_booking.username = request.user
                 event_booking.save()
                 request.session['booking_id'] = event_booking.id
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
@@ -225,18 +211,17 @@ class DeleteBookingView(DeleteView):
     def get(self, request, booking_id):
 
         booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
-        
-
         context = {
             'booking': booking
         }
-        return render (request, 'delete_booking.html', context)
+        return render(request, 'delete_booking.html', context)
 
     def post(self, request, booking_id):
-
         booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
-
         booking.delete()
         messages.success(request, 'Your booking has been cancelled') 
-        return HttpResponseRedirect(reverse('mybooking'))   
+        return HttpResponseRedirect(reverse('mybooking'))  
+
+
+           
    
