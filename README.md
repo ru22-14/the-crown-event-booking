@@ -57,6 +57,15 @@
 #### Booking Cancel
 <img src="static/media/cancel-booking-img.jpg" width="80%"><br><br>
 
+#### User Stories Chart
+<img src="static/media/user-story-table-img.jpg" width="80%"><br><br>
+
+## Design 
+#### DataBaseManagementSystem
+<img src="static/media/entity-relationship-img.jpg" width="80%"><br><br>
+
+
+
 
 
 
