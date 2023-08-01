@@ -10,7 +10,7 @@ from .views import (
     DeleteBookingView,
 )
 
-class UrlsTest(SimpleTestCase):
+class TestUrls(SimpleTestCase):
     def test_EventPageView_url(self):
         url = reverse('home')
         self.assertEqual(resolve(url).func.view_class, EventPageView)
@@ -25,7 +25,7 @@ class UrlsTest(SimpleTestCase):
 
     def test_MyBookingView_url(self):
         url = reverse('mybooking')
-        self.assertEqual(resolve(url).func.view_class, MyBookingView)     
+        self.assertEqual(resolve(url).func.view_class, MyBookingView)       
 
     def test_UpdateBookingView_url(self):
         booking_id = 1

@@ -14,6 +14,4 @@ urlpatterns = [
     path('delete_booking/<int:booking_id>/', login_required(views.DeleteBookingView.as_view()), name='delete_booking'),
     path('detail/<slug:slug>', views.EventDetailView.as_view(), name='events_detail'),
     path('like/<slug:slug>', login_required(views.EventLikeView.as_view()), name='event_like'),
-    
-    
 ] 

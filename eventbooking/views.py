@@ -6,7 +6,7 @@ from .models import Event, Booking, Comment
 from .forms import CommentForm, BookingForm
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from datetime import  date
+from datetime import date
 import datetime
 
 
@@ -61,8 +61,8 @@ class EventDetailView(View):
 
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
-            comment_form.instance.email = request.user.email
-            comment_form.instance.name = request.user.username
+            comment_form.instance.useremail = request.user.email
+            comment_form.instance.username = request.user.username
             comment = comment_form.save(commit=False)
             comment.event = event
            
@@ -140,16 +140,11 @@ class MyBookingView(View):
           
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
-
-            # previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
             previous_bookings = (Booking.objects.filter(username=request.user, approved=True).order_by('event'))
             context = {
                 'previous_bookings': previous_bookings,
             }
             return render(request, 'mybooking.html', context)
-
-
-
 
 class UpdateBookingView(UpdateView):
 
