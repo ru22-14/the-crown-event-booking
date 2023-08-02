@@ -20,17 +20,14 @@
 
 </head>
 
-<body>
-
+<body class="d-flex flex-column h-100 main-bg">
     <!-- Navigation -->
-
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">
                 <i class="fa-sharp fa-solid fa-crown fa-bounce fa-lg" style="color: #fbdb0b;"></i>
                     <h1>The Crown Event</h1>
             </a>
-            
             <ul class="navbar-nav">
                 <li class="nav-item">
                      <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a> 
@@ -63,26 +60,28 @@
                 </li>
             </ul>
             {% endif %}
-        
         </div>
     </nav>
-    <main class="flex-shrink-0 ">
-        <!-- display any alerts that have been raised -->
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-success" role="alert">
-            {{message}}
+    <div class="container">
+        <div class="row">
+            <!-- display any alerts that have been raised -->
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                    {{ message | safe }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
-        {% endif %}
-
+    </div>
+    <main class="flex-shrink-0 main-bg">
+        
         {% block content %}
         <!-- Content goes here -->
         {% endblock content %}
     </main>
-
-
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer mt-2 mb-4 py-3 footer-bg bg-dark">
 
         <p class="m-0 text-center social-networks text-light">Please Follow Us On :
@@ -96,7 +95,13 @@
                 aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook ms-3"></i></a></p>
         <p class="m-0 text-center text-light">Copyrights reserved</p>
     </footer>
-
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
 </body> 
 
 </html>

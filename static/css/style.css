@@ -111,6 +111,30 @@ h5 a:hover {
     position: relative;
 }
 
+@media (max-width: 576px){
+.navbar-expand-sm {
+    clear: both;
+    }
+#evnt-btn {
+    margin-left: 30%;
+    }
+}
 
+@media (max-width: 900px){
+    .navbar-expand-sm {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        clear: both;
+    }
+    .p-3 {
+        font-size: x-small;
+    }
+}    
+
+@media screen and (max-width: 600px) {
+    .xs-col-width {
+        width: auto;
+    }
+}
 
 
