@@ -6,7 +6,7 @@ from datetime import datetime, date
 
 
 class TestViews(TestCase):
-    
+ 
     @classmethod
     def setUpTestData(self):
         self.client = Client()
@@ -99,7 +99,6 @@ class TestViews(TestCase):
             })
         self.assertEqual(response.status_code, 200)
 
-    
     def test_get_update_booking_view(self):
         self.client.login(username='testuser', password='14682')
         response = self.client.get(
@@ -145,8 +144,4 @@ class TestViews(TestCase):
             reverse('delete_booking', args=[self.booking.id]))
         self.assertEqual(response.status_code, 200)
         existing_bookings = Booking.objects.filter(id=booking.id)
-        self.assertEqual(len(existing_bookings), 0)          
-             
-      
-
-    
+        self.assertEqual(len(existing_bookings), 0)

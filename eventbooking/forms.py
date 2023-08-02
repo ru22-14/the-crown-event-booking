@@ -9,21 +9,22 @@ class CommentForm(forms.ModelForm):
         fields = ('message',)
 
 
-
 class BookingForm(forms.ModelForm):
     
     class Meta:
  
         model = Booking
-        fields = ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks','cake', 'theme']
-        
-        
+        fields = ['event', 'guests', 'date', 'timeblock', 'menu',
+                  'drinks', 'cake', 'theme']
         widgets = {
-            'cake': forms.TextInput(attrs={'class': 'form-field col-2', 'type': 'text', 'placeholder': 'Yes, or no'}),
-            'theme': forms.TextInput(attrs={'class': 'form-texinput col-4','placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
+            'cake': forms.TextInput(attrs={'class': 'form-field col-2', 
+                                           'type': 'text', 
+                                           'placeholder': 'Yes, or no'}),
+            'theme': forms.TextInput(attrs={'class': 'form-texinput col-4',
+                                            'placeholder': 'Please share what Theme you want for the Event e,g. Fairy Tale Theme, Unicorn Theme, Dinosaur Theme.'}),
             'date': forms.widgets.DateInput(attrs={'type': 'date'}),
-            'guests': forms.TextInput(attrs={'class': 'form-field col-3', 'type': 'text', 'placeholder': 'please choose between 15 and 50'}),
-            
+            'guests': forms.TextInput(attrs={'class': 'form-field col-3',
+                                             'type': 'text', 'placeholder': 'please choose between 15 and 50'}),
         }
 
     def get_free_dates(self):
@@ -39,7 +40,6 @@ class BookingForm(forms.ModelForm):
         free_dates = [
             date for date in free_dates if date not in occupied_dates
         ]
-
         return free_dates  
 
         

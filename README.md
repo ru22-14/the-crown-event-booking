@@ -60,6 +60,15 @@
 #### Booking Cancel
 <img src="static/media/cancel-booking-img.jpg" width="80%"><br><br>
 
+#### Admin Event Post
+<img src="static/media/admin-event-img.jpg" width="80%"><br><br>
+
+#### Admin Booking Approval
+<img src="static/media/admin-booking-approve.jpg" width="80%"><br><br>
+
+#### Admin Comment Approval
+<img src="static/media/admin-comment-approve.jpg" width="80%"><br><br>
+
 #### User Stories Chart
 <img src="static/media/user-story-chart-img.jpg" width="80%"><br><br>
 
@@ -119,10 +128,56 @@
 
 - [HTML Validator](https://validator.w3.org/)
   
-      - 
+- 
 
-      - Results of testing the Index Page
-      
+- Results of testing the Html Templates
+   <details>
+   <summary>Home Page</summary>
+   
+   <img src="static//media/index-validation.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Events Page</summary>
+   <img src="static//media/event-validation.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>EventDetail Page</summary>
+   <img src="static//media/event-detail-validation.jpg" width="60%"><br><br>
+   </details>  
+   <details>
+   <summary>Booking Page</summary>
+   <img src="static//media/bookingform-validation.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>MyBooking Page</summary>
+   <img src="static//media/mybooking-validation.jpg" width="60%"><br><br>
+   </details>  
+   <details>
+   <summary>booking Update Page</summary>
+   <img src="static//media/index-validation.jpg" width="60%"><br><br>
+   </details> 
+   <details>
+   <summary>Booking Cancel Page</summary>
+   <img src="static//media/delete-validation.jpg" width="60%"><br><br>
+   </details> 
+   <details>
+   <summary>Account Page</summary>
+   <img src="static//media/account-validation.jpg" width="60%"><br><br>
+   </details><br><br> 
+
+- Result of testing CSS
+- [CSS Validator](https://jigsaw.w3.org/css-validator/) 
+   <details>
+   <summary>CSS Validation</summary>
+   <img src="static//media/css-validation.png" width="60%"><br><br>
+   </details><br><br>
+
+- Results of testing Python Code
+- [Python Validator](https://pep8ci.herokuapp.com/)
+   <details>
+   <summary>Project Settings</summary>
+   <img src="static//media/css-validation.png" width="60%"><br><br>
+   </details><br><br>
 
 
 

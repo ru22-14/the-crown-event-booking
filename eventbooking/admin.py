@@ -27,7 +27,7 @@ class BookingAdmin(admin.ModelAdmin):
     Add fields for Comments in admin panel
     """
     list_display = ('event', 'date', 'timeblock', 'theme', 'guests', 'menu', 
-                    'drinks','username', 'cake', 'approved')
+                    'drinks', 'username', 'cake', 'approved')
     list_filter = ('event', 'date', 'username', 'approved')  
     search_fields = ['event', 'username']
     actions = ['approved_booking']
@@ -41,7 +41,8 @@ class CommentAdmin(admin.ModelAdmin):
     """
     Add fields for Comments in admin panel
     """
-    list_display = ('event', 'username', 'useremail', 'message', 'created_on', 'approved')
+    list_display = ('event', 'username', 'useremail', 'message', 
+                    'created_on', 'approved')
     list_filter = ('approved', 'created_on')
     search_fields = ['username', 'useremail', 'message']
     actions = ['approve_comments']

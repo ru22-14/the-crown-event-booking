@@ -4,6 +4,7 @@ from .models import Event, Booking, Comment
 from datetime import datetime, timedelta, date
 from unittest import mock
 
+
 class TestModels(TestCase):
     
     @classmethod
@@ -41,7 +42,6 @@ class TestModels(TestCase):
             approved=False,
         )
 
-       
     def test_event_str(self):
         self.assertEqual(str(self.event), 'test event newyear')
 
@@ -83,7 +83,7 @@ class TestModels(TestCase):
 
         def test_booking_str(self):
             self.assertEqual(str(self.booking),
-                                    f'{str(self.event)} is booked by {self.user}')          
-
+                             f'{str(self.event)} is booked by {self.user}')          
+    
     def test_booking_approved_default(self):
         self.assertFalse(self.booking.approved)

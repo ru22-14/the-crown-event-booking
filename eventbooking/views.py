@@ -18,8 +18,8 @@ class EventPageView(TemplateView):
     """
     model = Event
     template_name = 'index.html'
-    
-    
+
+
 class EventListView(generic.ListView, View):
     model = Event
     queryset = Event.objects.filter(status=1).order_by('-created_on')
@@ -49,7 +49,7 @@ class EventDetailView(View):
                 "liked": liked,
                 "comment_form": CommentForm()
             },
-        ) 
+        )
 
     def post(self, request, slug, *args, **kwargs):
         queryset = Event.objects.filter(status=1)
@@ -65,12 +65,11 @@ class EventDetailView(View):
             comment_form.instance.username = request.user.username
             comment = comment_form.save(commit=False)
             comment.event = event
-           
             comment.save()
             messages.success(request, 'Thank You For your Review!')
             return HttpResponseRedirect(reverse('events_detail', args=[slug]))
         else:
-            comment_form = CommentForm()    
+            comment_form = CommentForm()
     
 
 class EventLikeView(View):
@@ -88,33 +87,33 @@ class EventLikeView(View):
 
 class EventBookingView(TemplateView, View):
 
-    template_name = 'booking.html' 
+    template_name = 'booking.html'
     form = BookingForm()
     date = date.today()
     time = Booking.TIME_CHOICE[0]
     booking_capacity_per_day = 3
         
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs) 
+        context = super().get_context_data(**kwargs)
         context['form'] = BookingForm
         return context
 
     def post(self, request):
         booking_capacity_per_day = 3
-        if request.method == 'POST':  
+        if request.method == 'POST':
             form = BookingForm(request.POST)
             if form.is_valid():
                 event_booking = form.save(commit=False)
                 if event_booking.date < date.today():
-                    messages.error(request, "Booking in the past date is not allowed!")
-                
-                booked_events = (Booking.objects.filter(date=event_booking.date, timeblock=event_booking.timeblock).count())
+                    messages.error(request,
+                                   "Booking in the past date is not allowed!")
+                booked_events = (Booking.objects.filter(date=event_booking.
+                                                        date, timeblock=event_booking.timeblock).count())
                 if booked_events >= booking_capacity_per_day:
-                    messages.error(request, "Sorry no more bookings are possible today!") 
+                    messages.error(request, "Sorry no more bookings are possible today!")
                     return redirect('booking')
-
                 context = {
-                    'form': form
+                   'form': form
                 }       
                 
                 event_booking.username = request.user
@@ -140,22 +139,22 @@ class MyBookingView(View):
           
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
-            previous_bookings = (Booking.objects.filter(username=request.user, approved=True).order_by('event'))
+            previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
             context = {
                 'previous_bookings': previous_bookings,
             }
             return render(request, 'mybooking.html', context)
+
 
 class UpdateBookingView(UpdateView):
 
     template_name = 'update_booking.html' 
     date = date.today()
     
-
     def get(self, request, booking_id):
-#         """
-#         Specification of the data entered into the form.
-#        """
+        """
+        Specification of the data entered into the form.
+        """
         booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         form = BookingForm(instance=booking)
         context = {
@@ -214,9 +213,5 @@ class DeleteBookingView(DeleteView):
     def post(self, request, booking_id):
         booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
         booking.delete()
-        messages.success(request, 'Your booking has been cancelled') 
-        return HttpResponseRedirect(reverse('mybooking'))  
-
-
-           
-   
+        messages.success(request, 'Your booking has been cancelled')
+        return HttpResponseRedirect(reverse('mybooking'))

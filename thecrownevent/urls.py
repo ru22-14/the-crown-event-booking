@@ -21,5 +21,4 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', include('eventbooking.urls'), name='eventbooking_urls'),
     path('accounts/', include('allauth.urls')),
-
 ]

@@ -10,6 +10,7 @@ from .views import (
     DeleteBookingView,
 )
 
+
 class TestUrls(SimpleTestCase):
     def test_EventPageView_url(self):
         url = reverse('home')
