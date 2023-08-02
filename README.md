@@ -13,7 +13,10 @@
 - [Deployment](#deployment)
 - [Credits](#credits)
 
-## User Expreience (UX)
+## Introduction
+This project is designed and developed to provide a great experience for the users who desire to plan and book an event. The users are given a variety of event choices to select from. They have the possibility to create, update and delete an event booking. They can post a review based on their experience after the event has taken place and like different events as well.*
+
+## User Experience (UX)
 
 ### User Stories 
 
@@ -54,65 +57,85 @@
 - 09 : Manage Event Post
    - As a Site Admin I can create, read, update and delete more events, posts and comments so that I can make my 
      Site and Events better and my customers Happy and satisfied. <hr>      
-
-
-                    
-
- 
-
-
-## Intoduction
 ## Features
 ### Existing Features<hr>
 #### Registration
 
-* this section is for registration.
+* On accessing the webpage the user lands on the landing/home page and from their he/she can click on Sign Up on the top right corner in the navigation bar in order to go to the registration page. A Sign Up link is also provided in the center of the page that leads to the registration page too. A user needs to be registered in order to book an event.
+
 <img src="static/media/main-page-img.jpg" width="80%"><br><br>
+* On the Sign Up page the user provides all the necessary data required for the registration process and clicks the Sign Up button. After a user is registered the application displays a message that the user has successfully signed in and directs the user to the application's home page.
+
 <img src="static/media/signin-page-img.jpg" width="80%"><br><br>
 
 #### Home Page
+* The home page displays a beautiful image with a text overlay describing the essence of the event booking application. The All Events link present on the home page takes the user to the Events page. 
 <img src="static/media/home-page-img.jpg" width="80%"><br><br>
 
 #### Events Page
+* On the top of the events page you see an image in the background and a book and event button/link that directs the user to the event booking page.
+
 <img src="static/media/events-page-img.jpg" width="80%"><br><br>
 
 #### Events List
+* As you scroll down on the events page you see a list of events. The user can scroll through the list and click on an event in order to see the event details.
+
 <img src="static/media/event-list-img.jpg" width="80%"><br><br>
 <img src="static/media/event-list2-img.jpg" width="80%"><br><br>
 
 #### Events Detail
+* On the event details page the user is provided with detailed information about the respective event and a varierty of different ideas along with planning and organisational tips in order to make the event a success for the user.
+
 <img src="static/media/event-like-img.jpg" width="80%"><br><br>
 <img src="static/media/event-description-img.jpg" width="80%"><br><br>
 
 #### Likes on Event
+* On clicking the heart icon the user can like the event and in the same way unlike it. The total number of current likes are always displayed under the heart icon.
 <img src="static/media/event-like-img.jpg" width="80%"><br><br>
 
-#### comments on Event
+#### Comments on Event
+* The users are given the possibility to write a comment that is usually a review after the event has successfully taken place. The review is not displayed right away on the website. After a user posts a comment, it has to be approved by the admin. As soon as it is approved from the admin it is displayed under the respective event.
+
 <img src="static/media/event-commentsection-img.jpg" width="80%"><br><br>
 <img src="static/media/event-comment-img.jpg" width="80%"><br><br>
 
 #### Event Booking
+* On this page the user sees a form that contains all the data that is required in order to book an event. The user has to select the type of event and provide necessary information like no. of guests, date, time, menu, drinks, cake and theme. These are all required fields and all of them have to be entered/selected in order to submit the form and create a booking. On submission the user is directed to the events page and he/she sees a message saying that the booking is submitted successfully and waiting for approval. The admin user has to approve the booking in order for it to be visible under the my bookings page.
+
 <img src="static/media/booking-form-img.jpg" width="80%"><br><br>
 
 #### My Bookings
+* All the user bookings are listed under the My Bookings page. On this page the user has the possibility to update or delete his/her bookings. The user is not able to access his/her bookings until he/she is logged in. 
+
 <img src="static/media/mybooking-img.jpg" width="80%"><br><br>
 
 #### Booking Update
+* On clicking the Update button the user is directed to the update booking page. On this page the user is able to view the booking data and can update it by changing the respective data and clicking the update button. After a booking is updated it has to be approved by the admin. Once it is approved it is updated and displayed under my bookings.
+
 <img src="static/media/update-booking-img.jpg" width="80%"><br><br>
 
-#### Booking Cancel
+#### Booking Cancellation
+* On clicking the Cancel button the user is directed to the booking cancellation page. On this page the user is asked if he/she is sure about the cancellation and on clicking Cancel, the user is directed to the my bookings page and sees a message that the booking has been successfully cancelled.
+
 <img src="static/media/cancel-booking-img.jpg" width="80%"><br><br>
 
 #### Admin Event Post
+* Using the admin interface the admin user is able to add more events, update and delete exising existing events.
+
 <img src="static/media/admin-event-img.jpg" width="80%"><br><br>
 
 #### Admin Booking Approval
+* The admin user has to approve the booking in order for it to be visible under the my bookings page.
+
 <img src="static/media/admin-booking-approve.jpg" width="80%"><br><br>
 
 #### Admin Comment Approval
+* The admin user has to approve the comments in order for them to be visible under the comments section of the events.
 <img src="static/media/admin-comment-approve.jpg" width="80%"><br><br>
 
 #### User Stories Chart
+* The following is a traceability matrix cross-referencing the user stories with the features. It illustrates which features are based on which user stories :
+
 <img src="static/media/user-story-chart-img.jpg" width="80%"><br><br>
 
 ## Design 
