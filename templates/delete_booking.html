@@ -4,20 +4,19 @@
 {% block content %}
 <center>
 
-  <div class="container-fluid bg-dark" id="updatebookingform">
+  <div class="container-fluid bg-dark h-100vh" id="updatebookingform">
     <div class="col-md-12 py-4">
-  
+
       <h3 class="text-warning ">Delete Event</h3>
-  
-      <form method="post"  class="form-control bg-dark text-center text-light">
+
+      <form method="post" class="form-control bg-dark text-center text-light">
         <h5 class="text-warning">Are You Sure You Want to Cancel The Booking?</h5>
-      {% csrf_token %}
-      {{ form.as_p }} 
-  
-      <button type="submit" method="POST" class="btn btn-form text-warning mb-3">Cancel</button>
-  </div>
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" method="POST" class="btn btn-form text-warning mb-3">Cancel</button>
       </form>
-    </div>  
+    </div>
   </div>
 </center>
 {% endblock %}

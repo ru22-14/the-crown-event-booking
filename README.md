@@ -13,7 +13,7 @@
     - [Booking](#Booking)
 - [Features to be Implemented](#Features-to-be-Implemented)   
 - [Technologies](#technologies)
-- [Development & Testing](#testing)
+- [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
 
@@ -94,6 +94,7 @@
    GitHub.
 - [GitHub:](https://github.com/) is used as the respository for the project code after being pushed from Git. In addition, for 
    this project GitHub was used for the agile development aspect through the use of User Stories (GitHub Issues) and tracking them on a Kanban board.
+- [Heroku:](https://heroku.com/login) is used to deploy the project.  
 - [Django](https://www.djangoproject.com/) was used as the framework to support rapid and secure development of the 
    application.
 - [Bootstrap](https://getbootstrap.com/) was used to build responsive web pages.
@@ -111,7 +112,17 @@
 - [Jest](https://jestjs.io/) - used to test jquery in script.js.
 - [coverage](https://coverage.readthedocs.io/en/coverage-5.5/) used to check how much of the python code has been covered.
 
+## Testing
 
+#### Validation
+
+
+- [HTML Validator](https://validator.w3.org/)
+  
+      - 
+
+      - Results of testing the Index Page
+      
 
 
 

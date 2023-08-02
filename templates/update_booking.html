@@ -6,17 +6,17 @@
 
   <div class="container-fluid bg-dark" id="updatebookingform">
     <div class="col-md-12 py-4">
-  
+
       <h3 class="text-warning ">Update Booking</h3>
-  
-      <form method="post"  class="form-control bg-dark text-center text-light">
-  
-      {% csrf_token %}
-      {{ form.as_p }} 
-  
-      <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Update</button>
-      </form> 
-    </div>  
+
+      <form method="post" class="form-control bg-dark text-center text-light">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Update</button>
+      </form>
+    </div>
   </div>
 </center>
 {% endblock %}

@@ -17,7 +17,6 @@
                     <div class="book-btn bg"><a href="{% url 'booking' %}" method="Request" class="btn btn-primary"
                         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .95rem;">
                         Book An Event</a>
-                    </button>
                     </div>
                 {% else %}
                 <h3 class="fs-4 mb-4 text-dark">Here You Can See All The Events We Offer to plan and Organise. <br>
@@ -47,15 +46,16 @@
                                     {% else %}
                                     <img class="card-img-top" src=" {{ event.featured_image.url }}">
                                     {% endif %}
-
+                                
                                 </div>
                                 <div class="link-heading">
                                     <h2 class="card-title">{{ event.title }}</h2>
-                                </a>
+                                
                                 <hr />
                                 <p class="card-text text-muted h6">{{ event.created_on}} <i class="far fa-heart"></i>
                                     {{ event.number_of_likes }}</p>
-                                </div>    
+                                </div>
+                            </a>    
                             </div>
                         </div>
                     </div>
