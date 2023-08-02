@@ -7,10 +7,6 @@
 - [Design](#design)
 - [Agile Methodology](#agile-methodology)
 - [Features](#features)
-    - [Registration](#Registration)
-    - [Home](#Home)
-    - [Events](#Events)
-    - [Booking](#Booking)
 - [Features to be Implemented](#Features-to-be-Implemented)   
 - [Technologies](#technologies)
 - [Testing](#testing)
@@ -19,11 +15,58 @@
 
 ## User Expreience (UX)
 
+### User Stories 
+
+- 02 : Site Navigation 
+    - As a Site User I can see the Navigation bar so that I can easily navigate through the Website. <hr>
+- 06 :  Registration
+    - As a Site User I can register an account so that I can explore the content and Book an Event. <hr>
+- 01 : View Event List
+    - As a Site User I can view a list of Event so that I can read the details, likes and comments by other    
+      users.  <hr> 
+- 03 : Open an Event
+    - As a Site User I can click on an event so that I can read the details about the event. <hr>
+- 04 : View Likes
+    - As a Site User/Admin I can view the number of likes on each event so that I can see which one is 
+      popular or viral.  <hr>
+- 05 : Read Comments
+    - As a Site User/Admin I can view comments on an individual event so that I can read the             
+      conversation. <hr>
+- 07 : Like/Unlike
+   - As a Site User I can Like or Dislike an Event post so that I can help in improving the services provided. <hr>
+- 08 : Comment on Post
+   - As a Site User I can comment on an event post so that I can give suggestions, reviews and recommendations.<hr>
+- 11 : Approve Comments
+   - As a Site Admin I can approve or disapprove comments so that I can filter out objectionable comments and 
+     reviews  <hr>   
+- 12 : Booking 
+   - As a Site User I can navigate to Booking so that I can Book an Event.<hr>
+- 13 : Booking Approval
+   - As an admin I can approve booking so that user can see his/her booking is approved. <hr>
+- 16 : View Previous Bookings
+   - As a Site user I can check my previous bookings so that i can check the booking, update or delete them. <hr>   
+- 14 : Edit Booking
+   - As a Site User I can Edit so that i can update my booking. <hr>
+- 15 : Delete Booking
+   - As a Site User I can delete my booking whenever i want to cancel my booking <hr>
+- 10 : Create Drafts
+   - As a Site Admin I can create drafts so that I can add content to them later. <hr>
+- 09 : Manage Event Post
+   - As a Site Admin I can create, read, update and delete more events, posts and comments so that I can make my 
+     Site and Events better and my customers Happy and satisfied. <hr>      
+
+
+                    
+
+ 
+
 
 ## Intoduction
 ## Features
 ### Existing Features<hr>
 #### Registration
+
+* this section is for registration.
 <img src="static/media/main-page-img.jpg" width="80%"><br><br>
 <img src="static/media/signin-page-img.jpg" width="80%"><br><br>
 
@@ -123,7 +166,7 @@
 
 ## Testing
 
-#### Validation
+### Validation Test
 
 
 - [HTML Validator](https://validator.w3.org/)
@@ -176,8 +219,73 @@
 - [Python Validator](https://pep8ci.herokuapp.com/)
    <details>
    <summary>Project Settings</summary>
-   <img src="static//media/css-validation.png" width="60%"><br><br>
-   </details><br><br>
+   <img src="static//media/project-setting-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Project Urls</summary>
+   <img src="static//media/project-urls-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Admin.py</summary>
+   <img src="static//media/admin-py-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Models.py</summary>
+   <img src="static//media/models-py-linter.jpg"><br><br>
+   </details>
+   <details>
+   <summary>Views.py</summary>
+   <img src="static//media/views-py-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Urls.py</summary>
+   <img src="static//media/urls-py-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Forms.py</summary>
+   <img src="static//media/forms-py-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Test_Models.py</summary>
+   <img src="static//media/test-models-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Test_Views.py</summary>
+   <img src="static//media/test-views-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Test_Forms.py</summary>
+   <img src="static//media/test-forms-linter.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Test_Urls.py</summary>
+   <img src="static//media/test-urls-linter.jpg" width="60%"><br><br>
+   </details>
+
+### Automated Test
+   <details>
+   <summary>Test Result</summary>
+   <img src="static//media/tests-success-result.jpg" width="60%"><br><br>
+   </details>
+   <details>
+   <summary>Failed Test</summary>
+   <img src="static//media/failed-test-img.jpg" width="60%"><br><br>
+   </details>
+
+
+- Tests are written for the following files: <br>
+
+  - [models.py](eventbooking/models.py)  test file: [test_models.py](eventbooking/models_forms.py)
+  - [forms.py](eventbooking/forms.py)  test file: [test_forms.py](eventbooking/test_forms.py)
+  - [views.py](eventbooking/views.py)  test file: [test_views.py](eventbooking/test_views.py)
+  - [urls.py](eventbooking/urls.py)  test file: [test_urls.py](eventbooking/test_urls.py)
+
+- Testing Coverage Report
+  
+  <img src="static//media/coverage-report.jpg" width="80%"><br><br>
+
+
+    
 
 
 
