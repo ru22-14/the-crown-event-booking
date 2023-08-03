@@ -126,6 +126,10 @@ h5 a:hover {
         justify-content: flex-start;
         clear: both;
     }
+    li {
+        font-size: x-small;
+        margin-top: 5px
+    }
     .p-3 {
         font-size: x-small;
     }
@@ -136,5 +140,27 @@ h5 a:hover {
         width: auto;
     }
 }
+
+@media (max-width: 300px){
+     #nav-block {
+        display: flex-box;
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 200px;
+        
+    } 
+
+    li {
+        margin-top: 5px ;
+        font-size: x-small;
+
+    }
+        
+    .p-3 {
+        font-size: x-small;
+    }
+}
+
+
 
 

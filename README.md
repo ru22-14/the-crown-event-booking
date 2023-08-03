@@ -61,6 +61,7 @@ This project is designed and developed to provide a great experience for the use
 ### Existing Features<hr>
 
 #### Navigation Bar
+* The navigation bar is visible on the top of the web application. The logo is present on the top left and the navigation links are available on the top right. On accessing the application the user sees the links to Home, Events, Login and Sign Up. Once a user is loggedin there are additional navigation links added to the navigation bar that lead to the booking page and the my bookings page. In case of an admin user it also shows the link to the admin page.
 
 <img src="static/media/nav-bar-img.jpg" width="80%"><br>
 <img src="static/media/navbar-login-img.jpg" width="80%"><br><br>
@@ -177,10 +178,17 @@ This project is designed and developed to provide a great experience for the use
 </details>
 
 #### DataBaseManagementSystem
+The ER diagram shows the logical relationship between the different entities and makes it clear how the different entities are related to one another. 
+* One user can create multiple bookings, like multiple events and add comments to multiple events. Hence there is a one to many relationship between a user and his bookings, likes and comments respectively.
+* One event type can be booked by multiple users. Thus an event type can have multiple bookings making it a one to many relation.
+* One event type can have multiple likes and comments making it a one to many relation.
 
-<img src="static/media/entity-relationship-img.jpg" width="80%"><br><br>
+
+<img src="static/media/er-diagram.jpg" width="80%"><br><br>
 
 ## Agile Methodology
+In order to use the agile methodology, the github project with linked issues was used. User stories were created and based on these user stories the project was created and brought to life. The stories were in todo and then were set to in progress while working on them and set to done once the work was done.
+The link to the kanban board is as under:
 
 [The Crown Event Agile Tool](https://github.com/users/ru22-14/projects/5)
 
