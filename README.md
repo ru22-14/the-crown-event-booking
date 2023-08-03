@@ -1,5 +1,7 @@
 <h1 align = "center">THE CROWN EVENTS</h1><h3 align = "center">MAKE EVERY MOMENT MEMORABLE <br> AN EXCEPTIONAL EXPERIENCE EVERY TIME</h3> <hr>
 
+<img src="static/media/responsive-img.jpg" width="100%" align = "center"><br>
+
 # Index - Table of Contents
 
 - [Introduction](#introduction)  
@@ -15,11 +17,9 @@
 
 ## Introduction
 
-### [View Project](https://the-crown-event-d0c891afb09a.herokuapp.com/) <br><br>
 This project is designed and developed to provide a great experience for the users who desire to plan and book an event. The users are given a variety of event choices to select from. They have the possibility to create, update and delete an event booking. They can post a review based on their experience after the event has taken place and like different events as well.
 
-<img src="static/media/responsive-img.jpg" width="80%"><br>
-
+### [View The Crown Event Booking Project](https://the-crown-event-d0c891afb09a.herokuapp.com/) <br><br>
 
 ## User Experience (UX)
 
