@@ -5,15 +5,15 @@
 <center>
   <div class="container-fluid bg-dark" id="bookingform">
     <div class="col-md-12 py-4">
-
+    <!-- booking form heading -->
       <h3 class="text-warning ">Book an Event</h3>
-
+      <!-- booking form request path -->
       <form action="{% url 'booking' %}" method="post" class="form-control bg-dark text-center text-light"
         name="booking_id">
-
+        <!-- booking form -->
         {% csrf_token %}
         {{ form.as_p }}
-
+        <!-- submit button-->
         <button type="submit" method=" POST" class="btn btn-form text-warning mb-3">Submit</button>
       </form>
     </div>

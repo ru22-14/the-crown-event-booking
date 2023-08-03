@@ -13,12 +13,14 @@
             Experience Everytime.</h2>
     </div>
     {% if user.is_authenticated %}
+     <!-- button to access events page -->
     <div class="d-sm-flex justify-content-sm-center" id="evnt-btn">
         <a href="{% url 'events' %}" method="request" class="btn btn-outline-warning btn-lg px-4 me-sm-3">All
             Events</a>
     </div>
     {% else %}
     <div class="d-sm-flex justify-content-sm-center ">
+         <!-- registration -->
         <h5>To view All The Magnificent Events Please <br>
             <div class="txt text-center mt-4">
                 <a href="{% url 'account_login' %}">Login</a> OR <a href="{% url 'account_signup' %}">Signup</a>

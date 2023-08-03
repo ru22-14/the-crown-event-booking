@@ -56,8 +56,7 @@ class Booking(models.Model):
     timeblock = models.CharField(blank=False, null=True, max_length=50,
                                  choices=TIME_CHOICE)
     theme = models.TextField(max_length=200)
-    guests = models.PositiveIntegerField(validators=[MinValueValidator(15),
-                                         MaxValueValidator(50)])
+    guests = models.PositiveIntegerField()
     menu = models.CharField(null=True, blank=False, max_length=100,
                             choices=MENU_CHOICE)
     cake = models.CharField(null=True, blank=False, max_length=20)

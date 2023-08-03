@@ -92,13 +92,15 @@ class EventBookingView(TemplateView, View):
     date = date.today()
     time = Booking.TIME_CHOICE[0]
     booking_capacity_per_day = 3
-        
+  
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = BookingForm
         return context
 
     def post(self, request):
+        min_guests = 15
+        max_guests = 50
         booking_capacity_per_day = 3
         if request.method == 'POST':
             form = BookingForm(request.POST)
@@ -107,8 +109,16 @@ class EventBookingView(TemplateView, View):
                 if event_booking.date < date.today():
                     messages.error(request,
                                    "Booking in the past date is not allowed!")
+                    return redirect('booking')                
                 booked_events = (Booking.objects.filter(date=event_booking.
                                                         date, timeblock=event_booking.timeblock).count())
+
+                if event_booking.guests < min_guests:
+                    messages.error(request, 'minimum no. of guests are 15')
+                    return redirect('booking')
+                if event_booking.guests > max_guests:
+                    messages.error(request, 'maximum no. of guests are 50') 
+                    return redirect('booking')   
                 if booked_events >= booking_capacity_per_day:
                     messages.error(request, "Sorry no more bookings are possible today!")
                     return redirect('booking')
@@ -120,15 +130,18 @@ class EventBookingView(TemplateView, View):
                 event_booking.save()
                 request.session['booking_id'] = event_booking.id
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                return render(request, 'mybooking.html') 
-
+                return render(request, 'events.html') 
             else:
                 messages.error(request, 'There is some problem submitting your booking.') 
-                return render(request, 'booking.html')         
+                return render(request, 'booking.html')  
+                context = {
+                   'form': form
+                } 
+                return render(request, 'booking.html', context)        
         else:
             form = BookingForm(request.GET)
         return render(request, 'booking.html',
-                      {'form': form, })  
+                      {'form': form})  
 
 
 class MyBookingView(View):
@@ -204,14 +217,14 @@ class DeleteBookingView(DeleteView):
 
     def get(self, request, booking_id):
 
-        booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         context = {
             'booking': booking
         }
         return render(request, 'delete_booking.html', context)
 
     def post(self, request, booking_id):
-        booking = get_object_or_404(Booking, id=booking_id, username=request.user, approved=True)
+        booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         booking.delete()
         messages.success(request, 'Your booking has been cancelled')
         return HttpResponseRedirect(reverse('mybooking'))
