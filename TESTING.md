@@ -99,7 +99,7 @@ These tests are based on user stories and features testing. <br>
 - Result: Pass
 
 ### Like/Unlike
-#### US07 : As a Site User I can Like or Dislike an Event post so that I can help in improving the services provided.   
+#### US08 : As a Site User I can Like or Dislike an Event post so that I can help in improving the services provided.   
       
 - Acceptance Criteria: As a user i should be able to like/dislike an event.
 
@@ -114,7 +114,7 @@ These tests are based on user stories and features testing. <br>
 
 
 ### Comment on Post
-#### US08 : As a Site User I can comment on an event post so that I can give suggestions, reviews and recommendations.   
+#### US07 : As a Site User I can comment on an event post so that I can give suggestions, reviews and recommendations.   
       
 - Acceptance Criteria: As a user i should be able to post a comment/review for a specific event on the event detail page.
 
