@@ -7,6 +7,7 @@ from unittest import mock
 
 class TestModels(TestCase):
     
+    # set up test event, comment and booking
     @classmethod
     def setUpTestData(self):
         self.client = Client()
@@ -29,7 +30,6 @@ class TestModels(TestCase):
         )
 
         self.booking = Booking.objects.create(
-
             event=self.event,
             guests='40',
             date='2023-07-31',
@@ -42,13 +42,16 @@ class TestModels(TestCase):
             approved=False,
         )
 
+    # test the __str__ method for Event
     def test_event_str(self):
         self.assertEqual(str(self.event), 'test event newyear')
 
+    # test default values working as expected for Event status and image fields
     def test_event_defaults(self):
         self.assertEqual(self.event.status, 1)
-        self.assertEqual(self.event.featured_image, 'placeholder') 
+        self.assertEqual(self.event.featured_image, 'placeholder')
 
+    # test default values working as expected for Event date fields
     def test_event_dates_default(self):
         date = datetime(int(2023), int(7), 30)
         with mock.patch('django.utils.timezone.now',
@@ -60,16 +63,19 @@ class TestModels(TestCase):
                                         status=1
             )
             self.assertEqual(event.created_on, date)
-            self.assertEqual(event.updated_on, date)       
-    
+            self.assertEqual(event.updated_on, date) 
+
+    # test the __str__ method for Comment
     def test_comment_str(self):
         self.assertEqual(
             str(self.comment),
             f'Comment this is a comment for newyear event by {self.user}')
 
+    # test default value working as expected for Comment approved field
     def test_comment_approved_default(self):
         self.assertFalse(self.comment.approved)
 
+    # test default values working as expected for Comment date field
     def test_comment_dates_default(self):
         date = datetime(int(2023), int(7), 30)
         with mock.patch('django.utils.timezone.now',
@@ -81,9 +87,11 @@ class TestModels(TestCase):
             )
             self.assertEqual(comment.created_on, date) 
 
-        def test_booking_str(self):
-            self.assertEqual(str(self.booking),
-                             f'{str(self.event)} is booked by {self.user}')          
-    
+    # test the __str__ method for Booking   
+    def test_booking_str(self):
+        self.assertEqual(str(self.booking),
+                         f'{str(self.event)} is booked by {self.user}')   
+
+    # test default value working as expected for Booking approved field
     def test_booking_approved_default(self):
         self.assertFalse(self.booking.approved)

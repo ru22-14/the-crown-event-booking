@@ -12,6 +12,8 @@ from .views import (
 
 
 class TestUrls(SimpleTestCase):
+
+    # tests for urls
     def test_EventPageView_url(self):
         url = reverse('home')
         self.assertEqual(resolve(url).func.view_class, EventPageView)

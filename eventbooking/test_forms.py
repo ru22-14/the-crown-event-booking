@@ -26,8 +26,8 @@ class TestBookingForm(TestCase):
         self.assertIsInstance(free_dates, list)
 
         for date_option in free_dates:
-            self.assertIsInstance(date_option, date) 
-        
+            self.assertIsInstance(date_option, date)
+
     def test_fields_are_explicit_in_forms_metaclass(self):
         form = BookingForm()
-        self.assertEqual(form.Meta.fields, ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks','cake', 'theme'])    
+        self.assertEqual(form.Meta.fields, ['event', 'guests', 'date', 'timeblock', 'menu', 'drinks', 'cake', 'theme'])

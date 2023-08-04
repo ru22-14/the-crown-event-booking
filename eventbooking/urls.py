@@ -4,7 +4,6 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from .views import EventPageView, EventListView, EventDetailView, EventLikeView, EventBookingView, MyBookingView, UpdateBookingView, DeleteBookingView
 
-
 urlpatterns = [
     path('', views.EventPageView.as_view(), name='home'),
     path('events/', views.EventListView.as_view(), name='events'),

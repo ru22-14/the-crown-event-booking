@@ -10,17 +10,18 @@ from datetime import date
 import datetime
 
 
-# Create your views here.
-
 class EventPageView(TemplateView):
     """
-    events overview and pagination
+    event overview 
     """
     model = Event
     template_name = 'index.html'
 
 
 class EventListView(generic.ListView, View):
+    """
+    Retrieve the event list and set pagination
+    """
     model = Event
     queryset = Event.objects.filter(status=1).order_by('-created_on')
     template_name = 'events.html'
@@ -28,6 +29,14 @@ class EventListView(generic.ListView, View):
 
 
 class EventDetailView(View):  
+    """
+    Display Event Details for selected event
+
+    get method : retrieve event details including comments and likes
+    and render event detail page
+
+    post method : validate comment input, store and re-load detail page
+    """
     template_name = 'events_detail'
     model = Event
 
@@ -38,7 +47,6 @@ class EventDetailView(View):
         liked = False
         if event.likes.filter(id=self.request.user.id).exists():
             liked = True
-
         return render(
             request,
             "events_detail.html",
@@ -58,7 +66,6 @@ class EventDetailView(View):
         liked = False
         if event.likes.filter(id=self.request.user.id).exists():
             liked = True
-
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment_form.instance.useremail = request.user.email
@@ -73,19 +80,30 @@ class EventDetailView(View):
     
 
 class EventLikeView(View):
+    """
+    Allow user to like/unlike the selected event
+
+    post method : toggle 'like' setting for event for this user
+    """
     
     def post(self, request, slug):
         event = get_object_or_404(Event, slug=slug)
-
         if event.likes.filter(id=request.user.id).exists():
             event.likes.remove(request.user)
         else:
             event.likes.add(request.user)
-
         return HttpResponseRedirect(reverse('events_detail', args=[slug]))
 
 
 class EventBookingView(TemplateView, View):
+    """
+    Display booking form for current user
+
+    get method : retrieve all the data (if valid) entered by the user in order to book an event 
+
+    post method : validate input provided by the user, re-load if input is not correct, redirects event.html
+    if input is valid and correct
+    """
 
     template_name = 'booking.html'
     form = BookingForm()
@@ -112,7 +130,6 @@ class EventBookingView(TemplateView, View):
                     return redirect('booking')                
                 booked_events = (Booking.objects.filter(date=event_booking.
                                                         date, timeblock=event_booking.timeblock).count())
-
                 if event_booking.guests < min_guests:
                     messages.error(request, 'minimum no. of guests are 15')
                     return redirect('booking')
@@ -124,20 +141,19 @@ class EventBookingView(TemplateView, View):
                     return redirect('booking')
                 context = {
                    'form': form
-                }       
-                
+                }   
                 event_booking.username = request.user
                 event_booking.save()
                 request.session['booking_id'] = event_booking.id
                 messages.success(request, 'Event Booking request is proposed successfully. Your booking is awaiting for approval now.')
-                return render(request, 'events.html') 
+                return render(request, 'events.html')
             else:
-                messages.error(request, 'There is some problem submitting your booking.') 
-                return render(request, 'booking.html')  
+                messages.error(request, 'There is some problem submitting your booking.')
+                return render(request, 'booking.html')
                 context = {
                    'form': form
-                } 
-                return render(request, 'booking.html', context)        
+                }
+                return render(request, 'booking.html', context)     
         else:
             form = BookingForm(request.GET)
         return render(request, 'booking.html',
@@ -145,11 +161,16 @@ class EventBookingView(TemplateView, View):
 
 
 class MyBookingView(View):
+    """
+    Display booking information for current user
+
+    get method : retrieve past and upcoming bookings for user
+                 and render my bookings page
+    """
     model = Booking
     template_name = 'mybooking.html'
 
     def get(self, request):
-          
         booking_list = (Booking.objects.all())
         if request.user.is_authenticated:
             previous_bookings = (Booking.objects.filter(username=request.user).order_by('event'))
@@ -160,14 +181,18 @@ class MyBookingView(View):
 
 
 class UpdateBookingView(UpdateView):
+    """
+    Display booked event data for current user
+
+    get method : retrieve data if valid
+
+    post method : update selected booking
+    """
 
     template_name = 'update_booking.html' 
     date = date.today()
     
     def get(self, request, booking_id):
-        """
-        Specification of the data entered into the form.
-        """
         booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         form = BookingForm(instance=booking)
         context = {
@@ -184,17 +209,14 @@ class UpdateBookingView(UpdateView):
             event_booking = form.save(commit=False)
             if event_booking.date < date.today():
                 messages.error(request, "Booking in the past date is not allowed!")
-                
             booked_events = (Booking.objects.filter(date=event_booking.date, 
                                                     timeblock=event_booking.timeblock).exclude(id=booking_id).count())
             if booked_events >= booking_capacity_per_day:
                 messages.error(request, "Sorry no more bookings are possible today!") 
                 return redirect('booking')
-
             context = {
                 'form': form
-                }       
-                
+                }
             event_booking.user = request.user
             event_booking.approved = False
             event_booking.save()
@@ -212,6 +234,9 @@ class UpdateBookingView(UpdateView):
     
 
 class DeleteBookingView(DeleteView):
+    """
+       cancel selected booking and redirects to mybooking
+    """
 
     template_name = 'delete_booking.html'
 

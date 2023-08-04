@@ -9,8 +9,8 @@
 - [Design](#design)
 - [Agile Methodology](#agile-methodology)
 - [Features](#features)
-- [Features to be Implemented](#Features-to-be-Implemented)   
-- [Technologies](#technologies)
+- [Features to be Implemented](#features-to-be-implemented)   
+- [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
 - [Credits](#credits)
@@ -197,6 +197,19 @@ The link to the kanban board is as under:
 
 [The Crown Event Agile Tool](https://github.com/users/ru22-14/projects/5)
 
+## Features to be Implemented
+
+- Improve UI with intuitive booking calendar
+  - A widget calendar for booking events that could display the available dates and timeslots as well as the booked ones.
+
+- Improve events details 
+  - This could be improved by icluding more information along with the pictures of the successfully organised events, so the customers get an idea and choose from them.
+
+- Transparency
+  - All the information about our team and business partners would be provided.
+
+    
+
 ## Technologies Used
 
 #### languages
@@ -329,6 +342,7 @@ Once code changes have been completed and tested on localhost, the application c
 - How to create a view for booking form is learned from this tutorial: [Youtube](https://www.youtube.com/watch?v=CVEKe39VFu8) 
 - Information about using id and slug in urls.py was taking from here: [Stackoverflow](https://stackoverflow.com/questions/75407762/how-to-display-a-query-on-detailview-in-django)  
 - Information about the date display in form is taken from here: [Stackoverflow](https://stackoverflow.com/questions/2771676/django-datetime-issues-default-datetime-now)
+- Information about creating an ER Diagram was taken from here: [Youtube](https://www.youtube.com/watch?v=7Kgmgsjd5Ws)
 
 ### Content
 
