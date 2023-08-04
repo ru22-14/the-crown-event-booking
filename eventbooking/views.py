@@ -201,6 +201,8 @@ class UpdateBookingView(UpdateView):
         return render(request, 'update_booking.html', context) 
 
     def post(self, request, booking_id):
+        min_guests = 15
+        max_guests = 50
         booking_capacity_per_day = 3 
         booking = get_object_or_404(Booking, id=booking_id, username=request.user)
         form = BookingForm(request.POST, instance=booking)
@@ -208,15 +210,23 @@ class UpdateBookingView(UpdateView):
         if form.is_valid():
             event_booking = form.save(commit=False)
             if event_booking.date < date.today():
-                messages.error(request, "Booking in the past date is not allowed!")
-            booked_events = (Booking.objects.filter(date=event_booking.date, 
-                                                    timeblock=event_booking.timeblock).exclude(id=booking_id).count())
+                messages.error(request,
+                                   "Booking in the past date is not allowed!")
+                return redirect('mybooking')                
+            booked_events = (Booking.objects.filter(date=event_booking.
+                                                    date, timeblock=event_booking.timeblock).count())
+            if event_booking.guests < min_guests:
+                messages.error(request, 'minimum no. of guests are 15')
+                return redirect('mybooking')
+            if event_booking.guests > max_guests:
+                messages.error(request, 'maximum no. of guests are 50') 
+                return redirect('mybooking')   
             if booked_events >= booking_capacity_per_day:
-                messages.error(request, "Sorry no more bookings are possible today!") 
-                return redirect('booking')
+                messages.error(request, "Sorry no more bookings are possible today!")
+                return redirect('mybooking')
             context = {
-                'form': form
-                }
+                   'form': form
+                } 
             event_booking.user = request.user
             event_booking.approved = False
             event_booking.save()
